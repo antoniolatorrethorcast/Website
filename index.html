@@ -2784,11 +2784,11 @@ Delivery</p>
 <button aria-expanded="false" class="view-all" id="view-all-blogs" data-i18n-key="View all blogs →" type="button">View all blogs →</button>
 </div>
 <div class="blog-cards" id="blog-cards" style="grid-template-columns: 1fr 1fr 1fr;">
-<a href="blog-10.html" style="text-decoration: none; color: inherit;">
+<a class="blog-10-link" data-blog-link="true" data-blog-en="blog-10-en.html" data-blog-es="blog-10.html" data-blog-pt="blog-10-pt.html" href="blog-10-en.html" style="text-decoration: none; color: inherit;">
 <div class="blog-card reveal">
 <span class="bc-tag">AI &amp; SOFTWARE</span>
-<p class="bc-title">Claudeforce: la señal que refuerza mi tesis sobre el futuro del software</p>
-<p class="bc-desc">La alianza entre Anthropic y Salesforce muestra cómo la IA agéntica puede conectar lenguaje natural, inteligencia de dominio y ejecución gobernada.</p>
+<p class="bc-title">Claudeforce: the signal that reinforces my thesis on the future of software</p>
+<p class="bc-desc">The Anthropic–Salesforce alliance shows how agentic AI can connect natural language, domain intelligence, and governed execution.</p>
 <span class="bc-meta">August 2026 · 5 min read</span>
 </div>
 </a>
@@ -3198,6 +3198,18 @@ Object.assign(THORCAST_I18N.pt, {
   "Website": "Site"
 });
 
+Object.assign(THORCAST_I18N.es, {
+  "AI & SOFTWARE": "IA Y SOFTWARE",
+  "Claudeforce: the signal that reinforces my thesis on the future of software": "Claudeforce: la señal que refuerza mi tesis sobre el futuro del software",
+  "The Anthropic–Salesforce alliance shows how agentic AI can connect natural language, domain intelligence, and governed execution.": "La alianza entre Anthropic y Salesforce muestra cómo la IA agéntica puede conectar lenguaje natural, inteligencia de dominio y ejecución gobernada."
+});
+
+Object.assign(THORCAST_I18N.pt, {
+  "AI & SOFTWARE": "IA E SOFTWARE",
+  "Claudeforce: the signal that reinforces my thesis on the future of software": "Claudeforce: o sinal que reforça minha tese sobre o futuro do software",
+  "The Anthropic–Salesforce alliance shows how agentic AI can connect natural language, domain intelligence, and governed execution.": "A aliança entre Anthropic e Salesforce mostra como a IA agêntica pode conectar linguagem natural, inteligência de domínio e execução governada."
+});
+
 function getStoredThorcastLang() {
   try { return localStorage.getItem('thorcast-lang'); } catch (error) { return null; }
 }
@@ -3280,6 +3292,9 @@ function setThorcastLanguage(lang) {
   translateTextNodes();
   translateAttributes();
   translateDynamicKeys();
+  document.querySelectorAll('[data-blog-link]').forEach((link) => {
+    link.href = link.dataset[`blog${lang[0].toUpperCase()}${lang.slice(1)}`];
+  });
   document.querySelectorAll('.lang-btn').forEach((button) => {
     const isActive = button.dataset.lang === lang;
     button.classList.toggle('active', isActive);
