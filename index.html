@@ -2364,6 +2364,11 @@ body.privacy-open { overflow: hidden; }
 /* Tutorials */
 #tutorials { padding: 88px 80px; scroll-margin-top: 76px; border-top: 1px solid var(--border-dark); }
 #tutorials-title { font-size: clamp(30px, 4vw, 48px); line-height: 1.15; font-weight: 800; margin: 20px 0 18px; max-width: 800px; }
+
+#tutorials-title > span { display: block; }
+.tutorial-title-white { color: var(--text-white); }
+.tutorial-title-blue { color: var(--accent-blue); }
+.tutorial-title-gray { background: linear-gradient(180deg, #4a4f5c 0%, #8a8f9c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .tutorial-intro { color: var(--text-light-gray); font-size: 16px; line-height: 1.7; max-width: 740px; }
 .tutorial-language { color: var(--accent-blue); font-size: 12px; margin: 18px 0 32px; }
 .tutorial-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
@@ -2798,7 +2803,7 @@ Delivery</p>
      ============================================================ -->
 <section id="tutorials" aria-labelledby="tutorials-title">
 <div class="section-badge"><div class="badge-line"></div><span class="badge-txt">TUTORIALS</span></div>
-<h2 id="tutorials-title">Enrich your data. Power your models with AI. Improve predictions in minutes, not months.</h2>
+<h2 id="tutorials-title"><span class="tutorial-title-white">Enrich your data.</span> <span class="tutorial-title-blue">Power your models with AI.</span> <span class="tutorial-title-gray">Improve predictions in minutes, not months.</span></h2>
 <p class="tutorial-intro">Explore Thorcast step by step: prepare your datasets, train and compare models, run predictions, and monitor real-world performance.</p>
 <p class="tutorial-language">6 tutorials · Videos in Spanish</p>
 <div class="tutorial-grid"><article class="tutorial-card">
@@ -3291,6 +3296,8 @@ Object.assign(THORCAST_I18N.pt, {"Enrich your data. Power your models with AI. I
 
 Object.assign(THORCAST_I18N.es, {"MJO AI Agent, your most efficient team member: Builds your models autonomously, following your rules, with auditability, maximum performance, and record speed, as a member of your team.": "MJO AI Agente, el miembro de tu equipo más eficiente: Construye tus modelos de manera autónoma, con tus reglas, auditables, con el máximo performance y en tiempo récord, como un miembro de tu equipo.", "3:39 · Spanish": "3:39 · Español"});
 Object.assign(THORCAST_I18N.pt, {"MJO AI Agent, your most efficient team member: Builds your models autonomously, following your rules, with auditability, maximum performance, and record speed, as a member of your team.": "MJO AI Agente, o membro mais eficiente da sua equipe: Constrói seus modelos de forma autônoma, seguindo suas regras, com auditabilidade, máximo desempenho e em tempo recorde, como um membro da sua equipe.", "3:39 · Spanish": "3:39 · Espanhol"});
+Object.assign(THORCAST_I18N.es, {"Enrich your data.": "Enriquece tus datos.", "Power your models with AI.": "Potencia tus modelos con IA.", "Improve predictions in minutes, not months.": "Mejora tus predicciones en minutos, no en meses."});
+Object.assign(THORCAST_I18N.pt, {"Enrich your data.": "Enriqueça seus dados.", "Power your models with AI.": "Potencialize seus modelos com IA.", "Improve predictions in minutes, not months.": "Melhore suas previsões em minutos, não em meses."});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
