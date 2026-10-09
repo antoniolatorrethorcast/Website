@@ -2372,13 +2372,19 @@ body.privacy-open { overflow: hidden; }
 .tutorial-intro { color: var(--text-light-gray); font-size: 16px; line-height: 1.7; max-width: 740px; }
 .tutorial-language { color: var(--accent-blue); font-size: 12px; margin: 18px 0 32px; }
 .tutorial-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.tutorial-card { position: relative; min-height: 300px; background: var(--bg-card); border: 1px solid var(--border-dark); border-radius: 12px; overflow: hidden; }
-.tutorial-thumbnail { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .25; }
-.tutorial-cover { position: relative; z-index: 1; padding: 26px; min-height: 300px; background: linear-gradient(180deg, rgba(13,15,20,.45), rgba(13,15,20,.96)); }
-.tutorial-meta { display: flex; justify-content: space-between; gap: 10px; font-size: 10px; letter-spacing: .06em; color: var(--text-light-gray); margin-bottom: 28px; }
+.tutorial-card { position: relative; display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border-dark); border-radius: 12px; overflow: hidden; transition: border-color .25s, transform .25s; }
+.tutorial-card:hover { border-color: rgba(58,176,240,.55); transform: translateY(-3px); }
+.tutorial-media { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-dark); border-bottom: 1px solid var(--border-dark); }
+.tutorial-thumbnail { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+.tutorial-card:hover .tutorial-thumbnail { transform: scale(1.04); }
+.tutorial-play { position: absolute; right: 16px; bottom: 16px; width: 52px; height: 52px; border-radius: 50%; background: var(--accent-blue); box-shadow: 0 8px 24px rgba(0,0,0,.45); transition: transform .25s; }
+.tutorial-play::before { content: ""; position: absolute; left: 21px; top: 17px; border-left: 15px solid #0d0f14; border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+.tutorial-card:hover .tutorial-play { transform: scale(1.1); }
+.tutorial-cover { flex: 1; display: flex; flex-direction: column; padding: 22px 24px 24px; }
+.tutorial-meta { display: flex; justify-content: space-between; gap: 10px; font-size: 10px; letter-spacing: .06em; color: var(--text-light-gray); margin-bottom: 14px; }
 .tutorial-meta span:first-child { color: var(--accent-blue); font-weight: 800; }
-.tutorial-cover h3 { font-size: 22px; line-height: 1.4; font-weight: 800; }
-.tutorial-watch { display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; color: var(--accent-blue); font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
+.tutorial-cover h3 { font-size: 18px; line-height: 1.45; font-weight: 800; }
+.tutorial-watch { display: inline-flex; align-self: flex-start; align-items: center; gap: 12px; margin-top: auto; padding-top: 18px; color: var(--accent-blue); font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
 .tutorial-watch:hover { color: white; }
 .tutorial-watch:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 6px; }
 #tutorial-player { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; border: 0; padding: 0; margin: 0; background: #000; color: white; }
@@ -2386,7 +2392,7 @@ body.privacy-open { overflow: hidden; }
 #tutorial-player video { width: 100%; height: 100%; object-fit: contain; }
 #tutorial-player-close { position: absolute; z-index: 2; right: 20px; top: 20px; border: 1px solid #697180; border-radius: 6px; padding: 10px 16px; background: #0d0f14; color: white; font: inherit; cursor: pointer; }
 @media (max-width: 1100px) { #tutorials { padding: 64px 28px; } .tutorial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nav-links { gap: 16px; } }
-@media (max-width: 700px) { #tutorials { padding: 52px 20px; } .tutorial-grid { grid-template-columns: 1fr; } .tutorial-cover { padding: 22px; } }
+@media (max-width: 700px) { #tutorials { padding: 52px 20px; } .tutorial-grid { grid-template-columns: 1fr; } .tutorial-cover { padding: 20px; } }
 
 .nav-links a[href$="#tutorials"] { text-transform: uppercase; }
 </style>
@@ -2807,37 +2813,37 @@ Delivery</p>
 <p class="tutorial-intro">Explore Thorcast step by step: prepare your datasets, train and compare models, run predictions, and monitor real-world performance.</p>
 <p class="tutorial-language">7 tutorials · Videos in Spanish</p>
 <div class="tutorial-grid"><article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/1-espacio-de-datos-nora.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/1-espacio-de-datos-nora.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/1-espacio-de-datos-nora-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 01</span><span>3:18 · Spanish</span></div><h3>NORA AI: An agent that helps normalize, organize, repair, and merge datasets.</h3>
 <a class="tutorial-watch" href="assets/tutorials/1-espacio-de-datos-nora.mp4" data-video-title="NORA AI: An agent that helps normalize, organize, repair, and merge datasets.">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/video6-mjo-autonomo.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/video6-mjo-autonomo.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/video6-mjo-autonomo-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 02</span><span>3:39 · Spanish</span></div><h3>MJO AI Agent, your most efficient team member: Builds your models autonomously, following your rules, with auditability, maximum performance, and record speed, as a member of your team.</h3>
 <a class="tutorial-watch" href="assets/tutorials/video6-mjo-autonomo.mp4" data-video-title="MJO AI Agent, your most efficient team member: Builds your models autonomously, following your rules, with auditability, maximum performance, and record speed, as a member of your team.">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/2-modelamiento.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/2-modelamiento.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/2-modelamiento-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 03</span><span>3:39 · Spanish</span></div><h3>Training a model with enriched data (manual mode).</h3>
 <a class="tutorial-watch" href="assets/tutorials/2-modelamiento.mp4" data-video-title="Training a model with enriched data (manual mode).">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/video7-enriquecimiento.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/video7-enriquecimiento.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/video7-enriquecimiento-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 04</span><span>2:33 · Spanish</span></div><h3>Data enrichment: Add hundreds of new signals in minutes, without writing code.</h3>
 <a class="tutorial-watch" href="assets/tutorials/video7-enriquecimiento.mp4" data-video-title="Data enrichment: Add hundreds of new signals in minutes, without writing code.">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/3-comparacion-despliegue-scoring.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/3-comparacion-despliegue-scoring.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/3-comparacion-despliegue-scoring-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 05</span><span>1:35 · Spanish</span></div><h3>Comparing models and running your first batch scoring.</h3>
 <a class="tutorial-watch" href="assets/tutorials/3-comparacion-despliegue-scoring.mp4" data-video-title="Comparing models and running your first batch scoring.">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/4-monitoreo-recalibracion.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/4-monitoreo-recalibracion.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/4-monitoreo-recalibracion-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 06</span><span>1:21 · Spanish</span></div><h3>Monitoring your model’s real-world performance.</h3>
 <a class="tutorial-watch" href="assets/tutorials/4-monitoreo-recalibracion.mp4" data-video-title="Monitoring your model’s real-world performance.">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<img class="tutorial-thumbnail" src="assets/tutorials/5-campeon-desafiante.jpg" alt="" loading="lazy"/>
+<a class="tutorial-media" href="assets/tutorials/5-campeon-desafiante.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/5-campeon-desafiante-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-cover"><div class="tutorial-meta"><span>TUTORIAL 07</span><span>1:41 · Spanish</span></div><h3>Champion - Challenger: Challenging your best model to improve performance and measure economic impact.</h3>
 <a class="tutorial-watch" href="assets/tutorials/5-campeon-desafiante.mp4" data-video-title="Champion - Challenger: Challenging your best model to improve performance and measure economic impact.">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article></div>
@@ -3668,7 +3674,7 @@ document.addEventListener('keydown', function(e) {
     video.load();
     if (trigger) trigger.focus();
   };
-  document.querySelectorAll('.tutorial-watch').forEach(link => {
+  document.querySelectorAll('.tutorial-watch, .tutorial-media').forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault();
       trigger = link;
