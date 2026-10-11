@@ -2882,6 +2882,50 @@ section[id] { scroll-margin-top: 64px; }
 @media (max-width: 1100px) { #tutorials:not(.tutorials-page) { padding: 64px 28px 72px; } }
 @media (max-width: 900px) { #tutorials .uc-split { grid-template-columns: 1fr; } #tutorials .uc-split > .tutorial-grid .tutorial-card { flex: none; } }
 @media (max-width: 768px) { #tutorials:not(.tutorials-page) { padding: 48px 16px 56px; } #tutorials .uc-split > .tutorial-grid h3 { font-size: 16px; } }
+
+/* ---------- Blog (diseño A): estante de carátulas con scroll horizontal, estilo álbumes ---------- */
+#blog { padding: 72px 0 88px; }
+.bl-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 0 80px; }
+.bl-title { font-size: clamp(30px, 3.8vw, 52px); font-weight: 800; line-height: 1.08; margin: 14px 0 0; }
+.bl-title > span { display: block; } .bl-l2 { color: var(--accent-blue); } .bl-l3 { color: #8a8f9c; }
+.bl-nav { display: flex; gap: 8px; }
+.bl-nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-dark); background: var(--bg-card); color: #fff; font-size: 18px; cursor: pointer; }
+.bl-nav button:hover { border-color: var(--accent-blue); } .bl-nav button:disabled { opacity: .3; cursor: default; }
+.bl-wrap { position: relative; margin-top: 28px; }
+.bl-shelf { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 80px; padding: 6px 80px 24px; scrollbar-width: none; }
+.bl-shelf::-webkit-scrollbar { display: none; }
+.bl-shelf:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: -2px; }
+.bl-item { flex: 0 0 250px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 6px; color: #fff; text-decoration: none; }
+.bl-item:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 4px; border-radius: 14px; }
+.bl-cover { position: relative; display: block; aspect-ratio: 1; border-radius: 14px; overflow: hidden; isolation: isolate; background: radial-gradient(120% 90% at 20% 10%, color-mix(in srgb, var(--c1) 40%, var(--c2)), var(--c2) 60%, #07090d); box-shadow: 0 18px 40px rgba(0,0,0,.5); transition: transform .3s, box-shadow .3s; }
+.bl-item:hover .bl-cover { transform: translateY(-6px) scale(1.02); box-shadow: 0 28px 60px rgba(0,0,0,.65); }
+.bl-art { position: absolute; inset: 0; z-index: -1; opacity: .85; }
+.bl-rings .bl-art { background: repeating-radial-gradient(circle at var(--ox) var(--oy), transparent 0 18px, color-mix(in srgb, var(--c1) 55%, transparent) 18px 20px); }
+.bl-dots .bl-art { background-image: radial-gradient(color-mix(in srgb, var(--c1) 70%, transparent) 2.2px, transparent 2.6px); background-size: 18px 18px; mask-image: linear-gradient(135deg, transparent 30%, #000 70%); }
+.bl-bars .bl-art { background: repeating-linear-gradient(90deg, transparent 0 22px, color-mix(in srgb, var(--c1) 45%, transparent) 22px 30px); mask-image: linear-gradient(0deg, #000 0%, transparent 70%); }
+.bl-curve .bl-art { background: radial-gradient(160% 120% at 110% 120%, transparent 48%, var(--c1) 49%, transparent 50.5%), radial-gradient(160% 120% at 110% 120%, transparent 58%, color-mix(in srgb, var(--c1) 60%, transparent) 59%, transparent 60.5%), radial-gradient(160% 120% at 110% 120%, transparent 68%, color-mix(in srgb, var(--c1) 35%, transparent) 69%, transparent 70.5%); }
+.bl-grid .bl-art { background-image: linear-gradient(color-mix(in srgb, var(--c1) 35%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--c1) 35%, transparent) 1px, transparent 1px); background-size: 26px 26px; mask-image: radial-gradient(circle at var(--ox) var(--oy), #000, transparent 70%); }
+.bl-paper .bl-art { inset: 12% 12% auto auto; width: 34%; height: 40%; border-radius: 4px; background: repeating-linear-gradient(0deg, transparent 0 10px, rgba(13,15,20,.14) 10px 12px) 0 34%/100% 60% no-repeat, linear-gradient(#f4f1ea, #e9e4d8); transform: rotate(8deg); opacity: 1; box-shadow: -10px 14px 0 -4px rgba(245,166,35,.55), 0 16px 30px rgba(0,0,0,.6); }
+.bl-ctag { position: absolute; left: 8%; top: 7%; font-size: 10px; font-weight: 900; letter-spacing: .14em; color: var(--c1); }
+.bl-cnum { position: absolute; right: 7%; top: 5%; font-size: 28px; font-weight: 900; color: rgba(255,255,255,.18); }
+.bl-ctitle { position: absolute; left: 8%; right: 8%; bottom: 12%; font-size: 19px; font-weight: 900; line-height: 1.15; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.6); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.bl-clogo { position: absolute; left: 8%; bottom: 5%; font-size: 9px; font-weight: 900; letter-spacing: .3em; color: rgba(255,255,255,.55); }
+.bl-it { margin-top: 8px; font-size: 15px; font-weight: 800; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.bl-meta { font-size: 12px; color: var(--text-gray); }
+.bl-more { position: absolute; top: 0; right: 0; bottom: 24px; width: 240px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding-right: 24px; border: 0; background: linear-gradient(90deg, transparent, rgba(13,15,20,.92) 45%, var(--bg-dark)); color: var(--accent-blue); font: 900 14px var(--font); cursor: pointer; transition: opacity .3s; }
+.bl-more { z-index: 2; }
+.bl-more span { white-space: nowrap; color: #fff; background: rgba(13,15,20,.88); border: 1px solid var(--border-dark); padding: 7px 12px; border-radius: 999px; }
+.bl-more b { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--accent-blue); color: #0d0f14; font-size: 20px; }
+.bl-more.is-end { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .bl-cover { transition: none; } }
+@media (max-width: 1100px) { .bl-head { padding: 0 28px; } .bl-shelf { padding: 6px 28px 24px; scroll-padding: 0 28px; } }
+@media (max-width: 768px) {
+  #blog { padding: 52px 0 60px; }
+  .bl-head { padding: 0 16px; } .bl-nav { display: none; }
+  .bl-shelf { gap: 14px; padding: 6px 16px 20px; scroll-padding: 0 16px; }
+  .bl-item { flex-basis: 200px; } .bl-ctitle { font-size: 16px; }
+  .bl-more { width: 90px; padding-right: 10px; } .bl-more span { display: none; }
+}
 </style>
 </head>
 <body>
@@ -3080,100 +3124,12 @@ section[id] { scroll-margin-top: 64px; }
 </div>
 </section>
 
-<section id="blog">
-<div class="blog-header reveal">
-<div class="blog-title-col">
-<div class="section-badge">
-<div class="badge-line"></div>
-<span class="badge-txt">BLOG</span>
-</div>
-<p class="blog-h1a">Intelligence,</p>
-<p class="blog-h1b">shared.</p>
-</div>
-<button aria-expanded="false" class="view-all" id="view-all-blogs" data-i18n-key="View all blogs →" type="button">View all blogs →</button>
-</div>
-<div class="blog-cards" id="blog-cards" style="grid-template-columns: 1fr 1fr 1fr;">
-<a class="blog-10-link" data-blog-link="true" data-blog-en="blog-10-en.html" data-blog-es="blog-10.html" data-blog-pt="blog-10-pt.html" href="blog-10-en.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">AI &amp; SOFTWARE</span>
-<p class="bc-title">Claudeforce: the signal that reinforces my thesis on the future of software</p>
-<p class="bc-desc">The Anthropic–Salesforce alliance shows how agentic AI can connect natural language, domain intelligence, and governed execution.</p>
-<span class="bc-meta">August 2026 · 5 min read</span>
-</div>
-</a>
-<a href="blog-09.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">RESEARCH PAPER</span>
-<p class="bc-title">Beyond the AI Hype: Why Large Language Models Will Transform Software—Not Replace It</p>
-<p class="bc-desc">A new framework for enterprise AI: probabilistic interfaces, domain intelligence, and deterministic execution. Download the complete paper in English or Spanish.</p>
-<span class="bc-meta">August 2026 · 46-page paper</span>
-</div>
-</a>
-<a href="blog-08.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">AI &amp; SOFTWARE</span>
-<p class="bc-title">La IA no hace magia: confundir una respuesta probable con una cierta es un error crítico</p>
-<p class="bc-desc">Por qué la fluidez de un LLM no equivale a certeza computacional y cómo combinar inteligencia probabilística con ejecución determinística.</p>
-<span class="bc-meta">August 2026 · 7 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-01.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">ALTERNATIVE DATA</span>
-<p class="bc-title">The Data Science Talent Gap in Challenging Markets — and How AI Is Closing It</p>
-<p class="bc-desc">Finding senior data science talent in Chile, Peru, Colombia, or Mexico is extraordinarily difficult — and expensive. Here's how AI is closing the gap without replacing the team.</p>
-<span class="bc-meta">March 2026 · 5 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-02.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">DATA-SCARCE MARKETS</span>
-<p class="bc-title">Why Models Built for Developed Markets Fail in Latin America — and What to Do About It</p>
-<p class="bc-desc">The data environment in Santiago, Lima, or Bogotá works nothing like London or Frankfurt. Here's why imported platforms consistently underperform — and what the alternative looks like.</p>
-<span class="bc-meta">March 2026 · 7 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-03.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">PREDICTIVE INTELLIGENCE</span>
-<p class="bc-title">Beyond the Score: Why the Cutoff Decision Is Where the Money Is</p>
-<p class="bc-desc">The model produces a score. But the decision about where to draw the line between approve and reject is an economic problem — and most institutions solve it with a spreadsheet and someone's best judgment.</p>
-<span class="bc-meta">February 2026 · 6 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-04.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">EXPLAINABILITY</span>
-<p class="bc-title">Why Regulatory Compliance Is Your Competitive Moat — Not Your Bottleneck</p>
-<p class="bc-desc">Compliance is almost universally treated as a cost across Latin American financial institutions. The institutions that recognize it as an asset are building one of the most durable competitive advantages in financial services.</p>
-<span class="bc-meta">February 2026 · 5 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-05.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">PREDICTIVE INTELLIGENCE</span>
-<p class="bc-title">Why Parallel AI Modeling Outperforms Traditional Credit Scoring Pipelines</p>
-<p class="bc-desc">Traditional credit scoring finds a good model — not necessarily the best one. Here's why running dozens of models simultaneously changes the equation entirely.</p>
-<span class="bc-meta">January 2026 · 4 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-06.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">ALTERNATIVE DATA</span>
-<p class="bc-title">Behavioral Data: The Missing Signal in Financial Inclusion</p>
-<p class="bc-desc">Over 400 million adults across Latin America are underbanked — not because they're poor credit risks, but because traditional bureau data can't see them. Behavioral data changes that.</p>
-<span class="bc-meta">January 2026 · 5 min read</span>
-</div>
-</a>
-<a class="blog-more" href="blog-07.html" style="text-decoration: none; color: inherit;">
-<div class="blog-card reveal">
-<span class="bc-tag">EXPLAINABILITY</span>
-<p class="bc-title">Building AI You Can Explain to a Regulator</p>
-<p class="bc-desc">Every credit team dreads the regulatory request for model documentation. Here's how to build AI that answers the regulator's real questions — not just the formal ones.</p>
-<span class="bc-meta">January 2026 · 6 min read</span>
-</div>
-</a>
-</div>
+<section id="blog" aria-labelledby="blog-title">
+<div class="bl-head"><div><div class="section-badge reveal"><div class="badge-line"></div><span class="badge-txt">BLOG</span></div>
+<h2 id="blog-title" class="bl-title"><span class="bl-l1">Intelligence,</span> <span class="bl-l2">shared.</span> <span class="bl-l3">Ideas from the Thorcast team.</span></h2></div>
+<div class="bl-nav"><button type="button" class="bl-prev" aria-label="Previous articles">←</button><button type="button" class="bl-next" aria-label="Next articles">→</button></div></div>
+<div class="bl-wrap"><div class="bl-shelf" tabindex="0" aria-label="Blog articles"><a class="bl-item" href="blog-10-en.html" data-blog-link="true" data-blog-en="blog-10-en.html" data-blog-es="blog-10.html" data-blog-pt="blog-10-pt.html"><span class="bl-cover bl-rings" style="--c1:#3ab0f0;--c2:#0f2a44;--ox:78%;--oy:30%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">AI &amp; SOFTWARE</span><span class="bl-cnum">10</span><span class="bl-ctitle">Claudeforce: the signal that reinforces my thesis on the future of software</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Claudeforce: the signal that reinforces my thesis on the future of software</span><span class="bl-meta">August 2026 · 5 min read</span></a><a class="bl-item" href="blog-09.html" ><span class="bl-cover bl-paper" style="--c1:#f5a623;--c2:#2b1e08;--ox:25%;--oy:75%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">RESEARCH PAPER</span><span class="bl-cnum">09</span><span class="bl-ctitle">Beyond the AI Hype: Why Large Language Models Will Transform Software—Not Replace It</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Beyond the AI Hype: Why Large Language Models Will Transform Software—Not Replace It</span><span class="bl-meta">August 2026 · 46-page paper</span></a><a class="bl-item" href="blog-08.html" ><span class="bl-cover bl-rings" style="--c1:#3ab0f0;--c2:#0f2a44;--ox:70%;--oy:80%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">AI &amp; SOFTWARE</span><span class="bl-cnum">08</span><span class="bl-ctitle">La IA no hace magia: confundir una respuesta probable con una cierta es un error crítico</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">La IA no hace magia: confundir una respuesta probable con una cierta es un error crítico</span><span class="bl-meta">August 2026 · 7 min read</span></a><a class="bl-item" href="blog-01.html" ><span class="bl-cover bl-dots" style="--c1:#f5a623;--c2:#13202d;--ox:30%;--oy:25%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">ALTERNATIVE DATA</span><span class="bl-cnum">07</span><span class="bl-ctitle">The Data Science Talent Gap in Challenging Markets — and How AI Is Closing It</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">The Data Science Talent Gap in Challenging Markets — and How AI Is Closing It</span><span class="bl-meta">March 2026 · 5 min read</span></a><a class="bl-item" href="blog-02.html" ><span class="bl-cover bl-bars" style="--c1:#5cc98b;--c2:#0e2219;--ox:85%;--oy:60%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">DATA-SCARCE MARKETS</span><span class="bl-cnum">06</span><span class="bl-ctitle">Why Models Built for Developed Markets Fail in Latin America — and What to Do About It</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Why Models Built for Developed Markets Fail in Latin America — and What to Do About It</span><span class="bl-meta">March 2026 · 7 min read</span></a><a class="bl-item" href="blog-03.html" ><span class="bl-cover bl-curve" style="--c1:#3ab0f0;--c2:#0d1c2c;--ox:50%;--oy:20%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">PREDICTIVE INTELLIGENCE</span><span class="bl-cnum">05</span><span class="bl-ctitle">Beyond the Score: Why the Cutoff Decision Is Where the Money Is</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Beyond the Score: Why the Cutoff Decision Is Where the Money Is</span><span class="bl-meta">February 2026 · 6 min read</span></a><a class="bl-item" href="blog-04.html" ><span class="bl-cover bl-grid" style="--c1:#b48cf2;--c2:#1c1530;--ox:15%;--oy:50%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">EXPLAINABILITY</span><span class="bl-cnum">04</span><span class="bl-ctitle">Why Regulatory Compliance Is Your Competitive Moat — Not Your Bottleneck</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Why Regulatory Compliance Is Your Competitive Moat — Not Your Bottleneck</span><span class="bl-meta">February 2026 · 5 min read</span></a><a class="bl-item" href="blog-05.html" ><span class="bl-cover bl-curve" style="--c1:#3ab0f0;--c2:#0d1c2c;--ox:60%;--oy:45%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">PREDICTIVE INTELLIGENCE</span><span class="bl-cnum">03</span><span class="bl-ctitle">Why Parallel AI Modeling Outperforms Traditional Credit Scoring Pipelines</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Why Parallel AI Modeling Outperforms Traditional Credit Scoring Pipelines</span><span class="bl-meta">January 2026 · 4 min read</span></a><a class="bl-item" href="blog-06.html" ><span class="bl-cover bl-dots" style="--c1:#f5a623;--c2:#13202d;--ox:40%;--oy:85%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">ALTERNATIVE DATA</span><span class="bl-cnum">02</span><span class="bl-ctitle">Behavioral Data: The Missing Signal in Financial Inclusion</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Behavioral Data: The Missing Signal in Financial Inclusion</span><span class="bl-meta">January 2026 · 5 min read</span></a><a class="bl-item" href="blog-07.html" ><span class="bl-cover bl-grid" style="--c1:#b48cf2;--c2:#1c1530;--ox:80%;--oy:15%" aria-hidden="true"><span class="bl-art"></span><span class="bl-ctag">EXPLAINABILITY</span><span class="bl-cnum">01</span><span class="bl-ctitle">Building AI You Can Explain to a Regulator</span><span class="bl-clogo">THORCAST</span></span><span class="bl-it">Building AI You Can Explain to a Regulator</span><span class="bl-meta">January 2026 · 6 min read</span></a></div>
+<button type="button" class="bl-more"><span>View more</span> <b aria-hidden="true">→</b></button></div>
 </section>
 <!-- ============================================================
      SECTION 08 – QUESTIONS
@@ -3680,6 +3636,9 @@ Object.assign(THORCAST_I18N.pt, {"From banking to retail,": "Dos bancos ao varej
 // Agents (variante E)
 Object.assign(THORCAST_I18N.es, {"AI Data Engineer": "Data Engineer con IA", "Trained to be the best data engineer in the world.": "Entrenada para ser la mejor data engineer del mundo.", "Data cleaning": "Limpieza de datos", "Joins & assembly": "Uniones y ensamblado", "Type & date repair": "Reparación de tipos y fechas", "Duplicates & outliers": "Duplicados y outliers", "Feature engineering": "Feature engineering", "Data validation": "Validación de datos", "You ask": "Tú pides", "in plain language": "en lenguaje natural", "NORA plans": "NORA planifica", "and shows you the plan": "y te muestra el plan", "You approve": "Tú apruebas", "nothing runs before": "nada corre antes", "NORA executes": "NORA ejecuta", "and validates every step": "y valida cada paso", "Model-ready dataset": "Dataset listo para modelar", "Reproducible Python": "Python reproducible", "Reusable Playbook": "Playbook reutilizable", "Watch NORA at work": "Mira a NORA trabajando", "AI Data Scientist": "Data Scientist con IA", "Trained to be the best data scientist in the world.": "Entrenado para ser el mejor data scientist del mundo.", "Out-of-time validation": "Validación out-of-time", "Missing values & outliers": "Faltantes y outliers", "AutoML": "AutoML", "Hyperparameter tuning": "Ajuste de hiperparámetros", "Explainability": "Explicabilidad", "Decision layers": "Capas de decisión", "You set the goal": "Defines el objetivo", "one mission": "una misión", "MJÖ plans": "MJÖ planifica", "every step justified": "cada paso justificado", "You approve once": "Apruebas una vez", "pause or stop anytime": "pausa o detén cuando quieras", "MJÖ delivers": "MJÖ entrega", "the champion, explained": "el campeón, explicado", "Champion model": "Modelo campeón", "Plain-language explanation": "Explicación en lenguaje claro", "Audit-ready report": "Reporte listo para auditoría", "Watch MJÖ at work": "Mira a MJÖ trabajando", "Your AI data team.": "Tu equipo de datos con IA.", "Trained to be the world's best.": "Entrenado para ser el mejor del mundo.", "Working on your premises.": "Trabajando en tus instalaciones.", "NORA and MJÖ work like a world-class data engineer and data scientist: they follow your rules and run on your premises.": "NORA y MJÖ trabajan como un data engineer y un data scientist de clase mundial: siguen tus reglas y corren en tus instalaciones.", "YOUR PREMISES · YOUR ENVIRONMENT": "TUS INSTALACIONES · TU ENTORNO", "Specialties": "Especialidades", "How it works with you": "Cómo trabaja contigo", "Delivers": "Entrega", "Tutorial": "Tutorial", "On your premises": "En tus instalaciones", "Data preparation, model training and scoring run in your environment, on your infrastructure.": "La preparación de datos, el entrenamiento de modelos y el scoring corren en tu entorno, en tu infraestructura.", "Deterministic execution": "Ejecución determinística", "AI plans; validated code executes. Same input, same result, every time.": "La IA planifica; el código validado ejecuta. Misma entrada, mismo resultado, siempre.", "You stay in control": "Tú tienes el control", "Every plan waits for your approval. Pause or stop at any moment.": "Cada plan espera tu aprobación. Pausa o detén en cualquier momento.", "Fully auditable": "Totalmente auditable", "Every step is logged, reproducible and documented in the technical report.": "Cada paso queda registrado, es reproducible y se documenta en el reporte técnico."});
 Object.assign(THORCAST_I18N.pt, {"AI Data Engineer": "Data Engineer com IA", "Trained to be the best data engineer in the world.": "Treinada para ser a melhor data engineer do mundo.", "Data cleaning": "Limpeza de dados", "Joins & assembly": "Junções e montagem", "Type & date repair": "Correção de tipos e datas", "Duplicates & outliers": "Duplicados e outliers", "Feature engineering": "Feature engineering", "Data validation": "Validação de dados", "You ask": "Você pede", "in plain language": "em linguagem natural", "NORA plans": "A NORA planeja", "and shows you the plan": "e mostra o plano", "You approve": "Você aprova", "nothing runs before": "nada roda antes", "NORA executes": "A NORA executa", "and validates every step": "e valida cada etapa", "Model-ready dataset": "Dataset pronto para modelar", "Reproducible Python": "Python reprodutível", "Reusable Playbook": "Playbook reutilizável", "Watch NORA at work": "Veja a NORA trabalhando", "AI Data Scientist": "Data Scientist com IA", "Trained to be the best data scientist in the world.": "Treinado para ser o melhor data scientist do mundo.", "Out-of-time validation": "Validação out-of-time", "Missing values & outliers": "Faltantes e outliers", "AutoML": "AutoML", "Hyperparameter tuning": "Ajuste de hiperparâmetros", "Explainability": "Explicabilidade", "Decision layers": "Camadas de decisão", "You set the goal": "Você define o objetivo", "one mission": "uma missão", "MJÖ plans": "O MJÖ planeja", "every step justified": "cada etapa justificada", "You approve once": "Você aprova uma vez", "pause or stop anytime": "pause ou pare quando quiser", "MJÖ delivers": "O MJÖ entrega", "the champion, explained": "o campeão, explicado", "Champion model": "Modelo campeão", "Plain-language explanation": "Explicação em linguagem clara", "Audit-ready report": "Relatório pronto para auditoria", "Watch MJÖ at work": "Veja o MJÖ trabalhando", "Your AI data team.": "Sua equipe de dados com IA.", "Trained to be the world's best.": "Treinado para ser o melhor do mundo.", "Working on your premises.": "Trabalhando nas suas instalações.", "NORA and MJÖ work like a world-class data engineer and data scientist: they follow your rules and run on your premises.": "A NORA e o MJÖ trabalham como um data engineer e um data scientist de classe mundial: seguem suas regras e rodam nas suas instalações.", "YOUR PREMISES · YOUR ENVIRONMENT": "SUAS INSTALAÇÕES · SEU AMBIENTE", "Specialties": "Especialidades", "How it works with you": "Como trabalha com você", "Delivers": "Entrega", "Tutorial": "Tutorial", "On your premises": "Nas suas instalações", "Data preparation, model training and scoring run in your environment, on your infrastructure.": "A preparação de dados, o treinamento de modelos e o scoring rodam no seu ambiente, na sua infraestrutura.", "Deterministic execution": "Execução determinística", "AI plans; validated code executes. Same input, same result, every time.": "A IA planeja; o código validado executa. Mesma entrada, mesmo resultado, sempre.", "You stay in control": "Você mantém o controle", "Every plan waits for your approval. Pause or stop at any moment.": "Cada plano espera sua aprovação. Pause ou pare a qualquer momento.", "Fully auditable": "Totalmente auditável", "Every step is logged, reproducible and documented in the technical report.": "Cada etapa fica registrada, é reprodutível e é documentada no relatório técnico."});
+// Blog (estante)
+Object.assign(THORCAST_I18N.es, {"Ideas from the Thorcast team.": "Ideas del equipo de Thorcast.", "View more": "Ver más", "Previous articles": "Artículos anteriores", "Next articles": "Artículos siguientes", "Blog articles": "Artículos del blog"});
+Object.assign(THORCAST_I18N.pt, {"Ideas from the Thorcast team.": "Ideias da equipe Thorcast.", "View more": "Ver mais", "Previous articles": "Artigos anteriores", "Next articles": "Próximos artigos", "Blog articles": "Artigos do blog"});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
@@ -4378,6 +4337,25 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
     if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
     video.play().catch(() => {});
   }));
+})();
+</script>
+<script id="blog-shelf">
+// Blog: flechas y «View more» desplazan el estante; se ocultan al llegar al final.
+(() => {
+  const sh = document.querySelector('#blog .bl-shelf');
+  if (!sh) return;
+  const prev = document.querySelector('#blog .bl-prev'), next = document.querySelector('#blog .bl-next'), more = document.querySelector('#blog .bl-more');
+  const step = (d) => sh.scrollBy({ left: d * sh.clientWidth * 0.8, behavior: 'smooth' });
+  const upd = () => {
+    const end = sh.scrollLeft + sh.clientWidth >= sh.scrollWidth - 10;
+    prev.disabled = sh.scrollLeft < 10; next.disabled = end; more.classList.toggle('is-end', end);
+  };
+  prev.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(1));
+  more.addEventListener('click', () => step(1));
+  sh.addEventListener('scroll', upd, { passive: true });
+  addEventListener('resize', upd);
+  upd();
 })();
 </script>
 </body>
