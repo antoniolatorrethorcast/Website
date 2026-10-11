@@ -2866,13 +2866,22 @@ section[id] { scroll-margin-top: 64px; }
   .ax-pillars { grid-template-columns: 1fr; }
 }
 
-/* How it works (tutoriales): lista de títulos más compacta y vista previa más ancha */
-#tutorials .uc-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); gap: 24px; max-width: 1160px; }
-#tutorials .uc-split > .tutorial-grid { gap: 6px; }
-#tutorials .uc-split > .tutorial-grid .tutorial-head { padding: 9px 14px; }
-#tutorials .uc-split > .tutorial-grid .tutorial-meta { margin-bottom: 3px; font-size: 9px; }
-#tutorials .uc-split > .tutorial-grid h3 { font-size: 15px; line-height: 1.25; }
-@media (max-width: 900px) { #tutorials .uc-split { grid-template-columns: 1fr; } }
+/* How it works (tutoriales): mismas proporciones que el resto de secciones.
+   Título, frase y márgenes iguales a Solutions/Agents; lista y video a todo el ancho y con la misma altura. */
+#tutorials:not(.tutorials-page) { padding: 72px 80px 80px; }
+#tutorials:not(.tutorials-page) #tutorials-title { font-size: clamp(30px, 3.8vw, 52px); line-height: 1.08; margin: 14px 0 14px; max-width: none; }
+#tutorials:not(.tutorials-page) .tutorial-intro { font-size: 17px; line-height: 1.55; max-width: 820px; }
+#tutorials:not(.tutorials-page) .tutorial-language { margin: 12px 0 24px; }
+#tutorials .uc-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 24px; align-items: stretch; }
+#tutorials .uc-split > .tutorial-grid { display: flex; flex-direction: column; gap: 8px; }
+#tutorials .uc-split > .tutorial-grid .tutorial-card { flex: 1; justify-content: center; }
+#tutorials .uc-split > .tutorial-grid .tutorial-head { flex: 0 0 auto; padding: 10px 18px; }
+#tutorials .uc-split > .tutorial-grid .tutorial-meta { margin-bottom: 4px; }
+#tutorials .uc-split > .tutorial-grid h3 { font-size: 18px; line-height: 1.25; }
+#tutorials .uc-preview { position: relative; top: 0; }
+@media (max-width: 1100px) { #tutorials:not(.tutorials-page) { padding: 64px 28px 72px; } }
+@media (max-width: 900px) { #tutorials .uc-split { grid-template-columns: 1fr; } #tutorials .uc-split > .tutorial-grid .tutorial-card { flex: none; } }
+@media (max-width: 768px) { #tutorials:not(.tutorials-page) { padding: 48px 16px 56px; } #tutorials .uc-split > .tutorial-grid h3 { font-size: 16px; } }
 </style>
 </head>
 <body>
