@@ -2804,6 +2804,67 @@ section[id] { scroll-margin-top: 64px; }
   .sl-tab { flex: 0 0 auto; }
   .sl-ask { padding: 16px 18px; }
 }
+
+/* ---------- Agents (variante E): equipo de datos con IA en tus instalaciones, con su video en grande ---------- */
+#agents .ax-wrap { padding: 72px 80px 88px; }
+#agents { padding: 0 !important; }
+.ax-title { font-size: clamp(30px, 3.8vw, 52px); font-weight: 800; line-height: 1.08; margin: 14px 0 14px; }
+.ax-title > span { display: block; } .ax-l2 { color: var(--accent-blue); } .ax-l3 { color: #8a8f9c; }
+.ax-lead { color: var(--text-light-gray); font-size: 17px; max-width: 820px; line-height: 1.55; margin-bottom: 30px; }
+.ax-perim { position: relative; padding: 44px 26px 26px; border: 2px dashed rgba(58,176,240,.45); border-radius: 24px; background: radial-gradient(900px 400px at 50% 0%, rgba(58,176,240,.08), transparent 70%); }
+.ax-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; font-weight: 900; letter-spacing: .12em; color: #0d0f14; background: var(--accent-blue); padding: 6px 14px; border-radius: 999px; }
+.ax-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.ax-tab { display: flex; align-items: center; gap: 12px; padding: 8px 22px 8px 8px; border: 1px solid var(--border-dark); border-radius: 999px; background: var(--bg-card); color: var(--text-light-gray); font-family: var(--font); cursor: pointer; text-align: left; transition: border-color .2s, background .2s; }
+.ax-tab img { width: 56px; height: 56px; object-fit: contain; } .ax-tab b { display: block; font-size: 18px; color: #fff; letter-spacing: .06em; } .ax-tab small { font-size: 13px; font-weight: 800; }
+.ax-tab.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 16%, transparent); color: #fff; }
+.ax-tab:focus-visible, .ax-video:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; }
+.ax-pane { min-width: 0; display: grid; grid-template-columns: 240px minmax(0, 1fr) 360px; gap: 30px; align-items: stretch; padding: 26px; border: 1px solid var(--border-dark); border-top: 4px solid var(--c); border-radius: 18px; background: var(--bg-card); animation: ax-up .45s ease both; }
+.ax-pane[hidden] { display: none; }
+@keyframes ax-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.ax-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 22px 10px; border-radius: 16px; background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--c) 22%, transparent), transparent 70%); }
+.ax-avatar { width: 200px; height: 200px; object-fit: contain; filter: drop-shadow(0 18px 24px rgba(0,0,0,.55)); animation: ax-float 6s ease-in-out infinite; }
+@keyframes ax-float { 50% { transform: translateY(-8px) rotate(2deg); } }
+.ax-name { font-size: 26px; font-weight: 900; letter-spacing: .14em; color: var(--c); }
+.ax-info { display: flex; flex-direction: column; gap: 10px; }
+.ax-role { font-size: 40px; font-weight: 900; line-height: 1.05; }
+.ax-trained { font-size: 14px; font-weight: 700; color: var(--text-light-gray); }
+.ax-lbl { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--text-gray); margin-top: 4px; }
+.ax-skills, .ax-gives { display: flex; flex-wrap: wrap; gap: 6px; }
+.ax-skills span { font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 999px; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); background: color-mix(in srgb, var(--c) 10%, transparent); }
+.ax-gives span { font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border-dark); background: rgba(255,255,255,.04); }
+.ax-flow { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.ax-flow li { display: flex; flex-direction: column; gap: 2px; padding: 10px; border-radius: 10px; background: #151a24; }
+.ax-n { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--c); color: #0d0f14; font-size: 12px; font-weight: 900; margin-bottom: 4px; }
+.ax-flow b { font-size: 13px; line-height: 1.2; } .ax-flow small { font-size: 11px; color: var(--text-light-gray); line-height: 1.3; }
+.ax-video { display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); border-radius: 16px; background: #121722; color: #fff; font-family: var(--font); text-align: left; cursor: pointer; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.ax-video:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,.55); border-color: var(--c); }
+.ax-thumb { position: relative; display: block; flex: 1; min-height: 200px; border-radius: 12px; overflow: hidden; background: #000; }
+.ax-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% 50%; transition: transform .5s; }
+.ax-video:hover .ax-thumb img { transform: scale(1.05); }
+.ax-play { position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border-radius: 50%; background: var(--accent-blue); box-shadow: 0 0 0 10px rgba(58,176,240,.2), 0 12px 30px rgba(0,0,0,.5); }
+.ax-play::before { content: ""; position: absolute; left: 30px; top: 22px; border-left: 24px solid #0d0f14; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+.ax-watch { margin-top: 6px; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--c); }
+.ax-vt { font-size: 17px; font-weight: 800; line-height: 1.25; } .ax-dur { font-size: 12px; color: var(--text-light-gray); }
+.ax-pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+.ax-pillars > div { padding: 20px; border: 1px solid var(--border-dark); border-radius: 14px; background: var(--bg-card-alt); }
+.ax-pi { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; color: var(--accent-blue); background: rgba(58,176,240,.1); border: 1px solid rgba(58,176,240,.3); }
+.ax-pillars h4 { font-size: 17px; font-weight: 900; margin: 10px 0 6px; } .ax-pillars p { font-size: 13px; color: var(--text-light-gray); line-height: 1.5; }
+@media (prefers-reduced-motion: reduce) { .ax-avatar, .ax-pane { animation: none; } }
+@media (max-width: 1200px) { #agents .ax-wrap { padding: 64px 28px 72px; } .ax-pane { grid-template-columns: 200px minmax(0, 1fr); } .ax-video { grid-column: 1 / -1; } .ax-thumb { aspect-ratio: 16 / 9; flex: none; } .ax-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 800px) {
+  #agents .ax-wrap { padding: 48px 16px 56px; }
+  .ax-perim { padding: 38px 12px 14px; }
+  .ax-tag { font-size: 10px; }
+  .ax-pane { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+  .ax-pane > * { min-width: 0; }
+  .ax-tabs { flex-wrap: nowrap; gap: 8px; }
+  .ax-tab { flex: 1; min-width: 0; padding: 6px 10px 6px 6px; gap: 8px; }
+  .ax-tab img { width: 40px; height: 40px; } .ax-tab b { font-size: 15px; } .ax-tab small { font-size: 11px; }
+  .ax-hero { flex-direction: row; justify-content: flex-start; padding: 6px; } .ax-avatar { width: 96px; height: 96px; }
+  .ax-role { font-size: 30px; }
+  .ax-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ax-pillars { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -2979,60 +3040,26 @@ section[id] { scroll-margin-top: 64px; }
      SECTION 06 – AGENTES NORA · TERRA · MJÖ
      ============================================================ -->
 <section id="agents" aria-labelledby="agents-title">
-<div class="ag-head reveal">
-<div class="section-badge"><div class="badge-line"></div><span class="badge-txt">AI AGENTS</span></div>
-<h2 id="agents-title" class="ag-title"><span>Meet the Thorcast agents.</span> <span class="ag-title-accent">Three specialists, one flow.</span></h2>
-</div>
-<div class="ag-flow reveal" role="tablist" aria-label="Thorcast agents">
-<button class="ag-node is-active" type="button" role="tab" aria-selected="true" aria-controls="ag-scene-nora" id="ag-tab-nora" data-agent="nora">
-<span class="ag-node-img"><img src="assets/agents/nora.png" alt="" width="260" height="260" loading="lazy"/></span>
-<span class="ag-node-name">NORA</span><span class="ag-node-stage">Prepares the data</span>
-</button>
-<span class="ag-link" aria-hidden="true"></span>
-<button class="ag-node" type="button" role="tab" aria-selected="false" aria-controls="ag-scene-terra" id="ag-tab-terra" data-agent="terra" tabindex="-1">
-<span class="ag-node-img"><img src="assets/agents/terra.png" alt="" width="260" height="260" loading="lazy"/></span>
-<span class="ag-node-name">TERRA <span class="ag-soon">Coming soon</span></span><span class="ag-node-stage">Reads the territory</span>
-</button>
-<span class="ag-link" aria-hidden="true"></span>
-<button class="ag-node" type="button" role="tab" aria-selected="false" aria-controls="ag-scene-mjo" id="ag-tab-mjo" data-agent="mjo" tabindex="-1">
-<span class="ag-node-img"><img src="assets/agents/mjo.png" alt="" width="260" height="260" loading="lazy"/></span>
-<span class="ag-node-name">MJÖ™</span><span class="ag-node-stage">Models, explains, decides</span>
-</button>
-</div>
-
-<div class="ag-scenes">
-<article class="ag-scene is-active" id="ag-scene-nora" role="tabpanel" aria-labelledby="ag-tab-nora" data-agent="nora">
-<div class="ag-hero"><img class="ag-avatar" src="assets/agents/nora.png" alt="NORA" width="520" height="520" loading="lazy"/></div>
-<div class="ag-info">
-<p class="ag-kicker">DATA PREPARATION AGENT · DATA WORKSPACE</p>
-<h3 class="ag-name">NORA</h3>
-<p class="ag-role">Ask in plain language. NORA merges, cleans and engineers your tables — and every step is checked by a deterministic validation engine.</p>
-<div class="ag-result"><span class="ag-result-k">WHAT IT DELIVERS</span><p>A versioned, model-ready dataset, reproducible Python and a reusable Playbook.</p></div>
-</div>
-<figure class="ag-view"><img src="assets/agents/nora-view.jpg" alt="NORA proposing a data preparation plan in the Thorcast Data Workspace" width="1280" height="586" loading="lazy"/><figcaption>Data Workspace · NORA proposes a plan before applying it</figcaption></figure>
-</article>
-
-<article class="ag-scene" id="ag-scene-terra" role="tabpanel" aria-labelledby="ag-tab-terra" data-agent="terra" hidden>
-<div class="ag-hero"><img class="ag-avatar" src="assets/agents/terra.png" alt="TERRA" width="520" height="520" loading="lazy"/></div>
-<div class="ag-info">
-<p class="ag-kicker">GEOGRAPHIC INTELLIGENCE AGENT · GEO INTELLIGENCE</p>
-<h3 class="ag-name">TERRA <span class="ag-soon ag-soon-lg">Coming soon</span></h3>
-<p class="ag-role">Chat with TERRA on the map. It draws travel-time areas, combines your georeferenced data with enrichment and points-of-interest signals, and finds candidate locations.</p>
-<div class="ag-result"><span class="ag-result-k">WHAT IT DELIVERS</span><p>Area-level aggregates, candidate locations, features ready to join to your training table, and a geographic report.</p></div>
-</div>
-<figure class="ag-view"><img src="assets/agents/terra-view.jpg" alt="TERRA working on a map in Thorcast Geo Intelligence" width="1280" height="720" loading="lazy"/><figcaption>Geo Intelligence · TERRA builds a 15-minute travel-time area</figcaption></figure>
-</article>
-
-<article class="ag-scene" id="ag-scene-mjo" role="tabpanel" aria-labelledby="ag-tab-mjo" data-agent="mjo" hidden>
-<div class="ag-hero"><img class="ag-avatar" src="assets/agents/mjo.png" alt="MJÖ" width="520" height="520" loading="lazy"/></div>
-<div class="ag-info">
-<p class="ag-kicker">AI DATA SCIENTIST · EVERY SCREEN</p>
-<h3 class="ag-name">MJÖ™</h3>
-<p class="ag-role">Advises step by step, or runs a mission you approve once: prepares the data, compares algorithms with AutoML, explains the results and applies decision layers.</p>
-<div class="ag-result"><span class="ag-result-k">WHAT IT DELIVERS</span><p>A champion model, plain-language explanations and audit-ready reports.</p></div>
-</div>
-<figure class="ag-view"><img src="assets/agents/mjo-view.jpg" alt="MJÖ mission plan awaiting approval in Thorcast" width="1280" height="720" loading="lazy"/><figcaption>Auto mode · one approval runs the whole plan</figcaption></figure>
-</article>
+<div class="ax-wrap">
+<div class="section-badge reveal"><div class="badge-line"></div><span class="badge-txt">AI AGENTS</span></div>
+<h2 id="agents-title" class="ax-title"><span class="ax-l1">Your AI data team.</span> <span class="ax-l2">Trained to be the world's best.</span> <span class="ax-l3">Working on your premises.</span></h2>
+<p class="ax-lead">NORA and MJÖ work like a world-class data engineer and data scientist: they follow your rules and run on your premises.</p>
+<div class="ax-perim"><span class="ax-tag">YOUR PREMISES · YOUR ENVIRONMENT</span><div class="ax-tabs" role="tablist" aria-label="Thorcast agents"><button type="button" class="ax-tab on" role="tab" aria-selected="true" data-a="nora" style="--c:#5cc98b"><img src="assets/agents/nora.png" alt="" width="56" height="56"><span><b>NORA</b><small>AI Data Engineer</small></span></button><button type="button" class="ax-tab" role="tab" aria-selected="false" data-a="mjo" style="--c:#f5a623"><img src="assets/agents/mjo.png" alt="" width="56" height="56"><span><b>MJÖ</b><small>AI Data Scientist</small></span></button></div><div class="ax-pane on" role="tabpanel" data-a="nora" style="--c:#5cc98b">
+<div class="ax-hero"><img class="ax-avatar" src="assets/agents/nora.png" alt="NORA" width="220" height="220" loading="lazy"><p class="ax-name">NORA</p></div>
+<div class="ax-info"><h3 class="ax-role">AI Data Engineer</h3><p class="ax-trained">Trained to be the best data engineer in the world.</p>
+<p class="ax-lbl">Specialties</p><div class="ax-skills"><span>Data cleaning</span><span>Joins &amp; assembly</span><span>Type &amp; date repair</span><span>Duplicates &amp; outliers</span><span>Feature engineering</span><span>Data validation</span></div>
+<p class="ax-lbl">How it works with you</p><ol class="ax-flow"><li><span class="ax-n">1</span><b>You ask</b><small>in plain language</small></li><li><span class="ax-n">2</span><b>NORA plans</b><small>and shows you the plan</small></li><li><span class="ax-n">3</span><b>You approve</b><small>nothing runs before</small></li><li><span class="ax-n">4</span><b>NORA executes</b><small>and validates every step</small></li></ol>
+<p class="ax-lbl">Delivers</p><div class="ax-gives"><span>Model-ready dataset</span><span>Reproducible Python</span><span>Reusable Playbook</span></div></div>
+<button type="button" class="ax-video" data-ax-video="assets/tutorials/1-espacio-de-datos-nora.mp4" data-ax-title="NORA AI: your data preparation agent"><span class="ax-thumb"><img src="assets/tutorials/1-espacio-de-datos-nora-cover.jpg" alt="" loading="lazy"><span class="ax-play"></span></span>
+<span class="ax-watch">Watch NORA at work</span><span class="ax-vt">NORA AI: your data preparation agent</span><span class="ax-dur"><span>Tutorial</span> · 3:18</span></button></div><div class="ax-pane" role="tabpanel" data-a="mjo" style="--c:#f5a623" hidden>
+<div class="ax-hero"><img class="ax-avatar" src="assets/agents/mjo.png" alt="MJÖ" width="220" height="220" loading="lazy"><p class="ax-name">MJÖ</p></div>
+<div class="ax-info"><h3 class="ax-role">AI Data Scientist</h3><p class="ax-trained">Trained to be the best data scientist in the world.</p>
+<p class="ax-lbl">Specialties</p><div class="ax-skills"><span>Out-of-time validation</span><span>Missing values &amp; outliers</span><span>AutoML</span><span>Hyperparameter tuning</span><span>Explainability</span><span>Decision layers</span></div>
+<p class="ax-lbl">How it works with you</p><ol class="ax-flow"><li><span class="ax-n">1</span><b>You set the goal</b><small>one mission</small></li><li><span class="ax-n">2</span><b>MJÖ plans</b><small>every step justified</small></li><li><span class="ax-n">3</span><b>You approve once</b><small>pause or stop anytime</small></li><li><span class="ax-n">4</span><b>MJÖ delivers</b><small>the champion, explained</small></li></ol>
+<p class="ax-lbl">Delivers</p><div class="ax-gives"><span>Champion model</span><span>Plain-language explanation</span><span>Audit-ready report</span></div></div>
+<button type="button" class="ax-video" data-ax-video="assets/tutorials/video6-mjo-autonomo.mp4" data-ax-title="MJÖ AI Agent: your most efficient team member"><span class="ax-thumb"><img src="assets/tutorials/video6-mjo-autonomo-cover.jpg" alt="" loading="lazy"><span class="ax-play"></span></span>
+<span class="ax-watch">Watch MJÖ at work</span><span class="ax-vt">MJÖ AI Agent: your most efficient team member</span><span class="ax-dur"><span>Tutorial</span> · 3:39</span></button></div></div>
+<div class="ax-pillars"><div><span class="ax-pi"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span><h4>On your premises</h4><p>Data preparation, model training and scoring run in your environment, on your infrastructure.</p></div><div><span class="ax-pi"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></span><h4>Deterministic execution</h4><p>AI plans; validated code executes. Same input, same result, every time.</p></div><div><span class="ax-pi"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><h4>You stay in control</h4><p>Every plan waits for your approval. Pause or stop at any moment.</p></div><div><span class="ax-pi"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><h4>Fully auditable</h4><p>Every step is logged, reproducible and documented in the technical report.</p></div></div>
 </div>
 </section>
 
@@ -3633,6 +3660,9 @@ Object.assign(THORCAST_I18N.pt, {"Banking & Finance": "Bancos e Finanças", "Lif
 // Solutions · título combinado
 Object.assign(THORCAST_I18N.es, {"From banking to retail,": "De la banca al retail,", "what would you want to predict?": "¿qué te gustaría predecir?", "Thorcast predicts it better.": "Thorcast lo predice mejor."});
 Object.assign(THORCAST_I18N.pt, {"From banking to retail,": "Dos bancos ao varejo,", "what would you want to predict?": "o que você gostaria de prever?", "Thorcast predicts it better.": "A Thorcast prevê melhor."});
+// Agents (variante E)
+Object.assign(THORCAST_I18N.es, {"AI Data Engineer": "Data Engineer con IA", "Trained to be the best data engineer in the world.": "Entrenada para ser la mejor data engineer del mundo.", "Data cleaning": "Limpieza de datos", "Joins & assembly": "Uniones y ensamblado", "Type & date repair": "Reparación de tipos y fechas", "Duplicates & outliers": "Duplicados y outliers", "Feature engineering": "Feature engineering", "Data validation": "Validación de datos", "You ask": "Tú pides", "in plain language": "en lenguaje natural", "NORA plans": "NORA planifica", "and shows you the plan": "y te muestra el plan", "You approve": "Tú apruebas", "nothing runs before": "nada corre antes", "NORA executes": "NORA ejecuta", "and validates every step": "y valida cada paso", "Model-ready dataset": "Dataset listo para modelar", "Reproducible Python": "Python reproducible", "Reusable Playbook": "Playbook reutilizable", "Watch NORA at work": "Mira a NORA trabajando", "AI Data Scientist": "Data Scientist con IA", "Trained to be the best data scientist in the world.": "Entrenado para ser el mejor data scientist del mundo.", "Out-of-time validation": "Validación out-of-time", "Missing values & outliers": "Faltantes y outliers", "AutoML": "AutoML", "Hyperparameter tuning": "Ajuste de hiperparámetros", "Explainability": "Explicabilidad", "Decision layers": "Capas de decisión", "You set the goal": "Defines el objetivo", "one mission": "una misión", "MJÖ plans": "MJÖ planifica", "every step justified": "cada paso justificado", "You approve once": "Apruebas una vez", "pause or stop anytime": "pausa o detén cuando quieras", "MJÖ delivers": "MJÖ entrega", "the champion, explained": "el campeón, explicado", "Champion model": "Modelo campeón", "Plain-language explanation": "Explicación en lenguaje claro", "Audit-ready report": "Reporte listo para auditoría", "Watch MJÖ at work": "Mira a MJÖ trabajando", "Your AI data team.": "Tu equipo de datos con IA.", "Trained to be the world's best.": "Entrenado para ser el mejor del mundo.", "Working on your premises.": "Trabajando en tus instalaciones.", "NORA and MJÖ work like a world-class data engineer and data scientist: they follow your rules and run on your premises.": "NORA y MJÖ trabajan como un data engineer y un data scientist de clase mundial: siguen tus reglas y corren en tus instalaciones.", "YOUR PREMISES · YOUR ENVIRONMENT": "TUS INSTALACIONES · TU ENTORNO", "Specialties": "Especialidades", "How it works with you": "Cómo trabaja contigo", "Delivers": "Entrega", "Tutorial": "Tutorial", "On your premises": "En tus instalaciones", "Data preparation, model training and scoring run in your environment, on your infrastructure.": "La preparación de datos, el entrenamiento de modelos y el scoring corren en tu entorno, en tu infraestructura.", "Deterministic execution": "Ejecución determinística", "AI plans; validated code executes. Same input, same result, every time.": "La IA planifica; el código validado ejecuta. Misma entrada, mismo resultado, siempre.", "You stay in control": "Tú tienes el control", "Every plan waits for your approval. Pause or stop at any moment.": "Cada plan espera tu aprobación. Pausa o detén en cualquier momento.", "Fully auditable": "Totalmente auditable", "Every step is logged, reproducible and documented in the technical report.": "Cada paso queda registrado, es reproducible y se documenta en el reporte técnico."});
+Object.assign(THORCAST_I18N.pt, {"AI Data Engineer": "Data Engineer com IA", "Trained to be the best data engineer in the world.": "Treinada para ser a melhor data engineer do mundo.", "Data cleaning": "Limpeza de dados", "Joins & assembly": "Junções e montagem", "Type & date repair": "Correção de tipos e datas", "Duplicates & outliers": "Duplicados e outliers", "Feature engineering": "Feature engineering", "Data validation": "Validação de dados", "You ask": "Você pede", "in plain language": "em linguagem natural", "NORA plans": "A NORA planeja", "and shows you the plan": "e mostra o plano", "You approve": "Você aprova", "nothing runs before": "nada roda antes", "NORA executes": "A NORA executa", "and validates every step": "e valida cada etapa", "Model-ready dataset": "Dataset pronto para modelar", "Reproducible Python": "Python reprodutível", "Reusable Playbook": "Playbook reutilizável", "Watch NORA at work": "Veja a NORA trabalhando", "AI Data Scientist": "Data Scientist com IA", "Trained to be the best data scientist in the world.": "Treinado para ser o melhor data scientist do mundo.", "Out-of-time validation": "Validação out-of-time", "Missing values & outliers": "Faltantes e outliers", "AutoML": "AutoML", "Hyperparameter tuning": "Ajuste de hiperparâmetros", "Explainability": "Explicabilidade", "Decision layers": "Camadas de decisão", "You set the goal": "Você define o objetivo", "one mission": "uma missão", "MJÖ plans": "O MJÖ planeja", "every step justified": "cada etapa justificada", "You approve once": "Você aprova uma vez", "pause or stop anytime": "pause ou pare quando quiser", "MJÖ delivers": "O MJÖ entrega", "the champion, explained": "o campeão, explicado", "Champion model": "Modelo campeão", "Plain-language explanation": "Explicação em linguagem clara", "Audit-ready report": "Relatório pronto para auditoria", "Watch MJÖ at work": "Veja o MJÖ trabalhando", "Your AI data team.": "Sua equipe de dados com IA.", "Trained to be the world's best.": "Treinado para ser o melhor do mundo.", "Working on your premises.": "Trabalhando nas suas instalações.", "NORA and MJÖ work like a world-class data engineer and data scientist: they follow your rules and run on your premises.": "A NORA e o MJÖ trabalham como um data engineer e um data scientist de classe mundial: seguem suas regras e rodam nas suas instalações.", "YOUR PREMISES · YOUR ENVIRONMENT": "SUAS INSTALAÇÕES · SEU AMBIENTE", "Specialties": "Especialidades", "How it works with you": "Como trabalha com você", "Delivers": "Entrega", "Tutorial": "Tutorial", "On your premises": "Nas suas instalações", "Data preparation, model training and scoring run in your environment, on your infrastructure.": "A preparação de dados, o treinamento de modelos e o scoring rodam no seu ambiente, na sua infraestrutura.", "Deterministic execution": "Execução determinística", "AI plans; validated code executes. Same input, same result, every time.": "A IA planeja; o código validado executa. Mesma entrada, mesmo resultado, sempre.", "You stay in control": "Você mantém o controle", "Every plan waits for your approval. Pause or stop at any moment.": "Cada plano espera sua aprovação. Pause ou pare a qualquer momento.", "Fully auditable": "Totalmente auditável", "Every step is logged, reproducible and documented in the technical report.": "Cada etapa fica registrada, é reprodutível e é documentada no relatório técnico."});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
@@ -4302,6 +4332,31 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
     if (!player || !video) return;
     video.src = b.dataset.ucVideo;
     video.setAttribute('aria-label', b.dataset.ucTitle);
+    player.showModal();
+    if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
+    video.play().catch(() => {});
+  }));
+})();
+</script>
+<script id="agents-e">
+// Agents: pestañas NORA / MJÖ y video del agente en el reproductor del sitio.
+(() => {
+  const root = document.getElementById('agents');
+  if (!root) return;
+  const tabs = [...root.querySelectorAll('.ax-tab')], panes = [...root.querySelectorAll('.ax-pane')];
+  const show = (k, focus) => {
+    tabs.forEach((t) => { const on = t.dataset.a === k; t.classList.toggle('on', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); if (on && focus) t.focus(); });
+    panes.forEach((p) => { p.hidden = p.dataset.a !== k; });
+  };
+  tabs.forEach((t, n) => {
+    t.addEventListener('click', () => show(t.dataset.a));
+    t.addEventListener('keydown', (ev) => { const d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0; if (d) { ev.preventDefault(); show(tabs[(n + d + tabs.length) % tabs.length].dataset.a, true); } });
+  });
+  const player = document.getElementById('tutorial-player'), video = document.getElementById('tutorial-player-video');
+  root.querySelectorAll('.ax-video').forEach((b) => b.addEventListener('click', () => {
+    if (!player || !video) return;
+    video.src = b.dataset.axVideo;
+    video.setAttribute('aria-label', b.dataset.axTitle);
     player.showModal();
     if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
     video.play().catch(() => {});
