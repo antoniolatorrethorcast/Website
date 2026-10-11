@@ -4384,5 +4384,43 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
   upd();
 })();
 </script>
+<script id="video-i18n">
+// Videos por idioma: assets/video-i18n.json mapea cada video/portada en español a su versión EN/PT
+// ({ videos: { ruta: { en: {src, dur}, pt: {src, dur}, es: {dur} } }, covers: { ruta: { en, pt } } }).
+// Si falta una versión, queda la española. Se aplica al cargar y en cada cambio de idioma.
+(() => {
+  let map = null;
+  const ATTRS = ['href', 'src', 'data-uc-video', 'data-ax-video'];
+  const apply = (lang) => {
+    if (!map) return;
+    document.querySelectorAll(ATTRS.map((a) => `[${a}^="assets/"]`).join(',')).forEach((el) => {
+      ATTRS.forEach((a) => {
+        if (!el.hasAttribute(a)) return;
+        const key = 'i18nOrig' + a.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase());
+        const orig = el.dataset[key] || el.getAttribute(a);
+        const v = map.videos[orig], c = map.covers[orig];
+        if (!v && !c) return;
+        el.dataset[key] = orig;
+        const alt = v ? v[lang] && v[lang].src : c && c[lang];
+        el.setAttribute(a, alt || orig);
+        if (v) {
+          const dur = (v[lang] && v[lang].src && v[lang].dur) || (v.es && v.es.dur);
+          const d = el.querySelector('.sl-ucdur');
+          if (d && dur) d.textContent = dur;
+          const ax = el.querySelector('.ax-dur');
+          if (ax && dur && ax.lastChild && ax.lastChild.nodeType === 3) ax.lastChild.textContent = ' · ' + dur;
+        }
+      });
+    });
+  };
+  const current = () => (typeof thorcastCurrentLang !== 'undefined' ? thorcastCurrentLang : 'en');
+  fetch('assets/video-i18n.json', { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).then((j) => {
+    if (!j) return;
+    map = { videos: j.videos || {}, covers: j.covers || {} };
+    apply(current());
+  }).catch(() => {});
+  document.querySelectorAll('.lang-btn').forEach((b) => b.addEventListener('click', () => apply(b.dataset.lang)));
+})();
+</script>
 </body>
 </html>
