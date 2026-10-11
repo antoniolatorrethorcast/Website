@@ -2744,6 +2744,13 @@ section[id] { scroll-margin-top: 64px; }
 .ia-title .ia-l1 { color: var(--text-white); }
 .ia-title .ia-l2 { color: var(--accent-blue); }
 .ia-title .ia-l3 { color: #8a8f9c; }
+
+/* Transición Hero → Thorcast en acción (opción A elegida): al hacer scroll el hero se achica, se oscurece y se desenfoca,
+   mientras En acción se enciende y sube; una línea de luz marca el borde. Proporcional al scroll, reversible. */
+#hero { transform-origin: 50% 0; will-change: opacity, transform, filter; }
+#in-action { position: relative; will-change: opacity, transform; }
+#in-action::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-yellow), transparent); opacity: var(--ia-glow, 0); box-shadow: 0 0 40px 6px rgba(58,176,240,.35); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { #hero, #in-action { transform: none !important; filter: none !important; } }
 </style>
 </head>
 <body>
@@ -4419,6 +4426,26 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
     if (!document.fullscreenElement && player.open) closePlayer();
   });
   video.addEventListener('webkitendfullscreen', closePlayer);
+})();
+</script>
+<script id="hero-dim-scroll">
+// Transición Hero → Thorcast en acción: el hero se reduce (hasta 82 %) y se oscurece (hasta 10 % de opacidad).
+(() => {
+  const hero = document.getElementById('hero'), ia = document.getElementById('in-action');
+  if (!hero || !ia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const tick = () => {
+    const h = innerHeight, r = ia.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (h * 0.95 - r.top) / (h * 0.6)));
+    hero.style.opacity = (1 - 0.9 * p).toFixed(3);
+    hero.style.filter = `brightness(${(1 - 0.65 * p).toFixed(3)}) saturate(${(1 - 0.7 * p).toFixed(3)}) blur(${(p * 3).toFixed(2)}px)`;
+    hero.style.transform = `scale(${(1 - 0.18 * p).toFixed(4)})`;
+    ia.style.opacity = (0.35 + 0.65 * p).toFixed(3);
+    ia.style.transform = `translateY(${((1 - p) * 40).toFixed(1)}px)`;
+    ia.style.setProperty('--ia-glow', p.toFixed(3));
+  };
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
 })();
 </script>
 </body>
