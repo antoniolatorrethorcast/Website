@@ -2926,6 +2926,24 @@ section[id] { scroll-margin-top: 64px; }
   .bl-item { flex-basis: 200px; } .bl-ctitle { font-size: 16px; }
   .bl-more { width: 90px; padding-right: 10px; } .bl-more span { display: none; }
 }
+
+/* In Action: stage number + name prominence */
+.wf-lbl { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-blue); }
+.wf-cap-row { gap: 2px; }
+.wf-cap-row .wf-num { font-size: 46px; line-height: 1; letter-spacing: -.02em; }
+.wf-k { font-size: 15px; color: #fff; line-height: 1.2; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+.wf-step:not(.is-active):hover .wf-k { color: var(--accent-blue); }
+.wf-kick { display: flex; align-items: center; gap: 10px; font-size: 15px; letter-spacing: .1em; color: #fff; }
+.wf-kick .wf-lbl { font-size: 15px; }
+.wf-kick .wf-num { display: inline-grid; place-items: center; min-width: 44px; height: 44px; padding: 0 8px; border-radius: 12px; background: var(--accent-yellow); color: #0b1220; font-size: 24px; letter-spacing: 0; }
+.wf-title { font-size: 24px; margin-top: 6px; }
+@media (max-width: 900px) {
+  .wf-cap-row { gap: 10px; align-items: baseline; }
+  .wf-cap-row .wf-num { font-size: 30px; }
+  .wf-k { font-size: 17px; }
+  .wf-kick { font-size: 13px; }
+  .wf-kick .wf-num { min-width: 36px; height: 36px; font-size: 19px; }
+}
 </style>
 </head>
 <body>
@@ -2975,7 +2993,7 @@ section[id] { scroll-margin-top: 64px; }
 </div>
 </div>
 <div class="hero-right">
-<video class="saas-screenshot" aria-label="Thorcast SaaS Platform" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster-andean-volcano-results.jpg" disablepictureinpicture disableremoteplayback><source src="assets/videos/hero-video-andean-volcano-journey-v4.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+<video class="saas-screenshot" aria-label="Thorcast SaaS Platform" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster-nora-start.jpg" disablepictureinpicture disableremoteplayback><source src="assets/videos/hero-video-andean-volcano-journey-v5.mp4" type="video/mp4">Your browser does not support the video tag.</video>
 </div>
 </div>
 <div class="stats-row" aria-label="Thorcast benefits">
@@ -2997,44 +3015,44 @@ section[id] { scroll-margin-top: 64px; }
 <ol class="wf" aria-label="Thorcast workflow" data-focus='{"en":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[68,21,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,60,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]},"es":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[32.3,27.8,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,55,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]},"pt":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[32.3,27.8,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,55,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]}}'>
 <li class="wf-step is-active" tabindex="0" aria-expanded="true">
 <figure class="wf-shots"><img data-shot="s1a-upload" data-fx="37" data-fy="67" data-z="1.8" src="assets/in-action/en/s1a-upload.jpg" alt="Upload any data file — CSV, Parquet, XLS — and NORA works on it for you." width="1920" height="1080" decoding="async" class="on"/><img data-shot="s1b-prompt" data-fx="82" data-fy="90" data-z="1.9" src="assets/in-action/en/s1b-prompt.jpg" alt="Tell NORA your goals: clean, merge, replace, build the target and more. NORA does it all." width="1920" height="1080" decoding="async" class=""/><img data-shot="s1c-plan" data-fx="72" data-fy="40" data-z="1.5" src="assets/in-action/en/s1c-plan.jpg" alt="NORA proposes a plan. You approve it." width="1920" height="1080" decoding="async" class=""/><img data-shot="s1d-result" data-fx="68" data-fy="21" data-z="1.8" src="assets/in-action/en/s1d-result.jpg" alt="NORA executes and validates every step. The dataset is ready." width="1920" height="1080" decoding="async" class=""/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="wf-cap on"><span class="wf-cap-n">1</span><span>Upload any data file — CSV, Parquet, XLS — and NORA works on it for you.</span></p><p class="wf-cap"><span class="wf-cap-n">2</span><span>Tell NORA your goals: clean, merge, replace, build the target and more. NORA does it all.</span></p><p class="wf-cap"><span class="wf-cap-n">3</span><span>NORA proposes a plan. You approve it.</span></p><p class="wf-cap"><span class="wf-cap-n">4</span><span>NORA executes and validates every step. The dataset is ready.</span></p><div class="wf-dots"><button type="button" class="on" aria-label="1 / 4"></button><button type="button" class="" aria-label="2 / 4"></button><button type="button" class="" aria-label="3 / 4"></button><button type="button" class="" aria-label="4 / 4"></button></div></figure>
-<div class="wf-cap-row"><span class="wf-num">01</span><span class="wf-k">Data Workspace</span></div>
-<div class="wf-detail"><div class="wf-head"><img class="wf-agent" src="assets/agents/nora.png" alt="" width="40" height="40"/><div><p class="wf-kick"><span class="wf-num">01</span> Data Workspace</p><h3 class="wf-title">NORA gets your data ready</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">01</span><span class="wf-k">Data Workspace</span></div>
+<div class="wf-detail"><div class="wf-head"><img class="wf-agent" src="assets/agents/nora.png" alt="" width="40" height="40"/><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">01</span> Data Workspace</p><h3 class="wf-title">NORA gets your data ready</h3></div></div>
 <p class="wf-desc">Three messy files in different formats and one prompt. NORA plans the work, you approve it, and NORA delivers a clean dataset ready for a new project.</p><div class="wf-chips"><span>Normalize</span><span>Organize</span><span>Repair</span><span>Assemble</span></div><ul class="wf-hl"><li>No code. Just natural language.</li><li>Not weeks, just minutes.</li><li>NORA is your best data scientist for the job.</li></ul></div>
 </li>
 <li class="wf-step" tabindex="0" aria-expanded="false">
 <figure class="wf-shots"><img data-shot="s2-family" data-fx="44" data-fy="48" data-z="1.7" src="assets/in-action/en/s2-family.jpg" alt="Pick the model family: Origination &amp; Underwriting." width="1920" height="1080" decoding="async" class="on"/><img data-shot="s2b-type" data-fx="58" data-fy="62" data-z="1.6" src="assets/in-action/en/s2b-type.jpg" alt="Then the model type: credit risk at origination." width="1920" height="1080" decoding="async" class=""/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="wf-cap on"><span class="wf-cap-n">1</span><span>Pick the model family: Origination &amp; Underwriting.</span></p><p class="wf-cap"><span class="wf-cap-n">2</span><span>Then the model type: credit risk at origination.</span></p><div class="wf-dots"><button type="button" class="on" aria-label="1 / 2"></button><button type="button" class="" aria-label="2 / 2"></button></div></figure>
-<div class="wf-cap-row"><span class="wf-num">02</span><span class="wf-k">Project setup</span></div>
-<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-num">02</span> Project setup</p><h3 class="wf-title">Choose the model family and type</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">02</span><span class="wf-k">Project setup</span></div>
+<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">02</span> Project setup</p><h3 class="wf-title">Choose the model family and type</h3></div></div>
 <p class="wf-desc">Pick the business problem you want to solve and Thorcast sets up the project to match it.</p><ul class="wf-hl"><li>Built around your business problem.</li><li>Credit, fraud, collections, marketing, pricing and more.</li></ul></div>
 </li>
 <li class="wf-step" tabindex="0" aria-expanded="false">
 <figure class="wf-shots"><img data-shot="s3-enrich" data-fx="60" data-fy="33" data-z="1.6" src="assets/in-action/en/s3-enrich.jpg" alt="Add 3,000+ data points" width="1920" height="1080" decoding="async" class="on"/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
-<div class="wf-cap-row"><span class="wf-num">03</span><span class="wf-k">Data enrichment</span></div>
-<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-num">03</span> Data enrichment</p><h3 class="wf-title">Add 3,000+ data points</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">03</span><span class="wf-k">Data enrichment</span></div>
+<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">03</span> Data enrichment</p><h3 class="wf-title">Add 3,000+ data points</h3></div></div>
 <p class="wf-desc">Enrich your dataset with alternative data available only on the Thorcast platform.</p><ul class="wf-hl"><li>3,000+ alternative data points.</li><li>Exclusive to the platform.</li><li>No procurement. No pilots.</li></ul></div>
 </li>
 <li class="wf-step" tabindex="0" aria-expanded="false">
 <figure class="wf-shots"><img data-shot="s4a-plan" data-fx="68" data-fy="82" data-z="1.9" src="assets/in-action/en/s4a-plan.jpg" alt="MJÖ proposes a mission plan. One approval runs it." width="1920" height="1080" decoding="async" class="on"/><img data-shot="s4b-run" data-fx="88" data-fy="60" data-z="1.7" src="assets/in-action/en/s4b-run.jpg" alt="MJÖ prepares the data and trains several models." width="1920" height="1080" decoding="async" class=""/><img data-shot="s4c-best" data-fx="80" data-fy="45" data-z="1.5" src="assets/in-action/en/s4c-best.jpg" alt="The best model, ready to review." width="1920" height="1080" decoding="async" class=""/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="wf-cap on"><span class="wf-cap-n">1</span><span>MJÖ proposes a mission plan. One approval runs it.</span></p><p class="wf-cap"><span class="wf-cap-n">2</span><span>MJÖ prepares the data and trains several models.</span></p><p class="wf-cap"><span class="wf-cap-n">3</span><span>The best model, ready to review.</span></p><div class="wf-dots"><button type="button" class="on" aria-label="1 / 3"></button><button type="button" class="" aria-label="2 / 3"></button><button type="button" class="" aria-label="3 / 3"></button></div></figure>
-<div class="wf-cap-row"><span class="wf-num">04</span><span class="wf-k">MJÖ · AutoML</span></div>
-<div class="wf-detail"><div class="wf-head"><img class="wf-agent" src="assets/agents/mjo.png" alt="" width="40" height="40"/><div><p class="wf-kick"><span class="wf-num">04</span> MJÖ · AutoML</p><h3 class="wf-title">One prompt: the best credit admission model</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">04</span><span class="wf-k">MJÖ · AutoML</span></div>
+<div class="wf-detail"><div class="wf-head"><img class="wf-agent" src="assets/agents/mjo.png" alt="" width="40" height="40"/><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">04</span> MJÖ · AutoML</p><h3 class="wf-title">One prompt: the best credit admission model</h3></div></div>
 <p class="wf-desc">MJÖ plans the preprocessing, recommends new variables, trains and compares several models, and presents the best one.</p><ul class="wf-hl"><li>One prompt. One approval.</li><li>Several algorithms compared.</li><li>The champion, chosen on evidence.</li></ul></div>
 </li>
 <li class="wf-step" tabindex="0" aria-expanded="false">
 <figure class="wf-shots"><img data-shot="s5a-gini" data-fx="72" data-fy="58" data-z="1.6" src="assets/in-action/en/s5a-gini.jpg" alt="Model performance: Gini and ROC curve." width="1920" height="1080" decoding="async" class="on"/><img data-shot="s5b-report" data-fx="36" data-fy="50" data-z="1.6" src="assets/in-action/en/s5b-report.jpg" alt="The HTML technical report, with MJÖ&#x27;s synthesis." width="1920" height="1080" decoding="async" class=""/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="wf-cap on"><span class="wf-cap-n">1</span><span>Model performance: Gini and ROC curve.</span></p><p class="wf-cap"><span class="wf-cap-n">2</span><span>The HTML technical report, with MJÖ&#x27;s synthesis.</span></p><div class="wf-dots"><button type="button" class="on" aria-label="1 / 2"></button><button type="button" class="" aria-label="2 / 2"></button></div></figure>
-<div class="wf-cap-row"><span class="wf-num">05</span><span class="wf-k">Results &amp; audit</span></div>
-<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-num">05</span> Results &amp; audit</p><h3 class="wf-title">Review results. Download the audit report.</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">05</span><span class="wf-k">Results &amp; audit</span></div>
+<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">05</span> Results &amp; audit</p><h3 class="wf-title">Review results. Download the audit report.</h3></div></div>
 <p class="wf-desc">Industry-standard metrics and a technical report ready for audit, including MJÖ&#x27;s written synthesis.</p><ul class="wf-hl"><li>Gini · KS · ROC</li><li>Audit-ready technical report.</li><li>MJÖ synthesis included.</li></ul></div>
 </li>
 <li class="wf-step" tabindex="0" aria-expanded="false">
 <figure class="wf-shots"><img data-shot="s6a-inputs" data-fx="45" data-fy="42" data-z="1.5" src="assets/in-action/en/s6a-inputs.jpg" alt="Enter the economics of your credit policy." width="1920" height="1080" decoding="async" class="on"/><img data-shot="s6b-curves" data-fx="66" data-fy="24" data-z="1.6" src="assets/in-action/en/s6b-curves.jpg" alt="Profit, risk and approval for every cutoff." width="1920" height="1080" decoding="async" class=""/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="wf-cap on"><span class="wf-cap-n">1</span><span>Enter the economics of your credit policy.</span></p><p class="wf-cap"><span class="wf-cap-n">2</span><span>Profit, risk and approval for every cutoff.</span></p><div class="wf-dots"><button type="button" class="on" aria-label="1 / 2"></button><button type="button" class="" aria-label="2 / 2"></button></div></figure>
-<div class="wf-cap-row"><span class="wf-num">06</span><span class="wf-k">Decision layer</span></div>
-<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-num">06</span> Decision layer</p><h3 class="wf-title">Set the cutoff</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">06</span><span class="wf-k">Decision layer</span></div>
+<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">06</span> Decision layer</p><h3 class="wf-title">Set the cutoff</h3></div></div>
 <p class="wf-desc">Turn the score into a credit policy: approval rate, risk and economic impact for every cutoff.</p><ul class="wf-hl"><li>Economic impact per cutoff.</li><li>Approval rate and risk side by side.</li></ul></div>
 </li>
 <li class="wf-step" tabindex="0" aria-expanded="false">
 <figure class="wf-shots"><img data-shot="s7-deploy" data-fx="50" data-fy="50" data-z="1.25" src="assets/in-action/en/s7-deploy.jpg" alt="Deploy where you need it" width="1920" height="1080" decoding="async" class="on"/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
-<div class="wf-cap-row"><span class="wf-num">07</span><span class="wf-k">Deployment</span></div>
-<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-num">07</span> Deployment</p><h3 class="wf-title">Deploy where you need it</h3></div></div>
+<div class="wf-cap-row"><span class="wf-lbl">Step</span><span class="wf-num">07</span><span class="wf-k">Deployment</span></div>
+<div class="wf-detail"><div class="wf-head"><div><p class="wf-kick"><span class="wf-lbl">Step</span> <span class="wf-num">07</span> Deployment</p><h3 class="wf-title">Deploy where you need it</h3></div></div>
 <p class="wf-desc">Put the model to work in Thorcast Cloud, on your own premises, or right in the app.</p><ul class="wf-hl"><li>One click.</li><li>Cloud · On-premise · In-app.</li></ul></div>
 </li>
 </ol>
@@ -3639,6 +3657,7 @@ Object.assign(THORCAST_I18N.pt, {"AI Data Engineer": "Data Engineer com IA", "Tr
 // Blog (estante)
 Object.assign(THORCAST_I18N.es, {"Ideas from the Thorcast team.": "Ideas del equipo de Thorcast.", "View more": "Ver más", "Previous articles": "Artículos anteriores", "Next articles": "Artículos siguientes", "Blog articles": "Artículos del blog"});
 Object.assign(THORCAST_I18N.pt, {"Ideas from the Thorcast team.": "Ideias da equipe Thorcast.", "View more": "Ver mais", "Previous articles": "Artigos anteriores", "Next articles": "Próximos artigos", "Blog articles": "Artigos do blog"});
+Object.assign(THORCAST_I18N.es,{"Step":"Etapa"});Object.assign(THORCAST_I18N.pt,{"Step":"Etapa"});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
