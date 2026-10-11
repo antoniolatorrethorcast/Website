@@ -2738,6 +2738,12 @@ section[id] { scroll-margin-top: 64px; }
 @media (max-width: 768px) { #hero .stats-row { padding-left: 20px; padding-right: 20px; } #hero .stat-item { min-width: 0; } #hero .stat-lbl { font-size: 13px; } }
 @media (prefers-reduced-motion: reduce) { #hero .months-word::after { animation: none; transform: rotate(-7deg) scaleX(1); } }
 
+
+/* Thorcast en acción: título en 3 líneas (blanco, azul, gris) */
+.ia-title > span { display: block; }
+.ia-title .ia-l1 { color: var(--text-white); }
+.ia-title .ia-l2 { color: var(--accent-blue); }
+.ia-title .ia-l3 { color: #8a8f9c; }
 </style>
 </head>
 <body>
@@ -2798,34 +2804,6 @@ section[id] { scroll-margin-top: 64px; }
 <div class="stat-item"><span class="stat-num">Minutes <span class="stat-or">not</span> <span class="months-word">Months</span></span><span class="stat-lbl">Gain Time to Market</span></div>
 <div class="stat-item"><span class="stat-num">⇒ More EBITDA</span><span class="stat-lbl">More Intelligence at the fastest pace</span></div>
 </div>
-<!-- TICKER -->
-<div class="ticker">
-<div class="ticker-track">
-<span>· RETAIL ANALYTICS</span>
-<span>· ALTERNATIVE DATA</span>
-<span>· EXPLAINABLE AI</span>
-<span>· REGULATORY COMPLIANCE</span>
-<span>· ON-PREMISE DEPLOYMENT</span>
-<span>· BNPL RISK</span>
-<span>· INCOME ESTIMATION</span>
-<span>· CHURN PREDICTION</span>
-<span>· BANKING &amp; LENDING</span>
-<span>· CREDIT SCORING</span>
-<span>· FRAUD DETECTION</span>
-<!-- duplicate for seamless loop -->
-<span>· RETAIL ANALYTICS</span>
-<span>· ALTERNATIVE DATA</span>
-<span>· EXPLAINABLE AI</span>
-<span>· REGULATORY COMPLIANCE</span>
-<span>· ON-PREMISE DEPLOYMENT</span>
-<span>· BNPL RISK</span>
-<span>· INCOME ESTIMATION</span>
-<span>· CHURN PREDICTION</span>
-<span>· BANKING &amp; LENDING</span>
-<span>· CREDIT SCORING</span>
-<span>· FRAUD DETECTION</span>
-</div>
-</div>
 </section>
 <!-- ============================================================
      SECTION 02 – THORCAST IN ACTION (workflow de 7 etapas, diseño B)
@@ -2833,7 +2811,7 @@ section[id] { scroll-margin-top: 64px; }
 <section id="in-action" aria-labelledby="in-action-title">
 <div class="ia-head reveal">
 <div class="section-badge"><div class="badge-line"></div><span class="badge-txt">THORCAST IN ACTION</span></div>
-<h2 id="in-action-title" class="ia-title"><span>From messy data to a deployed model.</span> <span class="ia-title-accent">Seven steps, one platform.</span></h2>
+<h2 id="in-action-title" class="ia-title"><span class="ia-l1">From messy data</span> <span class="ia-l2">to a deployed model.</span> <span class="ia-l3">Seven steps, one platform.</span></h2>
 <p class="ia-lead">A real credit admission case, step by step. Click each stage to see it in the product.</p>
 </div>
 <ol class="wf" aria-label="Thorcast workflow" data-focus='{"en":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[68,21,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,60,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]},"es":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[32.3,27.8,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,55,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]},"pt":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[32.3,27.8,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,55,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]}}'>
@@ -3830,6 +3808,9 @@ Object.assign(THORCAST_I18N.pt, {"1:24 · Spanish": "1:24 · Espanhol", "Motor q
 // Hero · cifras de Codex (recuperado de su sesión, 2026-10-10)
 Object.assign(THORCAST_I18N.es, {"Thorcast benefits": "Beneficios de Thorcast", "or": "o", "not": "no", "Minutes": "Minutos", "Months": "Meses", "Boost your Model Performance": "Mejora el rendimiento de tu modelo", "Gain Time to Market": "Acelera tu salida al mercado", "⇒ More EBITDA": "⇒ Más EBITDA", "More Intelligence at the fastest pace": "Más inteligencia, a máxima velocidad", "3,000+ data points": "Más de 3.000 datos adicionales", "Achieve optimal performance": "Alcanza un rendimiento óptimo"});
 Object.assign(THORCAST_I18N.pt, {"Thorcast benefits": "Benefícios da Thorcast", "or": "ou", "not": "não", "Minutes": "Minutos", "Months": "Meses", "Boost your Model Performance": "Melhore o desempenho do seu modelo", "Gain Time to Market": "Acelere a chegada ao mercado", "⇒ More EBITDA": "⇒ Mais EBITDA", "More Intelligence at the fastest pace": "Mais inteligência, na maior velocidade", "3,000+ data points": "Mais de 3.000 dados adicionais", "Achieve optimal performance": "Alcance o melhor desempenho"});
+// Thorcast en acción · título en 3 líneas
+Object.assign(THORCAST_I18N.es, {"From messy data": "De datos desordenados", "to a deployed model.": "a un modelo desplegado.", "Seven steps, one platform.": "Siete pasos, una plataforma."});
+Object.assign(THORCAST_I18N.pt, {"From messy data": "De dados bagunçados", "to a deployed model.": "a um modelo implantado.", "Seven steps, one platform.": "Sete passos, uma plataforma."});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
