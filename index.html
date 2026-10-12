@@ -3009,6 +3009,25 @@ section[id] { scroll-margin-top: 64px; }
 @media (max-width: 900px) { .den-net { grid-template-columns: 1fr; gap: 18px; } .den-wire { display: none; } .den-fams { grid-template-columns: 1fr; } .den-inputs { flex-direction: row; flex-wrap: wrap; } .den-lbl { width: 100%; } .den-pca { grid-template-columns: auto auto auto; } .den-pca p { grid-column: 1 / -1; } }
 @media (max-width: 768px) { #den .den-wrap { padding: 48px 16px 56px; } }
 @media (prefers-reduced-motion: reduce) { .den-wire path { animation: none; } }
+
+/* In Action: flecha amarilla grande que avanza de izquierda a derecha bajo las 7 etapas — «minutos, no meses» (ciclo de 5 s) */
+.ia-span { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: center; margin-top: 30px; }
+.ia-span-end { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--text-gray); white-space: nowrap; }
+.ia-span-end-r { color: var(--accent-yellow); }
+.ia-span-track { display: flex; flex-direction: column; align-items: stretch; gap: 10px; min-width: 0; }
+.ia-span-msg { margin: 0; font-size: clamp(16px, 1.6vw, 22px); font-weight: 800; color: #fff; text-align: center; }
+.ia-span-msg strong { color: var(--accent-yellow); }
+.ia-span-not { color: var(--text-gray); font-weight: 700; }
+.ia-span-months { position: relative; color: var(--text-gray); white-space: nowrap; }
+.ia-span-months::after { content: ""; position: absolute; left: -3%; right: -3%; top: 54%; height: 3px; background: #e34848; transform: rotate(-6deg) scaleX(0); transform-origin: left center; animation: ia-span-strike 5s ease-in-out infinite; }
+.ia-span-arrow { position: relative; height: 34px; border-radius: 999px; background: linear-gradient(90deg, rgba(245,166,35,.10), rgba(245,166,35,.04)); }
+.ia-span-shaft { position: absolute; left: 0; top: 50%; height: 12px; margin-top: -6px; width: 0; border-radius: 6px 0 0 6px; background: linear-gradient(90deg, rgba(245,166,35,.35), var(--accent-yellow)); box-shadow: 0 0 18px rgba(245,166,35,.45); animation: ia-span-grow 5s cubic-bezier(.45,0,.2,1) infinite; }
+.ia-span-head { position: absolute; top: 0; left: 0; width: 0; height: 0; border-top: 17px solid transparent; border-bottom: 17px solid transparent; border-left: 30px solid var(--accent-yellow); filter: drop-shadow(0 0 10px rgba(245,166,35,.55)); animation: ia-span-head 5s cubic-bezier(.45,0,.2,1) infinite; }
+@keyframes ia-span-grow { 0% { width: 0; opacity: 1; } 55% { width: calc(100% - 28px); opacity: 1; } 85% { width: calc(100% - 28px); opacity: 1; } 100% { width: calc(100% - 28px); opacity: 0; } }
+@keyframes ia-span-head { 0% { left: 0; opacity: 1; } 55% { left: calc(100% - 30px); opacity: 1; } 85% { left: calc(100% - 30px); opacity: 1; } 100% { left: calc(100% - 30px); opacity: 0; } }
+@keyframes ia-span-strike { 0%, 55% { transform: rotate(-6deg) scaleX(0); opacity: 1; } 65%, 85% { transform: rotate(-6deg) scaleX(1); opacity: 1; } 100% { transform: rotate(-6deg) scaleX(1); opacity: 0; } }
+@media (max-width: 900px) { .ia-span { grid-template-columns: 1fr 1fr; } .ia-span-track { grid-column: 1 / -1; grid-row: 1; } .ia-span-end-r { text-align: right; } }
+@media (prefers-reduced-motion: reduce) { .ia-span-shaft { animation: none; width: calc(100% - 28px); } .ia-span-head { animation: none; left: calc(100% - 30px); } .ia-span-months::after { animation: none; transform: rotate(-6deg) scaleX(1); } }
 </style>
 </head>
 <body>
@@ -3122,6 +3141,11 @@ section[id] { scroll-margin-top: 64px; }
 <p class="wf-desc">Put the model to work in Thorcast Cloud, on your own premises, or right in the app.</p><ul class="wf-hl"><li>One click.</li><li>Cloud · On-premise · In-app.</li></ul></div>
 </li>
 </ol>
+<div class="ia-span" aria-label="End to end in minutes, not months">
+<span class="ia-span-end">Raw data</span>
+<div class="ia-span-track"><p class="ia-span-msg"><span>Full cycle, end to end:</span> <strong>minutes</strong> <span class="ia-span-not">not</span> <span class="ia-span-months">months</span></p><div class="ia-span-arrow" aria-hidden="true"><span class="ia-span-shaft"></span><span class="ia-span-head"></span></div></div>
+<span class="ia-span-end ia-span-end-r">Deployed model</span>
+</div>
 <p class="ia-note-line">Real screens from the Thorcast platform.</p>
 </section>
 
@@ -3755,6 +3779,8 @@ Object.assign(THORCAST_I18N.pt, {"Ideas from the Thorcast team.": "Ideias da equ
 Object.assign(THORCAST_I18N.es,{"Step":"Etapa"});Object.assign(THORCAST_I18N.pt,{"Step":"Etapa"});
 Object.assign(THORCAST_I18N.es, {"DATA": "DATOS", "Data": "Datos", "Your data tells half the story.": "Tus datos cuentan la mitad de la historia.", "Thorcast brings the other half.": "Thorcast aporta la otra mitad.", "The best data on the market, one click away.": "La mejor data del mercado, a un clic.", "Every record already holds a key — an email, a phone, an address. The Thorcast Enrichment Network turns each key into new, model-ready signals, and you choose which families to add.": "Cada registro ya tiene una llave: un email, un teléfono, una dirección. La Thorcast Enrichment Network convierte cada llave en señales nuevas, listas para el modelo, y tú eliges qué familias agregar.", "3,000+": "3.000+", "More than 3,000 data points, condensed into 261 model-ready signals.": "Más de 3.000 data points, condensados en 261 señales listas para el modelo.", "To maximize performance and keep your models simple to build, explain and run.": "Para maximizar el desempeño y que tus modelos sigan siendo simples de construir, explicar y operar.", "What you already have": "Lo que ya tienes", "Address": "Dirección", "Phone": "Teléfono", "Location": "Ubicación", "Block level": "Por manzana", "The profile of the area where the person lives, plus essential email and phone attributes such as validity and operator.": "El perfil del área donde vive la persona, más atributos esenciales del email y del teléfono, como su validez y el operador.", "55 address · 25 email · 10 phone": "55 dirección · 25 email · 10 teléfono", "127 email · 44 phone": "127 email · 44 teléfono", "The digital footprint behind an email or a phone: which kinds of platforms it is linked to.": "La huella digital detrás de un email o un teléfono: a qué tipos de plataformas está vinculado.", "Area profiles, points of interest and drive-time zones around any location, on a private map.": "Perfiles de zona, puntos de interés y áreas de tiempo de traslado alrededor de cualquier ubicación, en un mapa privado.", "Tradelines, delinquency history and score bands from the bureau.": "Líneas de crédito, historial de morosidad y tramos de score del bureau."});
 Object.assign(THORCAST_I18N.pt, {"DATA": "DADOS", "Data": "Dados", "Your data tells half the story.": "Seus dados contam metade da história.", "Thorcast brings the other half.": "A Thorcast traz a outra metade.", "The best data on the market, one click away.": "Os melhores dados do mercado, a um clique.", "Every record already holds a key — an email, a phone, an address. The Thorcast Enrichment Network turns each key into new, model-ready signals, and you choose which families to add.": "Cada registro já tem uma chave: um e-mail, um telefone, um endereço. A Thorcast Enrichment Network transforma cada chave em novos sinais, prontos para o modelo, e você escolhe quais famílias adicionar.", "3,000+": "3.000+", "More than 3,000 data points, condensed into 261 model-ready signals.": "Mais de 3.000 data points, condensados em 261 sinais prontos para o modelo.", "To maximize performance and keep your models simple to build, explain and run.": "Para maximizar o desempenho e manter seus modelos simples de construir, explicar e operar.", "What you already have": "O que você já tem", "Address": "Endereço", "Email": "E-mail", "Phone": "Telefone", "Location": "Localização", "Block level": "Por quarteirão", "The profile of the area where the person lives, plus essential email and phone attributes such as validity and operator.": "O perfil da área onde a pessoa mora, além de atributos essenciais do e-mail e do telefone, como validade e operadora.", "55 address · 25 email · 10 phone": "55 endereço · 25 e-mail · 10 telefone", "127 email · 44 phone": "127 e-mail · 44 telefone", "The digital footprint behind an email or a phone: which kinds of platforms it is linked to.": "A pegada digital por trás de um e-mail ou telefone: a que tipos de plataformas está vinculado.", "Area profiles, points of interest and drive-time zones around any location, on a private map.": "Perfis de área, pontos de interesse e zonas de tempo de deslocamento ao redor de qualquer local, em um mapa privado.", "Tradelines, delinquency history and score bands from the bureau.": "Linhas de crédito, histórico de inadimplência e faixas de score do bureau."});
+Object.assign(THORCAST_I18N.es, {"Raw data": "Datos crudos", "Deployed model": "Modelo desplegado", "Full cycle, end to end:": "Ciclo completo, de punta a punta:", "minutes": "minutos", "months": "meses"});
+Object.assign(THORCAST_I18N.pt, {"Raw data": "Dados brutos", "Deployed model": "Modelo implantado", "Full cycle, end to end:": "Ciclo completo, de ponta a ponta:", "minutes": "minutos", "months": "meses"});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
