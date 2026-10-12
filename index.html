@@ -2978,6 +2978,8 @@ section[id] { scroll-margin-top: 64px; }
 @media (prefers-reduced-motion: reduce) { #hero .hand-mark path { animation: none; stroke-dashoffset: 0; } }
 
 /* DEN · Data Enrichment Network: tus campos → familias de señales */
+.den-unit { display: inline; margin-left: 8px; font-size: 16px; font-weight: 800; letter-spacing: 0; color: #c9d2dc; white-space: nowrap; }
+@media (max-width: 600px) { .den-unit { display: block; margin-left: 0; font-size: 13px; } }
 #den { background: var(--bg-dark); border-top: 1px solid var(--border-dark); }
 #den .den-wrap { padding: 72px 80px 80px; }
 .den-title { font-size: clamp(30px, 3.8vw, 52px); font-weight: 800; line-height: 1.08; margin: 14px 0 14px; }
@@ -3131,7 +3133,7 @@ section[id] { scroll-margin-top: 64px; }
 <div class="section-badge reveal"><div class="badge-line"></div><span class="badge-txt">DATA ENRICHMENT NETWORK (DEN)</span></div>
 <h2 id="den-title" class="den-title"><span class="den-l1">Your data tells half the story.</span> <span class="den-l2">Thorcast brings the other half.</span> <span class="den-l3">The best data on the market, one click away.</span></h2>
 <p class="den-lead">Every record already holds a key — an email, a phone, an address. The Thorcast Enrichment Network turns each key into new, model-ready signals, and you choose which families to add.</p>
-<div class="den-pca"><strong class="den-from">3,000+</strong><span class="den-arrow" aria-hidden="true">→</span><strong class="den-to">261</strong><p><b>More than 3,000 data points, condensed into 261 model-ready signals.</b> <span>To maximize performance and keep your models simple to build, explain and run.</span></p></div>
+<div class="den-pca"><strong class="den-from">3,000+<small class="den-unit">data points</small></strong><span class="den-arrow" aria-hidden="true">→</span><strong class="den-to">261</strong><p><b>More than 3,000 data points, condensed into 261 model-ready signals.</b> <span>To maximize performance and keep your models simple to build, explain and run.</span></p></div>
 <div class="den-net">
 <div class="den-inputs">
 <p class="den-lbl">What you already have</p>
