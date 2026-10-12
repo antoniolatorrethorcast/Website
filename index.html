@@ -3010,24 +3010,21 @@ section[id] { scroll-margin-top: 64px; }
 @media (max-width: 768px) { #den .den-wrap { padding: 48px 16px 56px; } }
 @media (prefers-reduced-motion: reduce) { .den-wire path { animation: none; } }
 
-/* In Action: flecha amarilla grande que avanza de izquierda a derecha bajo las 7 etapas — «minutos, no meses» (ciclo de 5 s) */
-.ia-span { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: center; margin-top: 30px; }
-.ia-span-end { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--text-gray); white-space: nowrap; }
+/* In Action: flecha amarilla gruesa de «Raw data» a «Deployed model»; crece una vez de izquierda a derecha al llegar a la sección */
+.ia-span { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 18px; row-gap: 14px; align-items: center; margin-top: 34px; }
+.ia-span-end { font-size: 15px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: #fff; white-space: nowrap; }
 .ia-span-end-r { color: var(--accent-yellow); }
-.ia-span-track { display: flex; flex-direction: column; align-items: stretch; gap: 10px; min-width: 0; }
-.ia-span-msg { margin: 0; font-size: clamp(16px, 1.6vw, 22px); font-weight: 800; color: #fff; text-align: center; }
+.ia-span-arrow { position: relative; height: 34px; }
+.ia-span-shaft { position: absolute; left: 0; top: 50%; height: 12px; margin-top: -6px; width: calc(100% - 28px); border-radius: 6px 0 0 6px; background: var(--accent-yellow); transform: scaleX(0); transform-origin: left center; }
+.ia-span-head { position: absolute; top: 0; right: 0; width: 0; height: 0; border-top: 17px solid transparent; border-bottom: 17px solid transparent; border-left: 30px solid var(--accent-yellow); opacity: 0; }
+.ia-span.go .ia-span-shaft { animation: ia-span-shaft 1.6s cubic-bezier(.45,0,.2,1) .15s forwards; }
+.ia-span.go .ia-span-head { animation: ia-span-head .25s ease-out 1.65s forwards; }
+@keyframes ia-span-shaft { to { transform: scaleX(1); } }
+@keyframes ia-span-head { to { opacity: 1; } }
+.ia-span-msg { grid-column: 1 / -1; margin: 0; text-align: center; font-size: clamp(20px, 2.2vw, 30px); font-weight: 800; color: #fff; }
 .ia-span-msg strong { color: var(--accent-yellow); }
-.ia-span-not { color: var(--text-gray); font-weight: 700; }
-.ia-span-months { position: relative; color: var(--text-gray); white-space: nowrap; }
-.ia-span-months::after { content: ""; position: absolute; left: -3%; right: -3%; top: 54%; height: 3px; background: #e34848; transform: rotate(-6deg) scaleX(0); transform-origin: left center; animation: ia-span-strike 5s ease-in-out infinite; }
-.ia-span-arrow { position: relative; height: 34px; border-radius: 999px; background: linear-gradient(90deg, rgba(245,166,35,.10), rgba(245,166,35,.04)); }
-.ia-span-shaft { position: absolute; left: 0; top: 50%; height: 12px; margin-top: -6px; width: 0; border-radius: 6px 0 0 6px; background: linear-gradient(90deg, rgba(245,166,35,.35), var(--accent-yellow)); box-shadow: 0 0 18px rgba(245,166,35,.45); animation: ia-span-grow 5s cubic-bezier(.45,0,.2,1) infinite; }
-.ia-span-head { position: absolute; top: 0; left: 0; width: 0; height: 0; border-top: 17px solid transparent; border-bottom: 17px solid transparent; border-left: 30px solid var(--accent-yellow); filter: drop-shadow(0 0 10px rgba(245,166,35,.55)); animation: ia-span-head 5s cubic-bezier(.45,0,.2,1) infinite; }
-@keyframes ia-span-grow { 0% { width: 0; opacity: 1; } 55% { width: calc(100% - 28px); opacity: 1; } 85% { width: calc(100% - 28px); opacity: 1; } 100% { width: calc(100% - 28px); opacity: 0; } }
-@keyframes ia-span-head { 0% { left: 0; opacity: 1; } 55% { left: calc(100% - 30px); opacity: 1; } 85% { left: calc(100% - 30px); opacity: 1; } 100% { left: calc(100% - 30px); opacity: 0; } }
-@keyframes ia-span-strike { 0%, 55% { transform: rotate(-6deg) scaleX(0); opacity: 1; } 65%, 85% { transform: rotate(-6deg) scaleX(1); opacity: 1; } 100% { transform: rotate(-6deg) scaleX(1); opacity: 0; } }
-@media (max-width: 900px) { .ia-span { grid-template-columns: 1fr 1fr; } .ia-span-track { grid-column: 1 / -1; grid-row: 1; } .ia-span-end-r { text-align: right; } }
-@media (prefers-reduced-motion: reduce) { .ia-span-shaft { animation: none; width: calc(100% - 28px); } .ia-span-head { animation: none; left: calc(100% - 30px); } .ia-span-months::after { animation: none; transform: rotate(-6deg) scaleX(1); } }
+@media (max-width: 600px) { .ia-span { column-gap: 10px; } .ia-span-end { font-size: 11px; } }
+@media (prefers-reduced-motion: reduce) { .ia-span-shaft { transform: none; } .ia-span-head { opacity: 1; } }
 </style>
 </head>
 <body>
@@ -3141,10 +3138,11 @@ section[id] { scroll-margin-top: 64px; }
 <p class="wf-desc">Put the model to work in Thorcast Cloud, on your own premises, or right in the app.</p><ul class="wf-hl"><li>One click.</li><li>Cloud · On-premise · In-app.</li></ul></div>
 </li>
 </ol>
-<div class="ia-span" aria-label="End to end in minutes, not months">
+<div class="ia-span">
 <span class="ia-span-end">Raw data</span>
-<div class="ia-span-track"><p class="ia-span-msg"><span>Full cycle, end to end:</span> <strong>minutes</strong> <span class="ia-span-not">not</span> <span class="ia-span-months">months</span></p><div class="ia-span-arrow" aria-hidden="true"><span class="ia-span-shaft"></span><span class="ia-span-head"></span></div></div>
+<div class="ia-span-arrow" aria-hidden="true"><span class="ia-span-shaft"></span><span class="ia-span-head"></span></div>
 <span class="ia-span-end ia-span-end-r">Deployed model</span>
+<p class="ia-span-msg"><span>Full process takes</span> <strong>minutes, not months!</strong></p>
 </div>
 <p class="ia-note-line">Real screens from the Thorcast platform.</p>
 </section>
@@ -3781,6 +3779,8 @@ Object.assign(THORCAST_I18N.es, {"DATA": "DATOS", "Data": "Datos", "Your data te
 Object.assign(THORCAST_I18N.pt, {"DATA": "DADOS", "Data": "Dados", "Your data tells half the story.": "Seus dados contam metade da história.", "Thorcast brings the other half.": "A Thorcast traz a outra metade.", "The best data on the market, one click away.": "Os melhores dados do mercado, a um clique.", "Every record already holds a key — an email, a phone, an address. The Thorcast Enrichment Network turns each key into new, model-ready signals, and you choose which families to add.": "Cada registro já tem uma chave: um e-mail, um telefone, um endereço. A Thorcast Enrichment Network transforma cada chave em novos sinais, prontos para o modelo, e você escolhe quais famílias adicionar.", "3,000+": "3.000+", "More than 3,000 data points, condensed into 261 model-ready signals.": "Mais de 3.000 data points, condensados em 261 sinais prontos para o modelo.", "To maximize performance and keep your models simple to build, explain and run.": "Para maximizar o desempenho e manter seus modelos simples de construir, explicar e operar.", "What you already have": "O que você já tem", "Address": "Endereço", "Email": "E-mail", "Phone": "Telefone", "Location": "Localização", "Block level": "Por quarteirão", "The profile of the area where the person lives, plus essential email and phone attributes such as validity and operator.": "O perfil da área onde a pessoa mora, além de atributos essenciais do e-mail e do telefone, como validade e operadora.", "55 address · 25 email · 10 phone": "55 endereço · 25 e-mail · 10 telefone", "127 email · 44 phone": "127 e-mail · 44 telefone", "The digital footprint behind an email or a phone: which kinds of platforms it is linked to.": "A pegada digital por trás de um e-mail ou telefone: a que tipos de plataformas está vinculado.", "Area profiles, points of interest and drive-time zones around any location, on a private map.": "Perfis de área, pontos de interesse e zonas de tempo de deslocamento ao redor de qualquer local, em um mapa privado.", "Tradelines, delinquency history and score bands from the bureau.": "Linhas de crédito, histórico de inadimplência e faixas de score do bureau."});
 Object.assign(THORCAST_I18N.es, {"Raw data": "Datos crudos", "Deployed model": "Modelo desplegado", "Full cycle, end to end:": "Ciclo completo, de punta a punta:", "minutes": "minutos", "months": "meses"});
 Object.assign(THORCAST_I18N.pt, {"Raw data": "Dados brutos", "Deployed model": "Modelo implantado", "Full cycle, end to end:": "Ciclo completo, de ponta a ponta:", "minutes": "minutos", "months": "meses"});
+Object.assign(THORCAST_I18N.es, {"Full process takes": "¡El proceso completo toma", "minutes, not months!": "minutos, no meses!"});
+Object.assign(THORCAST_I18N.pt, {"Full process takes": "O processo completo leva", "minutes, not months!": "minutos, não meses!"});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
@@ -4606,6 +4606,16 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
   };
   set(typeof thorcastCurrentLang !== 'undefined' ? thorcastCurrentLang : 'en');
   document.querySelectorAll('.lang-btn').forEach((b) => b.addEventListener('click', () => set(b.dataset.lang)));
+})();
+</script>
+<script id="ia-span-arrow">
+// Flecha de In Action: crece de izquierda a derecha una sola vez, cuando la sección entra en pantalla.
+(() => {
+  const el = document.querySelector('.ia-span'); if (!el) return;
+  const go = () => el.classList.add('go');
+  if (!('IntersectionObserver' in window)) return go();
+  const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { go(); io.disconnect(); } }, { threshold: 0.8 });
+  io.observe(el);
 })();
 </script>
 </body>
