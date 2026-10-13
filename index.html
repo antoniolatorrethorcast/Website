@@ -3097,11 +3097,8 @@ section[id] { scroll-margin-top: 64px; }
   #agents .cf-code { font-size: 10.5px; flex: none; height: 340px; }
 }
 @media (prefers-reduced-motion: reduce) { #agents .cf-strike path { stroke-dashoffset: 0; } #agents .cf-w { clip-path: none !important; } #agents .cf-code { opacity: .72; } #agents .cf-side-old, #agents .cf-side-old * { transition: none !important; } }
-/* Hero «Smarter Analytics. EBITDA follows.»: video del producto de fondo atenuado, cuatro palancas que convergen en EBITDA */
-#hero.hx { position: relative; overflow: hidden; min-height: 820px; padding: 128px 80px 72px; }
-#hero .hx-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-#hero .hx-video { width: 100%; height: 100%; object-fit: cover; opacity: .28; filter: saturate(.8); }
-#hero .hx-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 38%, rgba(13,15,20,.5), rgba(13,15,20,.97) 72%); }
+/* Hero «Smarter Analytics. EBITDA follows.»: fondo limpio con brillo azul suave y cuatro palancas que convergen en EBITDA */
+#hero.hx { position: relative; overflow: hidden; min-height: 820px; padding: 128px 80px 72px; background: radial-gradient(ellipse at 50% 30%, rgba(58,176,240,.10), transparent 60%), var(--bg-dark); }
 #hero .hx-in { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; text-align: center; }
 #hero .hx-kick { margin: 0 0 16px; color: var(--accent-blue); font-size: 12px; font-weight: 900; letter-spacing: .16em; }
 #hero .hx-title { margin: 0 0 18px; font-size: clamp(38px, 5vw, 70px); font-weight: 900; line-height: 1.04; color: #fff; }
@@ -3152,7 +3149,6 @@ section[id] { scroll-margin-top: 64px; }
      SECTION 01 – HERO
      ============================================================ -->
 <section id="hero" class="hx">
-<div class="hx-bg"><video class="hx-video" aria-hidden="true" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster-nora-start.jpg" disablepictureinpicture disableremoteplayback><source src="assets/videos/hero-video-andean-volcano-journey-v7.en.mp4" type="video/mp4" data-hero-src="assets/videos/hero-video-andean-volcano-journey-v7.{lang}.mp4">Your browser does not support the video tag.</video></div>
 <div class="hx-in">
 <p class="hx-kick">THE AI PLATFORM DATA SCIENCE TEAMS WISH THEY HAD</p>
 <h1 class="hx-title"><span>Smarter Analytics.</span> <span class="hx-y">EBITDA follows.</span></h1>
