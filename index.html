@@ -2957,14 +2957,14 @@ section[id] { scroll-margin-top: 64px; }
 .sl-uc .sl-uctag { display: block; max-width: 100%; white-space: normal; background: none; color: var(--text-gray); padding: 0; border-radius: 0; font-size: 9px; font-weight: 700; letter-spacing: .08em; line-height: 1.3; }
 .sl-uc .sl-uctxt { align-self: stretch; justify-content: center; }
 
-/* In Action: número y nombre de la etapa arriba, imagen abajo (tarjetas cerradas y abierta) */
+/* In Action: número y nombre de la etapa arriba, luego su texto y la imagen al final (tarjetas cerradas y abierta) */
 .wf-step .wf-cap-row { order: -1; }
 .wf-step:not(.is-active) .wf-cap-row { min-height: 104px; }
 @media (max-width: 900px) { .wf-step:not(.is-active) .wf-cap-row { min-height: 0; } }
 .wf-step.is-active .wf-detail { display: contents; }
 .wf-step.is-active .wf-head { order: -1; animation: wf-in .45s .15s both; }
 .wf-step.is-active .wf-shots { order: 0; }
-.wf-step.is-active .wf-desc, .wf-step.is-active .wf-chips, .wf-step.is-active .wf-hl { order: 1; animation: wf-in .45s .2s both; }
+.wf-step.is-active .wf-desc, .wf-step.is-active .wf-chips, .wf-step.is-active .wf-hl { order: -1; animation: wf-in .45s .2s both; }
 @media (prefers-reduced-motion: reduce) { .wf-step.is-active .wf-head, .wf-step.is-active .wf-desc, .wf-step.is-active .wf-chips, .wf-step.is-active .wf-hl { animation: none; } }
 
 /* Hero: círculos «a lápiz» sobre 3,000 · +45% · −30% · EBITDA, en secuencia con el tachado de Months (ciclo de 14 s, ~1,6 s entre marcas) */
