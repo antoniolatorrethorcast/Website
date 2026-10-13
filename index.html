@@ -3047,9 +3047,38 @@ section[id] { scroll-margin-top: 64px; }
 #agents .cf-sh { position: absolute; left: 0; top: 50%; height: 10px; margin-top: -5px; width: calc(100% - 22px); border-radius: 5px 0 0 5px; background: var(--accent-yellow); transform: scaleX(0); transform-origin: left center; transition: transform .5s cubic-bezier(.45,0,.2,1) 1.5s; }
 #agents .cf-hd { position: absolute; right: 0; top: 0; border-top: 13px solid transparent; border-bottom: 13px solid transparent; border-left: 24px solid var(--accent-yellow); opacity: 0; transition: opacity .2s 1.95s; }
 #agents .cf-chat { grid-area: chat; display: flex; flex-direction: column; gap: 10px; opacity: 0; transform: translateY(8px); transition: opacity .4s 2.1s, transform .4s 2.1s; }
-#agents .cf-bub { align-self: flex-end; max-width: 92%; margin: 0; background: var(--accent-blue); color: #08131c; font-weight: 700; font-size: 16px; line-height: 1.45; padding: 14px 18px; border-radius: 16px 16px 4px 16px; }
-#agents .cf-rep { display: flex; gap: 10px; align-items: center; margin: 0; color: #cfd6e0; font-size: 14px; font-weight: 700; }
-#agents .cf-rep img { width: 34px; height: 34px; border-radius: 50%; }
+#agents .cf-chat { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; background: #15181d; border: 1px solid #2a2f37; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+#agents .n-head { display: flex; align-items: center; gap: 12px; background: #12aee8; padding: 11px 14px; }
+#agents .n-head img { width: 30px; height: 30px; border-radius: 50%; } #agents .n-head b { flex: 1; font-weight: 600; font-size: 15px; color: #0b1620; }
+#agents .n-up { font-size: 12px; font-weight: 500; color: #0b1620; border: 1px solid rgba(11,22,32,.45); border-radius: 7px; padding: 5px 10px; }
+#agents .n-body { display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; height: 372px; overflow: hidden; padding: 16px 14px; }
+#agents .n-row { display: flex; gap: 10px; align-items: flex-start; flex-shrink: 0; }
+#agents .n-who { width: 58px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; font-size: 10.5px; font-weight: 600; line-height: 1.2; color: #a3e635; }
+#agents .n-who img { width: 28px; height: 28px; border-radius: 50%; margin-bottom: 4px; }
+#agents .n-card { margin: 0; background: #262a31; color: #e6e9ee; border-radius: 10px; padding: 11px 13px; font-size: 13.5px; line-height: 1.5; }
+#agents .n-card p { margin: 0; } #agents .n-card ol { margin: 6px 0; padding-left: 18px; } #agents .n-card li { margin: 3px 0; }
+#agents .n-card code { font: 12px ui-monospace, Menlo, monospace; color: #38bdf8; background: #1b2b3a; border-radius: 4px; padding: 1px 5px; }
+#agents .n-btns { display: flex; gap: 8px; margin-top: 8px !important; } #agents .n-btns span { font-size: 12px; font-weight: 600; border-radius: 7px; padding: 6px 12px; border: 1px solid #3a404a; color: #c9d2dc; } #agents .n-btns .go { background: #12aee8; border-color: #12aee8; color: #fff; }
+#agents .n-me { align-self: flex-end; flex-shrink: 0; max-width: 86%; margin: 0; background: #12aee8; color: #fff; font-size: 13.5px; font-weight: 500; line-height: 1.45; border-radius: 10px; padding: 10px 13px; }
+#agents .n-dots { display: none; }
+#agents .n-typing { display: inline-flex; gap: 4px; } #agents .n-typing i { width: 6px; height: 6px; border-radius: 50%; background: #9aa3b0; animation: n-dot 1s infinite; } #agents .n-typing i:nth-child(2) { animation-delay: .15s; } #agents .n-typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes n-dot { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+#agents .n-comp { margin: 0 14px 14px; border: 1px solid #343a44; border-radius: 12px; padding: 12px 12px 10px 14px; display: flex; align-items: flex-end; gap: 10px; min-height: 64px; transition: border-color .2s, box-shadow .2s; }
+#agents .n-txt { flex: 1; margin: 0; font-size: 13.5px; line-height: 1.45; color: #e6e9ee; } #agents .n-ph { color: #7c8593; }
+#agents .n-ico { display: flex; gap: 8px; align-items: center; color: #9aa3b0; } #agents .n-ico svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+#agents .n-send { width: 30px; height: 30px; border-radius: 50%; background: #12aee8; display: grid; place-items: center; transition: transform .15s; } #agents .n-send svg { stroke: #fff; }
+/* Animación: el JS arma .cf-chat (oculta lo que aún no ocurre) y avanza por pasos al llegar a la sección */
+#agents .cf-chat.armed .n-me, #agents .cf-chat.armed .n-plan { display: none; }
+#agents .cf-chat.armed.s-focus .n-comp { border-color: #12aee8; box-shadow: inset 0 0 0 1px #12aee8; }
+#agents .cf-chat.armed.s-focus .n-ph { display: none; }
+#agents .n-typed:not(:empty)::after { content: ""; display: inline-block; width: 1px; height: 15px; margin-left: 1px; background: #e6e9ee; vertical-align: -2px; animation: n-caret 1s steps(1) infinite; }
+@keyframes n-caret { 50% { opacity: 0; } }
+#agents .cf-chat.armed.s-press .n-send { transform: scale(.85); }
+#agents .cf-chat.armed.s-sent .n-me { display: block; animation: n-pop .35s ease both; }
+#agents .cf-chat.armed.s-dots .n-dots { display: flex; animation: n-pop .3s ease both; }
+#agents .cf-chat.armed.s-plan .n-dots { display: none; }
+#agents .cf-chat.armed.s-plan .n-plan { display: flex; animation: n-pop .35s ease both; }
+@keyframes n-pop { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 #agents .cf-msg { grid-area: msg; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-top: 12px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.08); }
 #agents .cf-msg strong { font-size: clamp(24px, 2.6vw, 34px); font-weight: 900; color: #fff; } #agents .cf-msg strong em { font-style: normal; color: var(--accent-blue); }
 #agents .cf-msg > span { color: #cfd6e0; font-size: 15px; max-width: 460px; }
@@ -3059,6 +3088,7 @@ section[id] { scroll-margin-top: 64px; }
 #agents .cf.go .cf-sh { transform: scaleX(1); } #agents .cf.go .cf-hd { opacity: 1; }
 #agents .cf.go .cf-chat { opacity: 1; transform: none; }
 @media (max-width: 900px) {
+  #agents .n-body { height: 400px; }
   #agents .cf { grid-template-columns: minmax(0, 1fr); grid-template-areas: "ll" "old" "mid" "lr" "chat" "msg"; padding: 18px; }
   #agents .cf-mid { height: 60px; width: 26px; margin: 4px auto; }
   #agents .cf-sh { width: 10px; height: calc(100% - 22px); left: 8px; top: 0; margin: 0; border-radius: 5px 5px 0 0; transform: scaleY(0); transform-origin: top; } #agents .cf.go .cf-sh { transform: scaleY(1); }
@@ -3116,7 +3146,7 @@ section[id] { scroll-margin-top: 64px; }
 </div>
 </div>
 <div class="hero-right">
-<video class="saas-screenshot" aria-label="Thorcast SaaS Platform" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster-nora-start.jpg" disablepictureinpicture disableremoteplayback><source src="assets/videos/hero-video-andean-volcano-journey-v6.en.mp4" type="video/mp4" data-hero-src="assets/videos/hero-video-andean-volcano-journey-v6.{lang}.mp4">Your browser does not support the video tag.</video>
+<video class="saas-screenshot" aria-label="Thorcast SaaS Platform" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster-nora-start.jpg" disablepictureinpicture disableremoteplayback><source src="assets/videos/hero-video-andean-volcano-journey-v7.en.mp4" type="video/mp4" data-hero-src="assets/videos/hero-video-andean-volcano-journey-v7.{lang}.mp4">Your browser does not support the video tag.</video>
 </div>
 </div>
 <div class="stats-row" aria-label="Thorcast benefits">
@@ -3281,15 +3311,21 @@ section[id] { scroll-margin-top: 64px; }
 <p class="ax-lead">NORA and MJÖ work like a world-class data engineer and data scientist: they follow your rules and run on your premises.</p>
 <div class="cf">
 <div class="cf-lbl"><span>The usual way</span> <em class="cf-hand"><span class="cf-src">is the old way</span></em></div>
-<div class="cf-lbl cf-lbl-r"><span>With Thorcast</span> <em class="cf-hand cf-hand-2"><span class="cf-src">You don't write code. NORA and MJÖ write it, validate it and hand it to you.</span></em></div>
+<div class="cf-lbl cf-lbl-r"><span>With Thorcast</span> <em class="cf-hand cf-hand-2"><span class="cf-src">You don't write code. NORA and MJÖ do it for you and keep the code in the background in case you need it.</span></em></div>
 <div class="cf-old">
 <div class="cf-code" translate="no"><span class="ln"><span class="k">import</span> pandas <span class="k">as</span> pd</span><span class="ln">df = pd.read_csv(<span class="s">"loans_2024.csv"</span>, sep=<span class="s">";"</span>)</span><span class="ln">df[<span class="s">"date"</span>] = pd.to_datetime(df[<span class="s">"date"</span>], dayfirst=<span class="k">True</span>)</span><span class="ln">df = df.merge(bureau, on=<span class="s">"customer_id"</span>, how=<span class="s">"left"</span>)</span><span class="ln"><span class="c"># fix types, outliers, duplicates...</span></span><span class="ln">model = XGBClassifier(max_depth=<span class="s">6</span>, ...)</span></div>
 <p class="cf-weeks">Weeks of coding in Python or R</p>
 </div>
 <div class="cf-mid" aria-hidden="true"><span class="cf-sh"></span><span class="cf-hd"></span></div>
 <div class="cf-chat">
-<p class="cf-bub">Merge these three files by customer ID, fix the dates and build the default target.</p>
-<p class="cf-rep"><img src="assets/agents/nora.png" alt="" width="34" height="34" loading="lazy"/><span>NORA prepared a plan · waiting for your approval</span></p>
+<div class="n-head"><img src="assets/agents/nora.png" alt="" width="30" height="30" loading="lazy"/><b>NORA Session Chat</b><span class="n-up">Upload</span></div>
+<div class="n-body">
+<div class="n-row"><span class="n-who"><img src="assets/agents/nora.png" alt="" width="28" height="28" loading="lazy"/><span>NORA</span><span>Assistant</span></span><p class="n-card">I have 3 datasets in this session. Tell me how you want to merge, clean or transform them.</p></div>
+<p class="n-me">Merge these three files by customer ID, fix the dates and build the default target.</p>
+<div class="n-row n-dots" aria-hidden="true"><span class="n-who"><img src="assets/agents/nora.png" alt="" width="28" height="28" loading="lazy"/><span>NORA</span><span>Assistant</span></span><p class="n-card"><span class="n-typing"><i></i><i></i><i></i></span></p></div>
+<div class="n-row n-plan"><span class="n-who"><img src="assets/agents/nora.png" alt="" width="28" height="28" loading="lazy"/><span>NORA</span><span>Assistant</span></span><div class="n-card"><p>Here is my plan:</p><ol><li><span>Join loans, bureau and customers on</span> <code translate="no">customer_id</code></li><li><span>Fix the date format in</span> <code translate="no">application_date</code></li><li><span>Build the target</span> <code translate="no">default_90d</code></li></ol><p>Shall I go ahead and execute this plan?</p><p class="n-btns"><span class="go">Approve</span><span>Edit plan</span></p></div></div>
+</div>
+<div class="n-comp"><p class="n-txt"><span class="n-ph">Write the exact instruction for NORA…</span><span class="n-typed" aria-hidden="true"></span></p><span class="n-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><svg viewBox="0 0 24 24"><path d="M21 12.5l-8.5 8.5a6 6 0 0 1-8.5-8.5L13 3.5a4 4 0 0 1 5.7 5.7L9.7 18.2a2 2 0 0 1-2.8-2.8L15 7.3"/></svg><span class="n-send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2-7-8-1z"/></svg></span></span></div>
 </div>
 <div class="cf-msg"><strong><span>Code-free.</span> <em>All in natural language.</em></strong></div>
 </div>
@@ -3835,10 +3871,12 @@ Object.assign(THORCAST_I18N.es, {"Raw data": "Datos crudos", "Deployed model": "
 Object.assign(THORCAST_I18N.pt, {"Raw data": "Dados brutos", "Deployed model": "Modelo implantado", "Full cycle, end to end:": "Ciclo completo, de ponta a ponta:", "minutes": "minutos", "months": "meses"});
 Object.assign(THORCAST_I18N.es, {"Full process takes": "¡El proceso completo toma", "minutes, not months!": "minutos, no meses!"});
 Object.assign(THORCAST_I18N.pt, {"Full process takes": "O processo completo leva", "minutes, not months!": "minutos, não meses!"});
-Object.assign(THORCAST_I18N.es, {"The usual way": "La forma habitual", "is the old way": "es la forma antigua", "With Thorcast": "Con Thorcast", "Weeks of coding in Python or R": "Semanas programando en Python o R", "Merge these three files by customer ID, fix the dates and build the default target.": "Une estos tres archivos por ID de cliente, corrige las fechas y construye el target de default.", "NORA prepared a plan · waiting for your approval": "NORA preparó un plan · esperando tu aprobación", "Code-free.": "Sin código.", "All in natural language.": "Todo en lenguaje natural.", "You don't write code. NORA and MJÖ write it, validate it and hand it to you.": "Tú no escribes código. NORA y MJÖ lo escriben, lo validan y te lo entregan."});
-Object.assign(THORCAST_I18N.pt, {"The usual way": "O jeito de sempre", "is the old way": "é o jeito antigo", "With Thorcast": "Com a Thorcast", "Weeks of coding in Python or R": "Semanas programando em Python ou R", "Merge these three files by customer ID, fix the dates and build the default target.": "Una estes três arquivos pelo ID do cliente, corrija as datas e construa o target de default.", "NORA prepared a plan · waiting for your approval": "A NORA preparou um plano · aguardando sua aprovação", "Code-free.": "Sem código.", "All in natural language.": "Tudo em linguagem natural.", "You don't write code. NORA and MJÖ write it, validate it and hand it to you.": "Você não escreve código. A NORA e o MJÖ escrevem, validam e entregam para você."});
+Object.assign(THORCAST_I18N.es, {"The usual way": "La forma habitual", "is the old way": "es la forma antigua", "With Thorcast": "Con Thorcast", "Weeks of coding in Python or R": "Semanas programando en Python o R", "Merge these three files by customer ID, fix the dates and build the default target.": "Une estos tres archivos por ID de cliente, corrige las fechas y construye el target de default.", "NORA prepared a plan · waiting for your approval": "NORA preparó un plan · esperando tu aprobación", "Code-free.": "Sin código.", "All in natural language.": "Todo en lenguaje natural.", "You don't write code. NORA and MJÖ do it for you and keep the code in the background in case you need it.": "Tú no escribes código. NORA y MJÖ lo hacen por ti y guardan el código en segundo plano por si lo necesitas."});
+Object.assign(THORCAST_I18N.pt, {"The usual way": "O jeito de sempre", "is the old way": "é o jeito antigo", "With Thorcast": "Com a Thorcast", "Weeks of coding in Python or R": "Semanas programando em Python ou R", "Merge these three files by customer ID, fix the dates and build the default target.": "Una estes três arquivos pelo ID do cliente, corrija as datas e construa o target de default.", "NORA prepared a plan · waiting for your approval": "A NORA preparou um plano · aguardando sua aprovação", "Code-free.": "Sem código.", "All in natural language.": "Tudo em linguagem natural.", "You don't write code. NORA and MJÖ do it for you and keep the code in the background in case you need it.": "Você não escreve código. A NORA e o MJÖ fazem isso por você e guardam o código em segundo plano, caso você precise."});
 Object.assign(THORCAST_I18N.es, {"DATA DOES NOT LEAVE YOUR PREMISES":"TUS DATOS NO SALEN DE TUS INSTALACIONES"});
 Object.assign(THORCAST_I18N.pt, {"DATA DOES NOT LEAVE YOUR PREMISES":"SEUS DADOS NÃO SAEM DAS SUAS INSTALAÇÕES"});
+Object.assign(THORCAST_I18N.es, {"NORA Session Chat": "Chat de sesión de NORA", "I have 3 datasets in this session. Tell me how you want to merge, clean or transform them.": "Tengo 3 datasets en esta sesión. Dime cómo quieres unirlos, limpiarlos o transformarlos.", "Here is my plan:": "Este es mi plan:", "Join loans, bureau and customers on": "Unir préstamos, buró y clientes por", "Fix the date format in": "Corregir el formato de fecha en", "Build the target": "Construir el target", "Shall I go ahead and execute this plan?": "¿Ejecuto este plan?", "Approve": "Aprobar", "Edit plan": "Editar plan", "Write the exact instruction for NORA…": "Escribe la instrucción exacta para NORA…", "Assistant": "Asistente", "Upload": "Subir"});
+Object.assign(THORCAST_I18N.pt, {"NORA Session Chat": "Chat da sessão da NORA", "I have 3 datasets in this session. Tell me how you want to merge, clean or transform them.": "Tenho 3 datasets nesta sessão. Diga como você quer uni-los, limpá-los ou transformá-los.", "Here is my plan:": "Este é o meu plano:", "Join loans, bureau and customers on": "Unir empréstimos, bureau e clientes por", "Fix the date format in": "Corrigir o formato de data em", "Build the target": "Construir o target", "Shall I go ahead and execute this plan?": "Posso executar este plano?", "Approve": "Aprovar", "Edit plan": "Editar plano", "Write the exact instruction for NORA…": "Escreva a instrução exata para a NORA…", "Assistant": "Assistente", "Upload": "Enviar"});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
@@ -4723,9 +4761,30 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
   };
   write();
   hands.forEach((h) => new MutationObserver(write).observe(h.querySelector('.cf-src'), { characterData: true, childList: true, subtree: true }));
-  const go = () => box.classList.add('go');
-  if (!('IntersectionObserver' in window)) return go();
-  const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { go(); io.disconnect(); } }, { threshold: 0.55 }); io.observe(box);
+  // Chat con NORA: se escribe la instrucción en el compositor, se envía y NORA responde con el plan.
+  // El estado final está en el HTML (traducible); aquí solo se oculta y se reproduce paso a paso.
+  const chat = box.querySelector('.cf-chat'), typed = chat.querySelector('.n-typed'), me = chat.querySelector('.n-me');
+  const calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!calm) chat.classList.add('armed');
+  const later = (ms) => new Promise((r) => setTimeout(r, ms));
+  let t0 = 0, seen = false, played = false;
+  const playChat = async () => {
+    if (calm || played || !t0 || !seen) return; played = true;
+    await later(Math.max(400, 2400 - (performance.now() - t0))); chat.classList.add('s-focus');
+    const text = me.textContent.trim();
+    for (let i = 1; i <= text.length; i++) { typed.textContent = text.slice(0, i); await later(18); }
+    await later(250); chat.classList.add('s-press'); await later(160); chat.classList.remove('s-press');
+    typed.textContent = ''; chat.classList.remove('s-focus'); chat.classList.add('s-sent');
+    await later(450); chat.classList.add('s-dots');
+    await later(900); chat.classList.add('s-plan');
+  };
+  // El tachado arranca al ver la «forma habitual»; el chat, cuando además se ve el panel (en móvil va más abajo).
+  const go = () => { if (!t0) { t0 = performance.now(); box.classList.add('go'); } playChat(); };
+  const see = () => { seen = true; playChat(); };
+  box.cfPlay = () => { go(); see(); };
+  if (!('IntersectionObserver' in window)) return box.cfPlay();
+  const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { go(); io.disconnect(); } }, { threshold: 0.6 }); io.observe(old);
+  const io2 = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { see(); io2.disconnect(); } }, { threshold: 0.5 }); io2.observe(chat);
 })();
 </script>
 </body>
