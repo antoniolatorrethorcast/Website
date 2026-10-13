@@ -3041,12 +3041,12 @@ section[id] { scroll-margin-top: 64px; }
 #agents .cf-weeks { margin: 12px 0 0; font-size: 18px; font-weight: 800; color: var(--text-gray); }
 #agents .cf-strike { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 #agents .cf-strike path { fill: none; stroke: #e34848; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-#agents .cf-strike .p1 { stroke-width: 4.2; opacity: .95; transition: stroke-dashoffset .9s cubic-bezier(.55,.05,.35,1) .35s; }
-#agents .cf-strike .p2 { stroke-width: 2; opacity: .7; transition: stroke-dashoffset .45s cubic-bezier(.5,0,.4,1) 1.2s; }
+#agents .cf-strike .p1 { stroke-width: 4.2; opacity: .95; transition: stroke-dashoffset .55s cubic-bezier(.55,.05,.35,1) .2s; }
+#agents .cf-strike .p2 { stroke-width: 2; opacity: .7; transition: stroke-dashoffset .3s cubic-bezier(.5,0,.4,1) .7s; }
 #agents .cf-mid { grid-area: mid; position: relative; height: 26px; margin: 0 18px; }
-#agents .cf-sh { position: absolute; left: 0; top: 50%; height: 10px; margin-top: -5px; width: calc(100% - 22px); border-radius: 5px 0 0 5px; background: var(--accent-yellow); transform: scaleX(0); transform-origin: left center; transition: transform .6s cubic-bezier(.45,0,.2,1) 2.5s; }
-#agents .cf-hd { position: absolute; right: 0; top: 0; border-top: 13px solid transparent; border-bottom: 13px solid transparent; border-left: 24px solid var(--accent-yellow); opacity: 0; transition: opacity .2s 3.05s; }
-#agents .cf-chat { grid-area: chat; display: flex; flex-direction: column; gap: 10px; opacity: 0; transform: translateY(8px); transition: opacity .5s 3.2s, transform .5s 3.2s; }
+#agents .cf-sh { position: absolute; left: 0; top: 50%; height: 10px; margin-top: -5px; width: calc(100% - 22px); border-radius: 5px 0 0 5px; background: var(--accent-yellow); transform: scaleX(0); transform-origin: left center; transition: transform .5s cubic-bezier(.45,0,.2,1) 1.5s; }
+#agents .cf-hd { position: absolute; right: 0; top: 0; border-top: 13px solid transparent; border-bottom: 13px solid transparent; border-left: 24px solid var(--accent-yellow); opacity: 0; transition: opacity .2s 1.95s; }
+#agents .cf-chat { grid-area: chat; display: flex; flex-direction: column; gap: 10px; opacity: 0; transform: translateY(8px); transition: opacity .4s 2.1s, transform .4s 2.1s; }
 #agents .cf-bub { align-self: flex-end; max-width: 92%; margin: 0; background: var(--accent-blue); color: #08131c; font-weight: 700; font-size: 16px; line-height: 1.45; padding: 14px 18px; border-radius: 16px 16px 4px 16px; }
 #agents .cf-rep { display: flex; gap: 10px; align-items: center; margin: 0; color: #cfd6e0; font-size: 14px; font-weight: 700; }
 #agents .cf-rep img { width: 34px; height: 34px; border-radius: 50%; }
@@ -4706,7 +4706,7 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
   draw(); if ('ResizeObserver' in window) new ResizeObserver(draw).observe(old); else window.addEventListener('resize', draw);
   // Textos a mano: el traductor cambia el texto oculto (.cf-src); de él se arman palabras que se «escriben» en orden,
   // primero «is the old way» y luego la nota junto a «With Thorcast».
-  const hands = [...box.querySelectorAll('.cf-hand')], START = 1.65, PER_CHAR = 0.045, GAP = 0.18;
+  const hands = [...box.querySelectorAll('.cf-hand')], START = 1.0, PER_CHAR = 0.028, GAP = 0.1;
   const write = () => {
     let t = START;
     hands.forEach((h) => {
@@ -4714,8 +4714,8 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
       src.textContent.trim().split(/\s+/).forEach((word, i) => {
         if (i) { const sp = document.createElement('span'); sp.className = 'cf-sp'; sp.setAttribute('aria-hidden', 'true'); sp.textContent = ' '; h.appendChild(sp); }
         const w = document.createElement('span'); w.className = 'cf-w'; w.setAttribute('aria-hidden', 'true'); w.textContent = word;
-        const d = Math.max(0.12, word.length * PER_CHAR);
-        w.style.transitionDuration = d.toFixed(2) + 's'; w.style.transitionDelay = t.toFixed(2) + 's'; t += d + 0.04;
+        const d = Math.max(0.08, word.length * PER_CHAR);
+        w.style.transitionDuration = d.toFixed(2) + 's'; w.style.transitionDelay = t.toFixed(2) + 's'; t += d + 0.02;
         h.appendChild(w);
       });
       t += GAP;
