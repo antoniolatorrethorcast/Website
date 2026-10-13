@@ -3011,7 +3011,7 @@ section[id] { scroll-margin-top: 64px; }
 @media (prefers-reduced-motion: reduce) { .den-wire path { animation: none; } }
 
 /* In Action: flecha amarilla gruesa de «Raw data» a «Deployed model»; crece una vez de izquierda a derecha al llegar a la sección */
-.ia-span { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 18px; row-gap: 14px; align-items: center; margin-top: 34px; }
+.ia-span { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 18px; row-gap: 14px; align-items: center; margin: 8px 0 36px; }
 .ia-span-end { font-size: 15px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: #fff; white-space: nowrap; }
 .ia-span-end-r { color: var(--accent-yellow); }
 .ia-span-arrow { position: relative; height: 34px; }
@@ -3094,6 +3094,12 @@ section[id] { scroll-margin-top: 64px; }
 <h2 id="in-action-title" class="ia-title"><span class="ia-l1">From messy data</span> <span class="ia-l2">to a deployed model.</span> <span class="ia-l3">Seven steps, one platform.</span></h2>
 <p class="ia-lead">A real credit admission case, step by step. Click each stage to see it in the product.</p>
 </div>
+<div class="ia-span">
+<span class="ia-span-end">Raw data</span>
+<div class="ia-span-arrow" aria-hidden="true"><span class="ia-span-shaft"></span><span class="ia-span-head"></span></div>
+<span class="ia-span-end ia-span-end-r">Deployed model</span>
+<p class="ia-span-msg"><span>Full process takes</span> <strong>minutes, not months!</strong></p>
+</div>
 <ol class="wf" aria-label="Thorcast workflow" data-focus='{"en":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[68,21,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,60,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]},"es":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[32.3,27.8,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,55,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]},"pt":{"s1a-upload":[37,67,1.8],"s1b-prompt":[82,90,1.9],"s1c-plan":[72,40,1.5],"s1d-result":[32.3,27.8,1.8],"s2-family":[44,48,1.7],"s3-enrich":[60,33,1.6],"s4a-plan":[68,82,1.9],"s4b-run":[88,55,1.7],"s4c-best":[80,45,1.5],"s5a-gini":[72,58,1.6],"s5b-report":[36,50,1.6],"s6a-inputs":[45,42,1.5],"s6b-curves":[66,24,1.6],"s7-deploy":[50,50,1.25],"s2b-type":[58,62,1.6]}}'>
 <li class="wf-step is-active" tabindex="0" aria-expanded="true">
 <figure class="wf-shots"><img data-shot="s1a-upload" data-fx="37" data-fy="67" data-z="1.8" src="assets/in-action/en/s1a-upload.jpg" alt="Upload any data file — CSV, Parquet, XLS — and NORA works on it for you." width="1920" height="1080" decoding="async" class="on"/><img data-shot="s1b-prompt" data-fx="82" data-fy="90" data-z="1.9" src="assets/in-action/en/s1b-prompt.jpg" alt="Tell NORA your goals: clean, merge, replace, build the target and more. NORA does it all." width="1920" height="1080" decoding="async" class=""/><img data-shot="s1c-plan" data-fx="72" data-fy="40" data-z="1.5" src="assets/in-action/en/s1c-plan.jpg" alt="NORA proposes a plan. You approve it." width="1920" height="1080" decoding="async" class=""/><img data-shot="s1d-result" data-fx="68" data-fy="21" data-z="1.8" src="assets/in-action/en/s1d-result.jpg" alt="NORA executes and validates every step. The dataset is ready." width="1920" height="1080" decoding="async" class=""/><span class="wf-pointer" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M6 6 L44 44 M44 44 L44 24 M44 44 L24 44" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p class="wf-cap on"><span class="wf-cap-n">1</span><span>Upload any data file — CSV, Parquet, XLS — and NORA works on it for you.</span></p><p class="wf-cap"><span class="wf-cap-n">2</span><span>Tell NORA your goals: clean, merge, replace, build the target and more. NORA does it all.</span></p><p class="wf-cap"><span class="wf-cap-n">3</span><span>NORA proposes a plan. You approve it.</span></p><p class="wf-cap"><span class="wf-cap-n">4</span><span>NORA executes and validates every step. The dataset is ready.</span></p><div class="wf-dots"><button type="button" class="on" aria-label="1 / 4"></button><button type="button" class="" aria-label="2 / 4"></button><button type="button" class="" aria-label="3 / 4"></button><button type="button" class="" aria-label="4 / 4"></button></div></figure>
@@ -3138,12 +3144,6 @@ section[id] { scroll-margin-top: 64px; }
 <p class="wf-desc">Put the model to work in Thorcast Cloud, on your own premises, or right in the app.</p><ul class="wf-hl"><li>One click.</li><li>Cloud · On-premise · In-app.</li></ul></div>
 </li>
 </ol>
-<div class="ia-span">
-<span class="ia-span-end">Raw data</span>
-<div class="ia-span-arrow" aria-hidden="true"><span class="ia-span-shaft"></span><span class="ia-span-head"></span></div>
-<span class="ia-span-end ia-span-end-r">Deployed model</span>
-<p class="ia-span-msg"><span>Full process takes</span> <strong>minutes, not months!</strong></p>
-</div>
 </section>
 
 <!-- ============================================================
