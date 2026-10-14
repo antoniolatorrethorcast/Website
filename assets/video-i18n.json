@@ -418,105 +418,105 @@
   }
  },
  "covers": {
-  "assets/use-cases/banking/01-originacion-credito-cover.jpg": {
-   "en": "assets/use-cases/banking/01-originacion-credito-cover.en.jpg",
-   "pt": "assets/use-cases/banking/01-originacion-credito-cover.pt.jpg"
+  "assets/use-cases/banking/01-originacion-credito-cover.webp": {
+   "en": "assets/use-cases/banking/01-originacion-credito-cover.en.webp",
+   "pt": "assets/use-cases/banking/01-originacion-credito-cover.pt.webp"
   },
-  "assets/use-cases/banking/02-cobranza-recuperacion-cover.jpg": {
-   "en": "assets/use-cases/banking/02-cobranza-recuperacion-cover.en.jpg",
-   "pt": "assets/use-cases/banking/02-cobranza-recuperacion-cover.pt.jpg"
+  "assets/use-cases/banking/02-cobranza-recuperacion-cover.webp": {
+   "en": "assets/use-cases/banking/02-cobranza-recuperacion-cover.en.webp",
+   "pt": "assets/use-cases/banking/02-cobranza-recuperacion-cover.pt.webp"
   },
-  "assets/use-cases/banking/03-fraude-originacion-cover.jpg": {
-   "en": "assets/use-cases/banking/03-fraude-originacion-cover.en.jpg",
-   "pt": "assets/use-cases/banking/03-fraude-originacion-cover.pt.jpg"
+  "assets/use-cases/banking/03-fraude-originacion-cover.webp": {
+   "en": "assets/use-cases/banking/03-fraude-originacion-cover.en.webp",
+   "pt": "assets/use-cases/banking/03-fraude-originacion-cover.pt.webp"
   },
-  "assets/use-cases/banking/04-venta-cruzada-activacion-cover.jpg": {
-   "en": "assets/use-cases/banking/04-venta-cruzada-activacion-cover.en.jpg",
-   "pt": "assets/use-cases/banking/04-venta-cruzada-activacion-cover.pt.jpg"
+  "assets/use-cases/banking/04-venta-cruzada-activacion-cover.webp": {
+   "en": "assets/use-cases/banking/04-venta-cruzada-activacion-cover.en.webp",
+   "pt": "assets/use-cases/banking/04-venta-cruzada-activacion-cover.pt.webp"
   },
-  "assets/use-cases/banking/05-retencion-clientes-cover.jpg": {
-   "en": "assets/use-cases/banking/05-retencion-clientes-cover.en.jpg",
-   "pt": "assets/use-cases/banking/05-retencion-clientes-cover.pt.jpg"
+  "assets/use-cases/banking/05-retencion-clientes-cover.webp": {
+   "en": "assets/use-cases/banking/05-retencion-clientes-cover.en.webp",
+   "pt": "assets/use-cases/banking/05-retencion-clientes-cover.pt.webp"
   },
-  "assets/use-cases/banking/06-toma-de-cuentas-cover.jpg": {
-   "en": "assets/use-cases/banking/06-toma-de-cuentas-cover.en.jpg",
-   "pt": "assets/use-cases/banking/06-toma-de-cuentas-cover.pt.jpg"
+  "assets/use-cases/banking/06-toma-de-cuentas-cover.webp": {
+   "en": "assets/use-cases/banking/06-toma-de-cuentas-cover.en.webp",
+   "pt": "assets/use-cases/banking/06-toma-de-cuentas-cover.pt.webp"
   },
-  "assets/use-cases/banking/07-acuerdos-de-pago-cover.jpg": {
-   "en": "assets/use-cases/banking/07-acuerdos-de-pago-cover.en.jpg",
-   "pt": "assets/use-cases/banking/07-acuerdos-de-pago-cover.pt.jpg"
+  "assets/use-cases/banking/07-acuerdos-de-pago-cover.webp": {
+   "en": "assets/use-cases/banking/07-acuerdos-de-pago-cover.en.webp",
+   "pt": "assets/use-cases/banking/07-acuerdos-de-pago-cover.pt.webp"
   },
-  "assets/use-cases/insurance/01-persistencia-cover.jpg": {
-   "en": "assets/use-cases/insurance/01-persistencia-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/01-persistencia-cover.pt.jpg"
+  "assets/use-cases/insurance/01-persistencia-cover.webp": {
+   "en": "assets/use-cases/insurance/01-persistencia-cover.en.webp",
+   "pt": "assets/use-cases/insurance/01-persistencia-cover.pt.webp"
   },
-  "assets/use-cases/insurance/02-siniestralidad-salud-cover.jpg": {
-   "en": "assets/use-cases/insurance/02-siniestralidad-salud-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/02-siniestralidad-salud-cover.pt.jpg"
+  "assets/use-cases/insurance/02-siniestralidad-salud-cover.webp": {
+   "en": "assets/use-cases/insurance/02-siniestralidad-salud-cover.en.webp",
+   "pt": "assets/use-cases/insurance/02-siniestralidad-salud-cover.pt.webp"
   },
-  "assets/use-cases/insurance/03-longevidad-cover.jpg": {
-   "en": "assets/use-cases/insurance/03-longevidad-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/03-longevidad-cover.pt.jpg"
+  "assets/use-cases/insurance/03-longevidad-cover.webp": {
+   "en": "assets/use-cases/insurance/03-longevidad-cover.en.webp",
+   "pt": "assets/use-cases/insurance/03-longevidad-cover.pt.webp"
   },
-  "assets/use-cases/insurance/04-priorizacion-leads-cover.jpg": {
-   "en": "assets/use-cases/insurance/04-priorizacion-leads-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/04-priorizacion-leads-cover.pt.jpg"
+  "assets/use-cases/insurance/04-priorizacion-leads-cover.webp": {
+   "en": "assets/use-cases/insurance/04-priorizacion-leads-cover.en.webp",
+   "pt": "assets/use-cases/insurance/04-priorizacion-leads-cover.pt.webp"
   },
-  "assets/use-cases/insurance/05-venta-cruzada-cover.jpg": {
-   "en": "assets/use-cases/insurance/05-venta-cruzada-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/05-venta-cruzada-cover.pt.jpg"
+  "assets/use-cases/insurance/05-venta-cruzada-cover.webp": {
+   "en": "assets/use-cases/insurance/05-venta-cruzada-cover.en.webp",
+   "pt": "assets/use-cases/insurance/05-venta-cruzada-cover.pt.webp"
   },
-  "assets/use-cases/insurance/06-fraude-reembolsos-cover.jpg": {
-   "en": "assets/use-cases/insurance/06-fraude-reembolsos-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/06-fraude-reembolsos-cover.pt.jpg"
+  "assets/use-cases/insurance/06-fraude-reembolsos-cover.webp": {
+   "en": "assets/use-cases/insurance/06-fraude-reembolsos-cover.en.webp",
+   "pt": "assets/use-cases/insurance/06-fraude-reembolsos-cover.pt.webp"
   },
-  "assets/use-cases/insurance/07-geo-intelligence-cover.jpg": {
-   "en": "assets/use-cases/insurance/07-geo-intelligence-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/07-geo-intelligence-cover.pt.jpg"
+  "assets/use-cases/insurance/07-geo-intelligence-cover.webp": {
+   "en": "assets/use-cases/insurance/07-geo-intelligence-cover.en.webp",
+   "pt": "assets/use-cases/insurance/07-geo-intelligence-cover.pt.webp"
   },
-  "assets/use-cases/insurance/08-colectivos-vida-desgravamen-cover.jpg": {
-   "en": "assets/use-cases/insurance/08-colectivos-vida-desgravamen-cover.en.jpg",
-   "pt": "assets/use-cases/insurance/08-colectivos-vida-desgravamen-cover.pt.jpg"
+  "assets/use-cases/insurance/08-colectivos-vida-desgravamen-cover.webp": {
+   "en": "assets/use-cases/insurance/08-colectivos-vida-desgravamen-cover.en.webp",
+   "pt": "assets/use-cases/insurance/08-colectivos-vida-desgravamen-cover.pt.webp"
   },
-  "assets/use-cases/general-insurance/01-pricing-automotriz-cover.jpg": {
-   "en": "assets/use-cases/general-insurance/01-pricing-automotriz-cover.en.jpg",
-   "pt": "assets/use-cases/general-insurance/01-pricing-automotriz-cover.pt.jpg"
+  "assets/use-cases/general-insurance/01-pricing-automotriz-cover.webp": {
+   "en": "assets/use-cases/general-insurance/01-pricing-automotriz-cover.en.webp",
+   "pt": "assets/use-cases/general-insurance/01-pricing-automotriz-cover.pt.webp"
   },
-  "assets/use-cases/general-insurance/02-conversion-rentable-auto-cover.jpg": {
-   "en": "assets/use-cases/general-insurance/02-conversion-rentable-auto-cover.en.jpg",
-   "pt": "assets/use-cases/general-insurance/02-conversion-rentable-auto-cover.pt.jpg"
+  "assets/use-cases/general-insurance/02-conversion-rentable-auto-cover.webp": {
+   "en": "assets/use-cases/general-insurance/02-conversion-rentable-auto-cover.en.webp",
+   "pt": "assets/use-cases/general-insurance/02-conversion-rentable-auto-cover.pt.webp"
   },
-  "assets/use-cases/general-insurance/03-pagos-improcedentes-auto-cover.jpg": {
-   "en": "assets/use-cases/general-insurance/03-pagos-improcedentes-auto-cover.en.jpg",
-   "pt": "assets/use-cases/general-insurance/03-pagos-improcedentes-auto-cover.pt.jpg"
+  "assets/use-cases/general-insurance/03-pagos-improcedentes-auto-cover.webp": {
+   "en": "assets/use-cases/general-insurance/03-pagos-improcedentes-auto-cover.en.webp",
+   "pt": "assets/use-cases/general-insurance/03-pagos-improcedentes-auto-cover.pt.webp"
   },
-  "assets/use-cases/general-insurance/04-renovacion-automotriz-cover.jpg": {
-   "en": "assets/use-cases/general-insurance/04-renovacion-automotriz-cover.en.jpg",
-   "pt": "assets/use-cases/general-insurance/04-renovacion-automotriz-cover.pt.jpg"
+  "assets/use-cases/general-insurance/04-renovacion-automotriz-cover.webp": {
+   "en": "assets/use-cases/general-insurance/04-renovacion-automotriz-cover.en.webp",
+   "pt": "assets/use-cases/general-insurance/04-renovacion-automotriz-cover.pt.webp"
   },
-  "assets/use-cases/general-insurance/05-riesgo-geografico-hogar-cover.jpg": {
-   "en": "assets/use-cases/general-insurance/05-riesgo-geografico-hogar-cover.en.jpg",
-   "pt": "assets/use-cases/general-insurance/05-riesgo-geografico-hogar-cover.pt.jpg"
+  "assets/use-cases/general-insurance/05-riesgo-geografico-hogar-cover.webp": {
+   "en": "assets/use-cases/general-insurance/05-riesgo-geografico-hogar-cover.en.webp",
+   "pt": "assets/use-cases/general-insurance/05-riesgo-geografico-hogar-cover.pt.webp"
   },
-  "assets/use-cases/insurance-brokers/01-conversion-cotizaciones-auto-cover.jpg": {
-   "en": "assets/use-cases/insurance-brokers/01-conversion-cotizaciones-auto-cover.en.jpg",
-   "pt": "assets/use-cases/insurance-brokers/01-conversion-cotizaciones-auto-cover.pt.jpg"
+  "assets/use-cases/insurance-brokers/01-conversion-cotizaciones-auto-cover.webp": {
+   "en": "assets/use-cases/insurance-brokers/01-conversion-cotizaciones-auto-cover.en.webp",
+   "pt": "assets/use-cases/insurance-brokers/01-conversion-cotizaciones-auto-cover.pt.webp"
   },
-  "assets/use-cases/insurance-brokers/02-venta-cruzada-vida-salud-cover.jpg": {
-   "en": "assets/use-cases/insurance-brokers/02-venta-cruzada-vida-salud-cover.en.jpg",
-   "pt": "assets/use-cases/insurance-brokers/02-venta-cruzada-vida-salud-cover.pt.jpg"
+  "assets/use-cases/insurance-brokers/02-venta-cruzada-vida-salud-cover.webp": {
+   "en": "assets/use-cases/insurance-brokers/02-venta-cruzada-vida-salud-cover.en.webp",
+   "pt": "assets/use-cases/insurance-brokers/02-venta-cruzada-vida-salud-cover.pt.webp"
   },
-  "assets/use-cases/insurance-brokers/03-renovacion-retencion-cover.jpg": {
-   "en": "assets/use-cases/insurance-brokers/03-renovacion-retencion-cover.en.jpg",
-   "pt": "assets/use-cases/insurance-brokers/03-renovacion-retencion-cover.pt.jpg"
+  "assets/use-cases/insurance-brokers/03-renovacion-retencion-cover.webp": {
+   "en": "assets/use-cases/insurance-brokers/03-renovacion-retencion-cover.en.webp",
+   "pt": "assets/use-cases/insurance-brokers/03-renovacion-retencion-cover.pt.webp"
   },
-  "assets/use-cases/insurance-brokers/04-campanas-cupo-fijo-cover.jpg": {
-   "en": "assets/use-cases/insurance-brokers/04-campanas-cupo-fijo-cover.en.jpg",
-   "pt": "assets/use-cases/insurance-brokers/04-campanas-cupo-fijo-cover.pt.jpg"
+  "assets/use-cases/insurance-brokers/04-campanas-cupo-fijo-cover.webp": {
+   "en": "assets/use-cases/insurance-brokers/04-campanas-cupo-fijo-cover.en.webp",
+   "pt": "assets/use-cases/insurance-brokers/04-campanas-cupo-fijo-cover.pt.webp"
   },
-  "assets/use-cases/insurance-brokers/05-valor-cliente-cover.jpg": {
-   "en": "assets/use-cases/insurance-brokers/05-valor-cliente-cover.en.jpg",
-   "pt": "assets/use-cases/insurance-brokers/05-valor-cliente-cover.pt.jpg"
+  "assets/use-cases/insurance-brokers/05-valor-cliente-cover.webp": {
+   "en": "assets/use-cases/insurance-brokers/05-valor-cliente-cover.en.webp",
+   "pt": "assets/use-cases/insurance-brokers/05-valor-cliente-cover.pt.webp"
   }
  }
 }
