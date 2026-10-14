@@ -3122,7 +3122,12 @@ section[id] { scroll-margin-top: 64px; }
   #hero .hx-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 36px; }
   #hero .hx-funnel { display: none; } #hero .hx-pot { margin-top: 22px; flex-direction: column; align-items: center; gap: 2px; border-radius: 18px; padding: 14px 24px; }
 }
-@media (max-width: 520px) { #hero .hx-flow { grid-template-columns: minmax(0, 1fr); } #hero .hx-n { font-size: 24px; } }
+@media (max-width: 520px) { #hero .hx-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } #hero .hx-card { padding: 13px 12px 14px; } #hero .hx-n { font-size: 19px; } #hero .hx-card h3 { margin-top: 7px; font-size: 14px; line-height: 1.25; } #hero .hx-card p:not(.hx-n) { font-size: 12px; line-height: 1.4; } }
+/* Tutorials: la duración y el idioma siguen al idioma elegido (el video también cambia de idioma en la portada) */
+.tut-dur i { display: none; font-style: normal; }
+html[lang^="en"] .tut-dur i[data-l="en"], html[lang^="es"] .tut-dur i[data-l="es"], html[lang^="pt"] .tut-dur i[data-l="pt"] { display: inline; }
+/* Móvil: el tutorial elegido ya se ve grande arriba; no repetirlo en la lista */
+@media (max-width: 900px) { #tutorials .tutorial-grid > .tutorial-card.is-selected { display: none; } }
 </style>
 </head>
 <body>
@@ -3274,39 +3279,39 @@ section[id] { scroll-margin-top: 64px; }
 <div class="section-badge"><div class="badge-line"></div><span class="badge-txt">HOW IT WORKS</span></div>
 <h2 id="tutorials-title"><span class="tutorial-title-white">Enrich your data.</span> <span class="tutorial-title-blue">Power your models with AI.</span> <span class="tutorial-title-gray">Improve predictions in minutes, not months.</span></h2>
 <p class="tutorial-intro">Explore Thorcast step by step: prepare your datasets, train and compare models, run predictions, and monitor real-world performance.</p>
-<p class="tutorial-language">7 tutorials · Videos in Spanish</p>
+<p class="tutorial-language">7 tutorials · Videos in English</p>
 <div class="tutorial-grid"><article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 01</span><span>3:18 · Spanish</span></div><h3>NORA AI: your data preparation agent</h3><p class="uc-video-desc">Normalizes, organizes, repairs and merges your datasets.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 01</span><span><span class="tut-dur"><i data-l="en">3:16</i><i data-l="es">3:18</i><i data-l="pt">3:14</i></span> · <span>English</span></span></div><h3>NORA AI: your data preparation agent</h3><p class="uc-video-desc">Normalizes, organizes, repairs and merges your datasets.</p></div>
 <a class="tutorial-media" href="assets/tutorials/1-espacio-de-datos-nora.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/1-espacio-de-datos-nora-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/1-espacio-de-datos-nora.mp4" data-video-title="NORA AI: your data preparation agent">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 02</span><span>3:39 · Spanish</span></div><h3>MJÖ AI Agent: your most efficient team member</h3><p class="uc-video-desc">Builds your models autonomously, following your rules, with auditability, maximum performance and record speed.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 02</span><span><span class="tut-dur"><i data-l="en">3:44</i><i data-l="es">3:40</i><i data-l="pt">3:40</i></span> · <span>English</span></span></div><h3>MJÖ AI Agent: your most efficient team member</h3><p class="uc-video-desc">Builds your models autonomously, following your rules, with auditability, maximum performance and record speed.</p></div>
 <a class="tutorial-media" href="assets/tutorials/video6-mjo-autonomo.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/video6-mjo-autonomo-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/video6-mjo-autonomo.mp4" data-video-title="MJÖ AI Agent: your most efficient team member">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 03</span><span>3:39 · Spanish</span></div><h3>Training a model with enriched data</h3><p class="uc-video-desc">Step by step, in manual mode.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 03</span><span><span class="tut-dur"><i data-l="en">3:41</i><i data-l="es">3:39</i><i data-l="pt">3:42</i></span> · <span>English</span></span></div><h3>Training a model with enriched data</h3><p class="uc-video-desc">Step by step, in manual mode.</p></div>
 <a class="tutorial-media" href="assets/tutorials/2-modelamiento.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/2-modelamiento-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/2-modelamiento.mp4" data-video-title="Training a model with enriched data">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 04</span><span>2:33 · Spanish</span></div><h3>Data enrichment</h3><p class="uc-video-desc">Add hundreds of new signals in minutes, without writing code.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 04</span><span><span class="tut-dur"><i data-l="en">2:38</i><i data-l="es">2:33</i><i data-l="pt">2:30</i></span> · <span>English</span></span></div><h3>Data enrichment</h3><p class="uc-video-desc">Add hundreds of new signals in minutes, without writing code.</p></div>
 <a class="tutorial-media" href="assets/tutorials/video7-enriquecimiento.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/video7-enriquecimiento-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/video7-enriquecimiento.mp4" data-video-title="Data enrichment">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 05</span><span>1:35 · Spanish</span></div><h3>Model comparison and batch scoring</h3><p class="uc-video-desc">Compare models and run your first batch scoring.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 05</span><span><span class="tut-dur"><i data-l="en">1:35</i><i data-l="es">1:36</i><i data-l="pt">1:37</i></span> · <span>English</span></span></div><h3>Model comparison and batch scoring</h3><p class="uc-video-desc">Compare models and run your first batch scoring.</p></div>
 <a class="tutorial-media" href="assets/tutorials/3-comparacion-despliegue-scoring.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/3-comparacion-despliegue-scoring-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/3-comparacion-despliegue-scoring.mp4" data-video-title="Model comparison and batch scoring">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 06</span><span>1:21 · Spanish</span></div><h3>Model monitoring</h3><p class="uc-video-desc">Track your model’s real-world performance.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 06</span><span><span class="tut-dur"><i data-l="en">1:27</i><i data-l="es">1:21</i><i data-l="pt">1:27</i></span> · <span>English</span></span></div><h3>Model monitoring</h3><p class="uc-video-desc">Track your model’s real-world performance.</p></div>
 <a class="tutorial-media" href="assets/tutorials/4-monitoreo-recalibracion.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/4-monitoreo-recalibracion-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/4-monitoreo-recalibracion.mp4" data-video-title="Model monitoring">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="tutorial-card">
-<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 07</span><span>1:41 · Spanish</span></div><h3>Champion–Challenger</h3><p class="uc-video-desc">Challenge your best model to improve performance and measure the economic impact.</p></div>
+<div class="tutorial-head"><div class="tutorial-meta"><span>TUTORIAL 07</span><span><span class="tut-dur"><i data-l="en">1:48</i><i data-l="es">1:42</i><i data-l="pt">1:48</i></span> · <span>English</span></span></div><h3>Champion–Challenger</h3><p class="uc-video-desc">Challenge your best model to improve performance and measure the economic impact.</p></div>
 <a class="tutorial-media" href="assets/tutorials/5-campeon-desafiante.mp4" tabindex="-1" aria-hidden="true"><img class="tutorial-thumbnail" src="assets/tutorials/5-campeon-desafiante-cover.jpg" alt="" loading="lazy" width="960" height="540"/><span class="tutorial-play"></span></a>
 <div class="tutorial-foot"><a class="tutorial-watch" href="assets/tutorials/5-campeon-desafiante.mp4" data-video-title="Champion–Challenger">Watch video in fullscreen <span aria-hidden="true">↗</span></a></div>
 </article></div>
@@ -3896,6 +3901,8 @@ Object.assign(THORCAST_I18N.es, {"Smarter Analytics.": "Analítica más intelige
 Object.assign(THORCAST_I18N.pt, {"Smarter Analytics.": "Analytics mais inteligente.", "EBITDA follows.": "O EBITDA vem junto.", "Better data + AI:": "Dados melhores + IA:", "better models, faster time to market and room for broader analytics. No extra spend.": "modelos melhores, menor time to market e espaço para uma análise mais ampla. Sem gasto adicional.", "More predictive models": "Modelos mais preditivos", "Gini uplift with 3,000+ data points from the Data Enrichment Network.": "Ganho de Gini com mais de 3.000 data points do Data Enrichment Network.", "Multiple": "Múltiplos", "AI agents on your team": "Agentes de IA na sua equipe", "NORA, MJÖ, TERRA… prepare data and build models in natural language.": "NORA, MJÖ, TERRA… preparam dados e constroem modelos em linguagem natural.", "Minutes, not": "Minutos, não", "months!": "meses!", "Record time to market": "Time to market recorde", "Launch the model while the opportunity is still there.": "Lance o modelo enquanto a oportunidade ainda está lá.", "Unlimited": "Sem limites", "Broader analytics": "Análise mais ampla", "Explore opportunities in credit, fraud, collections, pricing, retention, etc.": "Explore oportunidades em crédito, fraude, cobrança, pricing, retenção etc.", "no money left on the table": "sem deixar dinheiro na mesa"});
 Object.assign(THORCAST_I18N.es, {"THE AI PLATFORM DATA SCIENCE TEAMS WISH THEY HAD": "LA PLATAFORMA DE IA QUE TODO EQUIPO DE DATA SCIENCE QUISIERA TENER"});
 Object.assign(THORCAST_I18N.pt, {"THE AI PLATFORM DATA SCIENCE TEAMS WISH THEY HAD": "A PLATAFORMA DE IA QUE TODA EQUIPE DE DATA SCIENCE GOSTARIA DE TER"});
+Object.assign(THORCAST_I18N.es, {"7 tutorials · Videos in English": "7 tutoriales · Videos en español", "English": "Español"});
+Object.assign(THORCAST_I18N.pt, {"7 tutorials · Videos in English": "7 tutoriais · Vídeos em português", "English": "Português"});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
