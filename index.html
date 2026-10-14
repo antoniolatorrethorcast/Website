@@ -3115,7 +3115,7 @@ section[id] { scroll-margin-top: 64px; }
 #hero .hx-card h3 { margin: 10px 0 4px; font-size: 17px; font-weight: 800; color: #fff; } #hero .hx-card p:not(.hx-n) { margin: 0; color: var(--text-gray); font-size: 13.5px; line-height: 1.45; }
 #hero .hx-funnel { height: 70px; margin-top: 6px; } #hero .hx-funnel svg { width: 100%; height: 100%; display: block; }
 #hero .hx-funnel path { fill: none; stroke: var(--accent-yellow); stroke-width: 3; opacity: .85; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-#hero .hx-pot { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; max-width: 100%; margin: 4px 0 0; padding: 16px 30px; border-radius: 999px; background: var(--accent-yellow); color: #0d0f14; box-shadow: 0 0 60px rgba(245,166,35,.35); }
+#hero .hx-pot { display: inline-flex; align-items: baseline; gap: 14px; margin: 4px 0 0; padding: 16px 30px; border-radius: 999px; background: var(--accent-yellow); color: #0d0f14; box-shadow: 0 0 60px rgba(245,166,35,.35); }
 #hero .hx-pot b { font-size: 30px; font-weight: 900; } #hero .hx-pot span { font-size: 15px; font-weight: 800; }
 @media (max-width: 1000px) {
   #hero.hx { min-height: 0; padding: 104px 16px 56px; }
@@ -3170,7 +3170,7 @@ html[lang^="en"] .tut-dur i[data-l="en"], html[lang^="es"] .tut-dur i[data-l="es
 <div class="hx-card"><p class="hx-n">1000x Productivity</p><h3>Spare capacity for broader analytics</h3><p>Ample time to explore new opportunities in credit, fraud, collections, pricing, retention, etc.</p></div>
 </div>
 <div class="hx-funnel" aria-hidden="true"><svg viewBox="0 0 1000 70" preserveAspectRatio="none"><path d="M125 0 C125 40 470 30 500 68"/><path d="M375 0 C375 40 490 40 500 68"/><path d="M625 0 C625 40 510 40 500 68"/><path d="M875 0 C875 40 530 30 500 68"/></svg></div>
-<p class="hx-pot"><b>Predictive power + Productivity ⇒ More EBITDA</b> <span>Optimal decisions, on time. No money left on the table.</span></p>
+<p class="hx-pot"><b>⇒ More EBITDA</b> <span>no money left on the table</span></p>
 </div>
 </section>
 <!-- ============================================================
@@ -3907,8 +3907,6 @@ Object.assign(THORCAST_I18N.es, {"better models, faster time to market and highe
 Object.assign(THORCAST_I18N.pt, {"better models, faster time to market and higher productivity that frees your team for broader analytics. No extra spend.": "modelos melhores, menor time to market e maior produtividade que libera sua equipe para uma análise mais ampla. Sem gasto adicional."});
 Object.assign(THORCAST_I18N.es, {"1000x Productivity": "Productividad 1000x", "Spare capacity for broader analytics": "Capacidad libre para una analítica más amplia", "Ample time to explore new opportunities in credit, fraud, collections, pricing, retention, etc.": "Tiempo de sobra para explorar nuevas oportunidades en crédito, fraude, cobranza, pricing, retención, etc."});
 Object.assign(THORCAST_I18N.pt, {"1000x Productivity": "Produtividade 1000x", "Spare capacity for broader analytics": "Capacidade livre para uma análise mais ampla", "Ample time to explore new opportunities in credit, fraud, collections, pricing, retention, etc.": "Tempo de sobra para explorar novas oportunidades em crédito, fraude, cobrança, pricing, retenção etc."});
-Object.assign(THORCAST_I18N.es, {"Predictive power + Productivity ⇒ More EBITDA": "Poder predictivo + Productividad ⇒ Más EBITDA", "Optimal decisions, on time. No money left on the table.": "Decisiones óptimas, a tiempo. Sin dejar dinero sobre la mesa."});
-Object.assign(THORCAST_I18N.pt, {"Predictive power + Productivity ⇒ More EBITDA": "Poder preditivo + Produtividade ⇒ Mais EBITDA", "Optimal decisions, on time. No money left on the table.": "Decisões ótimas, no tempo certo. Sem deixar dinheiro na mesa."});
 function t(source) {
   if (thorcastCurrentLang === 'en') return source;
   return THORCAST_I18N[thorcastCurrentLang]?.[source] || source;
