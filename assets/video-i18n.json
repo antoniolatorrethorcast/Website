@@ -415,6 +415,84 @@
     "src": "assets/tutorials/video7-enriquecimiento.pt.mp4",
     "dur": "2:30"
    }
+  },
+  "assets/use-cases/telco/01-retencion.mp4": {
+   "es": {
+    "dur": "1:20"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/01-retencion.en.mp4",
+    "dur": "1:27"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/01-retencion.pt.mp4",
+    "dur": "1:22"
+   }
+  },
+  "assets/use-cases/telco/02-visita-fallida.mp4": {
+   "es": {
+    "dur": "1:19"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/02-visita-fallida.en.mp4",
+    "dur": "1:26"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/02-visita-fallida.pt.mp4",
+    "dur": "1:23"
+   }
+  },
+  "assets/use-cases/telco/03-fallas-servicio.mp4": {
+   "es": {
+    "dur": "1:22"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/03-fallas-servicio.en.mp4",
+    "dur": "1:31"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/03-fallas-servicio.pt.mp4",
+    "dur": "1:26"
+   }
+  },
+  "assets/use-cases/telco/04-siguiente-oferta.mp4": {
+   "es": {
+    "dur": "1:23"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/04-siguiente-oferta.en.mp4",
+    "dur": "1:31"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/04-siguiente-oferta.pt.mp4",
+    "dur": "1:28"
+   }
+  },
+  "assets/use-cases/telco/05-cobranza.mp4": {
+   "es": {
+    "dur": "1:19"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/05-cobranza.en.mp4",
+    "dur": "1:25"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/05-cobranza.pt.mp4",
+    "dur": "1:23"
+   }
+  },
+  "assets/use-cases/telco/06-leads.mp4": {
+   "es": {
+    "dur": "1:24"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/06-leads.en.mp4",
+    "dur": "1:31"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/06-leads.pt.mp4",
+    "dur": "1:27"
+   }
   }
  },
  "covers": {
@@ -517,6 +595,30 @@
   "assets/use-cases/insurance-brokers/05-valor-cliente-cover.webp": {
    "en": "assets/use-cases/insurance-brokers/05-valor-cliente-cover.en.webp",
    "pt": "assets/use-cases/insurance-brokers/05-valor-cliente-cover.pt.webp"
+  },
+  "assets/use-cases/telco/01-retencion-cover.webp": {
+   "en": "assets/use-cases/telco/01-retencion-cover.en.webp",
+   "pt": "assets/use-cases/telco/01-retencion-cover.pt.webp"
+  },
+  "assets/use-cases/telco/02-visita-fallida-cover.webp": {
+   "en": "assets/use-cases/telco/02-visita-fallida-cover.en.webp",
+   "pt": "assets/use-cases/telco/02-visita-fallida-cover.pt.webp"
+  },
+  "assets/use-cases/telco/03-fallas-servicio-cover.webp": {
+   "en": "assets/use-cases/telco/03-fallas-servicio-cover.en.webp",
+   "pt": "assets/use-cases/telco/03-fallas-servicio-cover.pt.webp"
+  },
+  "assets/use-cases/telco/04-siguiente-oferta-cover.webp": {
+   "en": "assets/use-cases/telco/04-siguiente-oferta-cover.en.webp",
+   "pt": "assets/use-cases/telco/04-siguiente-oferta-cover.pt.webp"
+  },
+  "assets/use-cases/telco/05-cobranza-cover.webp": {
+   "en": "assets/use-cases/telco/05-cobranza-cover.en.webp",
+   "pt": "assets/use-cases/telco/05-cobranza-cover.pt.webp"
+  },
+  "assets/use-cases/telco/06-leads-cover.webp": {
+   "en": "assets/use-cases/telco/06-leads-cover.en.webp",
+   "pt": "assets/use-cases/telco/06-leads-cover.pt.webp"
   }
  }
 }
