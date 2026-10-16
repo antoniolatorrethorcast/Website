@@ -493,6 +493,19 @@
     "src": "assets/use-cases/telco/06-leads.pt.mp4",
     "dur": "1:27"
    }
+  },
+  "assets/use-cases/telco/07-geo-intelligence.mp4": {
+   "es": {
+    "dur": "1:37"
+   },
+   "en": {
+    "src": "assets/use-cases/telco/07-geo-intelligence.en.mp4",
+    "dur": "1:48"
+   },
+   "pt": {
+    "src": "assets/use-cases/telco/07-geo-intelligence.pt.mp4",
+    "dur": "1:43"
+   }
   }
  },
  "covers": {
@@ -619,6 +632,10 @@
   "assets/use-cases/telco/06-leads-cover.webp": {
    "en": "assets/use-cases/telco/06-leads-cover.en.webp",
    "pt": "assets/use-cases/telco/06-leads-cover.pt.webp"
+  },
+  "assets/use-cases/telco/07-geo-intelligence-cover.webp": {
+   "en": "assets/use-cases/telco/07-geo-intelligence-cover.en.webp",
+   "pt": "assets/use-cases/telco/07-geo-intelligence-cover.pt.webp"
   }
  }
 }
