@@ -506,6 +506,19 @@
     "src": "assets/use-cases/telco/07-geo-intelligence.pt.mp4",
     "dur": "1:43"
    }
+  },
+  "assets/tutorials/0-poc-easy-and-powerful.mp4": {
+   "es": {
+    "dur": "2:00"
+   },
+   "en": {
+    "src": "assets/tutorials/0-poc-easy-and-powerful.en.mp4",
+    "dur": "2:10"
+   },
+   "pt": {
+    "src": "assets/tutorials/0-poc-easy-and-powerful.pt.mp4",
+    "dur": "2:05"
+   }
   }
  },
  "covers": {
@@ -636,6 +649,10 @@
   "assets/use-cases/telco/07-geo-intelligence-cover.webp": {
    "en": "assets/use-cases/telco/07-geo-intelligence-cover.en.webp",
    "pt": "assets/use-cases/telco/07-geo-intelligence-cover.pt.webp"
+  },
+  "assets/tutorials/0-poc-easy-and-powerful-cover.webp": {
+   "en": "assets/tutorials/0-poc-easy-and-powerful-cover.en.webp",
+   "pt": "assets/tutorials/0-poc-easy-and-powerful-cover.pt.webp"
   }
  }
 }
