@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://thorcast.ai/</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/about.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/tutorials.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-01.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-02.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-03.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-04.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-05.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-06.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-07.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-08.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-09.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-10.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/blog-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-10-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/blog-10-pt.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-10-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/blog-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-10-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/blog-10-pt.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-10-pt.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/blog-10.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-10-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/blog-10-pt.html"/>
+  </url>
+</urlset>
