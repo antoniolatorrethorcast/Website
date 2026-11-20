@@ -54,4 +54,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-10-en.html"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/blog-10-pt.html"/>
   </url>
+  <url>
+    <loc>https://thorcast.ai/blog-11.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-12.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-12.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/blog-12-es.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/blog-12-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-12.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/blog-12-es.html"/>
+  </url>
 </urlset>
