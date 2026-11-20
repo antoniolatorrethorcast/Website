@@ -67,4 +67,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/blog-12.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/blog-12-es.html"/>
   </url>
+  <url>
+    <loc>https://thorcast.ai/scoring-crediticio-ia.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/modelo-churn-fuga-clientes.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/deteccion-fraude-machine-learning.html</loc>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/inteligencia-geografica.html</loc>
+  </url>
 </urlset>
