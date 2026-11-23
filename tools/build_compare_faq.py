@@ -128,3 +128,19 @@ for c in COMPARE:
               "about": [{"@type": "SoftwareApplication", "name": "Thorcast.AI", "applicationCategory": "BusinessApplication", "url": BASE},
                         {"@type": "SoftwareApplication", "name": c["name"], "applicationCategory": "BusinessApplication", "url": c["url"]}]}
         page(f, lang, L["title"], L["desc"], ui["tag"], L["h1"], ui["meta"], body, cta(lang), ld, L["h1"], alternates=alts)
+
+# ---------- "Who it's for" (EN / ES / PT)
+from who_for_content import WHO, FILES as WHO_FILES
+_alts = [("en", WHO_FILES["en"]), ("es", WHO_FILES["es"]), ("pt-BR", WHO_FILES["pt"]), ("x-default", WHO_FILES["en"])]
+for lang, W in WHO.items():
+    parts = [W["intro"], f'<h2>{W["ind_h"]}</h2>']
+    parts += [f'<div class="faq-item"><h2>{html.escape(n)}</h2><p>{html.escape(t)}</p></div>' for n, t in W["industries"]]
+    parts.append(f'<h2>{W["team_h"]}</h2><ul>' + "".join(f"<li><strong>{html.escape(n)}.</strong> {html.escape(t)}</li>" for n, t in W["teams"]) + "</ul>")
+    parts += [f'<h2>{W["region_h"]}</h2>', W["region"]]
+    parts.append(f'<h2>{W["notfit_h"]}</h2><ul>' + "".join(f"<li>{html.escape(x)}</li>" for x in W["notfit"]) + "</ul>")
+    parts.append(f'<h2>{W["more_h"]}</h2><ul>' + "".join(f'<li><a href="{f}">{html.escape(t)}</a></li>' for f, t in W["more"]) + "</ul>")
+    f = WHO_FILES[lang]
+    ld = {"@type": "WebPage", "name": W["h1"], "description": W["desc"], "url": BASE + f, "inLanguage": "pt-BR" if lang == "pt" else lang,
+          "publisher": ORG, "about": {"@type": "SoftwareApplication", "name": "Thorcast.AI", "applicationCategory": "BusinessApplication", "url": BASE},
+          "audience": [{"@type": "BusinessAudience", "name": n} for n, _ in W["industries"]]}
+    page(f, lang, W["title"], W["desc"], W["tag"], W["h1"], W["meta"], "\n".join(parts), cta(lang), ld, W["crumb"], alternates=_alts)
