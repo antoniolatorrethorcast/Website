@@ -20,9 +20,9 @@ Thorcast.AI is a platform where AI agents take a predictive model from raw data 
 
 ## Comparisons
 
-- [Thorcast.AI vs DataRobot](https://thorcast.ai/thorcast-vs-datarobot.html)
-- [Thorcast.AI vs H2O.ai](https://thorcast.ai/thorcast-vs-h2o.html)
-- [Thorcast.AI vs SAS Viya and SAS Risk Modeling](https://thorcast.ai/thorcast-vs-sas.html)
+- [Thorcast.AI vs DataRobot](https://thorcast.ai/thorcast-vs-datarobot.html) (also in [Spanish](https://thorcast.ai/thorcast-vs-datarobot-es.html) and [Portuguese](https://thorcast.ai/thorcast-vs-datarobot-pt.html))
+- [Thorcast.AI vs H2O.ai](https://thorcast.ai/thorcast-vs-h2o.html) (also in [Spanish](https://thorcast.ai/thorcast-vs-h2o-es.html) and [Portuguese](https://thorcast.ai/thorcast-vs-h2o-pt.html))
+- [Thorcast.AI vs SAS Viya and SAS Risk Modeling](https://thorcast.ai/thorcast-vs-sas.html) (also in [Spanish](https://thorcast.ai/thorcast-vs-sas-es.html) and [Portuguese](https://thorcast.ai/thorcast-vs-sas-pt.html))
 
 ## Articles
 

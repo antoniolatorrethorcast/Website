@@ -1,122 +1,312 @@
-"""Comparison pages. Thorcast claims = only what thorcast.ai already publishes.
+"""Comparison pages in EN / ES / PT.
+Thorcast claims = what thorcast.ai publishes, plus the three reasons the user wrote on 2026-11-23
+(simplicity, decision layers, end to end). TERRA is labelled as coming soon, as on the rest of the site.
 Competitor claims = vendor pages verified 2026-11-23 (links in each page's sources line)."""
 
-T_AGENTS = "Two built-in agents: <strong>NORA</strong> prepares data from plain-language instructions and <strong>MJÖ</strong> builds, compares and explains models. Every plan waits for your approval."
-T_PREP = "NORA merges, cleans and engineers your tables; every step is checked by a deterministic validation engine. You get a versioned dataset, reproducible Python and a reusable Playbook."
-T_AUTOML = "MJÖ plans the preprocessing, recommends variables, trains and compares several algorithms and presents the champion with Gini, KS and ROC."
-T_ENRICH = "Built in: the Data Enrichment Network adds 3,000+ data points (261 model-ready signals) from an address, email or phone. Coverage depends on the country."
-T_EXPLAIN = "Plain-language explanation from MJÖ and an audit-ready technical report. AI plans, validated code executes: same input, same result."
-T_DECIDE = "Decision layers show approval, risk and economic impact for every cutoff; Champion–Challenger and batch scoring included."
-T_DEPLOY = "Thorcast Cloud, on your premises, or in the app. Data preparation, training and scoring can run on your infrastructure."
-T_START = "One-hour proof of concept with your own sample. Pricing not published; write to info@thorcast.ai."
-T_FIT = "Banks, insurers, brokers, telcos and retailers that want production-grade models without a large data science team, or want their team to cover more use cases."
-
 A = lambda url, txt: f'<a href="{url}" target="_blank" rel="noopener noreferrer">{txt}</a>'
+LANGS = ["en", "es", "pt"]
+FAQ = {"en": "faq.html", "es": "preguntas-frecuentes.html", "pt": "faq.html"}
+
+
+def fname(base, lang):
+    return f"{base}.html" if lang == "en" else f"{base}-{lang}.html"
+
+
+UI = {
+    "en": dict(glance="At a glance", when_them="When to choose {n}", when_us="When to choose Thorcast.AI",
+               more="More comparisons", faq="Thorcast.AI FAQ", src="Sources ({n}, checked November 2026): ",
+               tm=". Vendor capabilities change; check their site for the latest. {tm}", tag="COMPARISON",
+               meta="Thorcast.AI · Updated November 2026", locale="en_US"),
+    "es": dict(glance="Resumen", when_them="Cuándo elegir {n}", when_us="Cuándo elegir Thorcast.AI",
+               more="Más comparativas", faq="Preguntas frecuentes", src="Fuentes ({n}, revisadas en noviembre de 2026): ",
+               tm=". Las capacidades de cada proveedor cambian; revisa su sitio para la versión más reciente. {tm}", tag="COMPARATIVA",
+               meta="Thorcast.AI · Actualizado en noviembre de 2026", locale="es_LA"),
+    "pt": dict(glance="Visão geral", when_them="Quando escolher {n}", when_us="Quando escolher a Thorcast.AI",
+               more="Mais comparações", faq="FAQ (em inglês)", src="Fontes ({n}, verificadas em novembro de 2026): ",
+               tm=". As capacidades de cada fornecedor mudam; consulte o site dele para a versão mais recente. {tm}", tag="COMPARAÇÃO",
+               meta="Thorcast.AI · Atualizado em novembro de 2026", locale="pt_BR"),
+}
+
+# The three reasons common to every comparison (user's points, 2026-11-23)
+WHY = {
+    "en": [
+        "<strong>Simple by design.</strong> Built for business analysts as much as for data scientists, Thorcast makes the hard parts of predictive modeling easy: you work in plain language, the agents handle the technical work, and you stay in control of every decision.",
+        "<strong>Statistics that turn into business decisions.</strong> Decision layers connect each model's statistics to the economics of your policy, showing approval, risk and profit at every cutoff. Start from layers preconfigured in the app, or have the agents tailor them to your business, so every model ships with the decision that gets the most out of it.",
+        "<strong>End to end, in hours.</strong> Cleaning and joining data, enrichment, preprocessing, feature engineering, modeling, decisioning, reporting and deployment happen in one place, in hours rather than months, with AI agents assisting every step: NORA for data, MJÖ for models and decisions, and soon TERRA for geographic intelligence.",
+    ],
+    "es": [
+        "<strong>Simple por diseño.</strong> Pensada tanto para analistas de negocio como para data scientists, Thorcast hace fácil lo difícil del modelamiento predictivo: trabajas en lenguaje natural, los agentes resuelven la parte técnica y tú mantienes el control de cada decisión.",
+        "<strong>Estadística que se convierte en decisiones de negocio.</strong> Las capas de decisión conectan la estadística de cada modelo con la economía de tu política: aprobación, riesgo y utilidad en cada punto de corte. Parte de capas preconfiguradas en la app o pide a los agentes que las adapten a tu negocio, para que cada modelo salga con la decisión que más valor le saca.",
+        "<strong>De punta a punta, en horas.</strong> Limpiar y unir datos, enriquecerlos, preprocesarlos, crear variables, modelar, decidir, reportar y desplegar, todo en un mismo lugar, en horas y no en meses, con agentes de IA que te asisten en cada paso: NORA para los datos, MJÖ para los modelos y las decisiones, y pronto TERRA para la inteligencia geográfica.",
+    ],
+    "pt": [
+        "<strong>Simples por design.</strong> Pensada tanto para analistas de negócio quanto para cientistas de dados, a Thorcast torna fácil o que é difícil na modelagem preditiva: você trabalha em linguagem natural, os agentes cuidam da parte técnica e você mantém o controle de cada decisão.",
+        "<strong>Estatística que vira decisão de negócio.</strong> As camadas de decisão conectam a estatística de cada modelo à economia da sua política: aprovação, risco e lucro em cada ponto de corte. Comece com camadas pré-configuradas no app ou peça aos agentes que as adaptem ao seu negócio, para que cada modelo saia com a decisão que mais gera valor.",
+        "<strong>De ponta a ponta, em horas.</strong> Limpar e unir dados, enriquecê-los, pré-processá-los, criar variáveis, modelar, decidir, gerar relatórios e implantar, tudo em um só lugar, em horas e não em meses, com agentes de IA que apoiam cada etapa: NORA para os dados, MJÖ para os modelos e as decisões e, em breve, TERRA para a inteligência geográfica.",
+    ],
+}
+
+ENRICH_WHY = {
+    "en": "<strong>Data your model is missing.</strong> Alternative data from an address, email or phone is built in, without buying and integrating a new provider.",
+    "es": "<strong>Los datos que le faltan a tu modelo.</strong> Los datos alternativos a partir de una dirección, un email o un teléfono vienen incluidos, sin comprar ni integrar un proveedor nuevo.",
+    "pt": "<strong>Os dados que faltam ao seu modelo.</strong> Dados alternativos a partir de um endereço, e-mail ou telefone já vêm incluídos, sem comprar nem integrar um novo fornecedor.",
+}
+
+# Thorcast column, by row key
+T = {
+    "en": dict(
+        what="Predictive analytics platform with AI agents for credit, fraud, churn, cross-sell, pricing and geo use cases.",
+        agents="Built-in agents: <strong>NORA</strong> prepares data from plain-language instructions and <strong>MJÖ</strong> builds, compares and explains models; TERRA for geographic intelligence is coming soon. Every plan waits for your approval.",
+        prep="NORA merges, cleans and engineers your tables; every step is checked by a deterministic validation engine. You get a versioned dataset, reproducible Python and a reusable Playbook.",
+        automl="MJÖ plans the preprocessing, recommends variables, trains and compares several algorithms and presents the champion with Gini, KS and ROC.",
+        enrich='Built in: the Data Enrichment Network adds 3,000+ data points (261 model-ready signals) from an address, email or phone. Across 68 models in 12 countries it raised Gini by a median of 35% (<a href="faq.html#gini-uplift">results by country</a>). Coverage depends on the country.',
+        explain="Plain-language explanation from MJÖ and an audit-ready technical report. AI plans, validated code executes: same input, same result.",
+        decide="Decision layers show approval, risk and economic impact for every cutoff, preconfigured or tailored by the agents; Champion–Challenger and batch scoring included.",
+        deploy="Thorcast Cloud, on your premises, or in the app. Data preparation, training and scoring can run on your infrastructure.",
+        start="One-hour proof of concept with your own sample. Pricing not published; write to info@thorcast.ai.",
+        fit="Banks, insurers, brokers, telcos and retailers that want production-grade models without a large data science team, or want their team to cover more use cases.",
+        credit="Credit risk models with Gini, KS and ROC, cutoffs with economic impact, and Champion–Challenger.",
+    ),
+    "es": dict(
+        what="Plataforma de analítica predictiva con agentes de IA para crédito, fraude, fuga, venta cruzada, pricing y casos geográficos.",
+        agents="Agentes integrados: <strong>NORA</strong> prepara los datos a partir de instrucciones en lenguaje natural y <strong>MJÖ</strong> construye, compara y explica los modelos; TERRA, para inteligencia geográfica, llega pronto. Cada plan espera tu aprobación.",
+        prep="NORA une, limpia y transforma tus tablas; cada paso pasa por un motor de validación determinístico. Recibes un dataset versionado, código Python reproducible y un Playbook reutilizable.",
+        automl="MJÖ planifica el preprocesamiento, recomienda variables, entrena y compara varios algoritmos y presenta el campeón con Gini, KS y ROC.",
+        enrich='Incluido: la Data Enrichment Network agrega más de 3.000 data points (261 señales listas para el modelo) a partir de una dirección, un email o un teléfono. En 68 modelos de 12 países subió el Gini en una mediana de 35 % (<a href="preguntas-frecuentes.html#gini-uplift">resultados por país</a>). La cobertura depende del país.',
+        explain="Explicación en lenguaje claro de MJÖ y reporte técnico listo para auditoría. La IA planifica y el código validado ejecuta: misma entrada, mismo resultado.",
+        decide="Las capas de decisión muestran aprobación, riesgo e impacto económico en cada punto de corte, preconfiguradas o adaptadas por los agentes; incluye Campeón–Desafiante y scoring por lotes.",
+        deploy="Thorcast Cloud, en tus instalaciones o en la app. La preparación de datos, el entrenamiento y el scoring pueden correr en tu infraestructura.",
+        start="Prueba de concepto de una hora con tu propia muestra. Precios no publicados; escribe a info@thorcast.ai.",
+        fit="Bancos, aseguradoras, corredores, telcos y retail que quieren modelos de nivel productivo sin un gran equipo de data science, o que su equipo cubra más casos de uso.",
+        credit="Modelos de riesgo de crédito con Gini, KS y ROC, puntos de corte con impacto económico y Campeón–Desafiante.",
+    ),
+    "pt": dict(
+        what="Plataforma de análise preditiva com agentes de IA para crédito, fraude, churn, venda cruzada, pricing e casos geográficos.",
+        agents="Agentes integrados: <strong>NORA</strong> prepara os dados a partir de instruções em linguagem natural e <strong>MJÖ</strong> constrói, compara e explica os modelos; TERRA, para inteligência geográfica, chega em breve. Cada plano espera a sua aprovação.",
+        prep="A NORA une, limpa e transforma suas tabelas; cada etapa passa por um motor de validação determinístico. Você recebe um dataset versionado, código Python reprodutível e um Playbook reutilizável.",
+        automl="O MJÖ planeja o pré-processamento, recomenda variáveis, treina e compara vários algoritmos e apresenta o campeão com Gini, KS e ROC.",
+        enrich='Incluído: a Data Enrichment Network adiciona mais de 3.000 data points (261 sinais prontos para o modelo) a partir de um endereço, e-mail ou telefone. Em 68 modelos de 12 países, elevou o Gini em uma mediana de 35% (<a href="faq.html#gini-uplift">resultados por país, em inglês</a>). A cobertura depende do país.',
+        explain="Explicação em linguagem clara do MJÖ e relatório técnico pronto para auditoria. A IA planeja e o código validado executa: mesma entrada, mesmo resultado.",
+        decide="As camadas de decisão mostram aprovação, risco e impacto econômico em cada ponto de corte, pré-configuradas ou adaptadas pelos agentes; inclui Campeão–Desafiante e scoring em lote.",
+        deploy="Thorcast Cloud, nas suas instalações ou no app. A preparação de dados, o treinamento e o scoring podem rodar na sua infraestrutura.",
+        start="Prova de conceito de uma hora com a sua própria amostra. Preços não publicados; escreva para info@thorcast.ai.",
+        fit="Bancos, seguradoras, corretoras, telcos e varejo que querem modelos de nível produtivo sem uma grande equipe de ciência de dados, ou que sua equipe cubra mais casos de uso.",
+        credit="Modelos de risco de crédito com Gini, KS e ROC, pontos de corte com impacto econômico e Campeão–Desafiante.",
+    ),
+}
+
+LABELS = {
+    "en": dict(what="What it is", agents="AI agents", prep="Data preparation", automl="AutoML", credit="Credit-scorecard tooling",
+               enrich="Built-in third-party data", explain="Explainability & documentation", decide="From score to decision",
+               deploy="Deployment", start="Getting started", fit="Best fit"),
+    "es": dict(what="Qué es", agents="Agentes de IA", prep="Preparación de datos", automl="AutoML", credit="Herramientas de scorecard",
+               enrich="Datos de terceros incluidos", explain="Explicabilidad y documentación", decide="Del score a la decisión",
+               deploy="Despliegue", start="Cómo empezar", fit="Para quién conviene"),
+    "pt": dict(what="O que é", agents="Agentes de IA", prep="Preparação de dados", automl="AutoML", credit="Ferramentas de scorecard",
+               enrich="Dados de terceiros incluídos", explain="Explicabilidade e documentação", decide="Do score à decisão",
+               deploy="Implantação", start="Como começar", fit="Para quem é"),
+}
 
 COMPARE = [
 dict(
-    file="thorcast-vs-datarobot.html", name="DataRobot", url="https://www.datarobot.com/",
-    title="Thorcast.AI vs DataRobot: AutoML compared (2026)",
-    h1="Thorcast.AI vs DataRobot",
-    desc="An honest comparison of Thorcast.AI and DataRobot: AI agents, data preparation, AutoML, built-in data enrichment, explainability, deployment and when to choose each.",
-    intro="""<p><strong>DataRobot</strong> is a broad enterprise AI platform that today positions itself around building, operating and governing AI agents, alongside its long-standing AutoML. <strong>Thorcast.AI</strong> is narrower: a predictive analytics platform for banks, insurers, telcos and retailers, where two AI agents take a model from raw data to a business decision, with alternative data built in.</p>
+    base="thorcast-vs-datarobot", name="DataRobot", url="https://www.datarobot.com/",
+    tm=dict(en="DataRobot is a trademark of its owner.", es="DataRobot es una marca registrada de su titular.", pt="DataRobot é uma marca registrada do seu titular."),
+    sources=[("https://www.datarobot.com/", "datarobot.com"),
+             ("https://www.datarobot.com/platform/deployment-self-managed/", "self-managed deployment"),
+             ("https://www.datarobot.com/trial/", "trial"),
+             ("https://docs.datarobot.com/en/modeling/analyze-models/understand/pred-explain/predex-overview.html", "prediction explanations"),
+             ("https://docs.datarobot.com/en/modeling/analyze-models/compliance/compliance.html", "compliance documentation"),
+             ("https://docs.datarobot.com/en/data/transform-data/feature-discovery/index.html", "Feature Discovery")],
+    rows=["what", "agents", "prep", "automl", "enrich", "explain", "decide", "deploy", "start", "fit"],
+    en=dict(
+        title="Thorcast.AI vs DataRobot: AutoML compared (2026)", h1="Thorcast.AI vs DataRobot",
+        desc="An honest comparison of Thorcast.AI and DataRobot: AI agents, data preparation, AutoML, built-in data enrichment, explainability, deployment and when to choose each.",
+        intro="""<p><strong>DataRobot</strong> is a broad enterprise AI platform that today positions itself around building, operating and governing AI agents, alongside its long-standing AutoML. <strong>Thorcast.AI</strong> is narrower: a predictive analytics platform for banks, insurers, telcos and retailers, where AI agents take a model from raw data to a business decision, with alternative data built in.</p>
 <p>Both run in the cloud or on your premises and both produce explainable models. The main differences are scope, who does the work, and where the extra data comes from.</p>""",
-    rows=[
-        ("What it is", "Predictive analytics platform with AI agents for credit, fraud, churn, cross-sell, pricing and geo use cases.", "Enterprise platform to build, operate and govern AI agents and predictive models across industries."),
-        ("AI agents", T_AGENTS, "Agent Workforce Platform and agent builder for creating your own agents; AutoML and a GenAI workbench."),
-        ("Data preparation", T_PREP, "Feature Discovery joins and aggregates your own related datasets into features."),
-        ("AutoML", T_AUTOML, "Mature AutoML with leaderboards, monotonic constraints on some models and many algorithm families."),
-        ("Built-in third-party data", T_ENRICH, "No native third-party data enrichment found; you bring your own data."),
-        ("Explainability & documentation", T_EXPLAIN, "Prediction Explanations (SHAP, XEMP) and compliance documentation templates aimed at SR 11-7, exportable to .docx."),
-        ("From score to decision", T_DECIDE, "Deployment, monitoring and governance of models and agents."),
-        ("Deployment", T_DEPLOY, "Multi-tenant or single-tenant SaaS, self-managed VPC, or on-premise including air-gapped."),
-        ("Getting started", T_START, "30-day free trial; pricing not published."),
-        ("Best fit", T_FIT, "Large enterprises with data science teams that want one platform for many AI and agent projects."),
-    ],
-    choose="""<h2>When to choose DataRobot</h2>
-<ul><li>You need one enterprise platform for many kinds of AI, including building and governing your own agents.</li>
-<li>You have an experienced data science team and existing data pipelines, and you want to self-serve a 30-day trial.</li>
-<li>You need SaaS, VPC or air-gapped deployment from a large vendor across many business units.</li></ul>
-<h2>When to choose Thorcast.AI</h2>
-<ul><li>Your priority is credit risk, fraud, churn, cross-sell or pricing models, and you want agents that do the data preparation and modeling for you.</li>
-<li>Your current model is missing data: you want alternative data from an address, email or phone without buying and integrating a new provider.</li>
-<li>You want the model to end in a business decision: cutoffs with economic impact, Champion–Challenger and monitoring.</li></ul>""",
-    sources="Sources (DataRobot, checked November 2026): " + " · ".join([
-        A("https://www.datarobot.com/", "datarobot.com"),
-        A("https://www.datarobot.com/platform/deployment-self-managed/", "self-managed deployment"),
-        A("https://www.datarobot.com/trial/", "trial"),
-        A("https://docs.datarobot.com/en/modeling/analyze-models/understand/pred-explain/predex-overview.html", "prediction explanations"),
-        A("https://docs.datarobot.com/en/modeling/analyze-models/compliance/compliance.html", "compliance documentation"),
-        A("https://docs.datarobot.com/en/data/transform-data/feature-discovery/index.html", "Feature Discovery")]) +
-        ". Vendor capabilities change; check their site for the latest. DataRobot is a trademark of its owner.",
+        them=dict(what="Enterprise platform to build, operate and govern AI agents and predictive models across industries.",
+                  agents="Agent Workforce Platform and agent builder for creating your own agents; AutoML and a GenAI workbench.",
+                  prep="Feature Discovery joins and aggregates your own related datasets into features.",
+                  automl="Mature AutoML with leaderboards, monotonic constraints on some models and many algorithm families.",
+                  enrich="No native third-party data enrichment found; you bring your own data.",
+                  explain="Prediction Explanations (SHAP, XEMP) and compliance documentation templates aimed at SR 11-7, exportable to .docx.",
+                  decide="Deployment, monitoring and governance of models and agents.",
+                  deploy="Multi-tenant or single-tenant SaaS, self-managed VPC, or on-premise including air-gapped.",
+                  start="30-day free trial; pricing not published.",
+                  fit="Large enterprises with data science teams that want one platform for many AI and agent projects."),
+        choose_them=["You need one enterprise platform for many kinds of AI, including building and governing your own agents.",
+                     "You have an experienced data science team and existing data pipelines, and you want to self-serve a 30-day trial.",
+                     "You need SaaS, VPC or air-gapped deployment from a large vendor across many business units."],
+    ),
+    es=dict(
+        title="Thorcast.AI vs DataRobot: comparativa de AutoML (2026)", h1="Thorcast.AI vs DataRobot",
+        desc="Una comparativa honesta entre Thorcast.AI y DataRobot: agentes de IA, preparación de datos, AutoML, enriquecimiento de datos, explicabilidad, despliegue y cuándo elegir cada uno.",
+        intro="""<p><strong>DataRobot</strong> es una plataforma empresarial de IA amplia que hoy se presenta en torno a construir, operar y gobernar agentes de IA, junto a su AutoML de larga trayectoria. <strong>Thorcast.AI</strong> es más específica: una plataforma de analítica predictiva para bancos, aseguradoras, telcos y retail, donde agentes de IA llevan un modelo desde los datos crudos hasta una decisión de negocio, con datos alternativos incluidos.</p>
+<p>Ambas corren en la nube o en tus instalaciones y ambas producen modelos explicables. Las diferencias principales están en el alcance, en quién hace el trabajo y en de dónde vienen los datos adicionales.</p>""",
+        them=dict(what="Plataforma empresarial para construir, operar y gobernar agentes de IA y modelos predictivos en muchas industrias.",
+                  agents="Agent Workforce Platform y un constructor de agentes para crear los tuyos; AutoML y un entorno de IA generativa.",
+                  prep="Feature Discovery une y agrega tus propios datasets relacionados para crear variables.",
+                  automl="AutoML maduro con rankings de modelos, restricciones monótonas en algunos modelos y muchas familias de algoritmos.",
+                  enrich="No encontramos enriquecimiento nativo con datos de terceros; tú aportas tus datos.",
+                  explain="Prediction Explanations (SHAP, XEMP) y plantillas de documentación de cumplimiento orientadas a SR 11-7, exportables a .docx.",
+                  decide="Despliegue, monitoreo y gobierno de modelos y agentes.",
+                  deploy="SaaS multi-tenant o single-tenant, VPC autogestionada u on-premise, incluso sin conexión a internet.",
+                  start="Prueba gratuita de 30 días; precios no publicados.",
+                  fit="Grandes empresas con equipos de data science que quieren una sola plataforma para muchos proyectos de IA y agentes."),
+        choose_them=["Necesitas una sola plataforma empresarial para muchos tipos de IA, incluido construir y gobernar tus propios agentes.",
+                     "Tienes un equipo de data science con experiencia y pipelines de datos existentes, y quieres probarla por tu cuenta 30 días.",
+                     "Necesitas despliegue SaaS, en VPC o sin conexión de un gran proveedor, para muchas unidades de negocio."],
+    ),
+    pt=dict(
+        title="Thorcast.AI vs DataRobot: comparação de AutoML (2026)", h1="Thorcast.AI vs DataRobot",
+        desc="Uma comparação honesta entre Thorcast.AI e DataRobot: agentes de IA, preparação de dados, AutoML, enriquecimento de dados, explicabilidade, implantação e quando escolher cada um.",
+        intro="""<p><strong>DataRobot</strong> é uma plataforma corporativa de IA ampla que hoje se posiciona em torno de construir, operar e governar agentes de IA, junto ao seu AutoML de longa trajetória. <strong>Thorcast.AI</strong> é mais específica: uma plataforma de análise preditiva para bancos, seguradoras, telcos e varejo, onde agentes de IA levam um modelo dos dados brutos até uma decisão de negócio, com dados alternativos incluídos.</p>
+<p>Ambas rodam na nuvem ou nas suas instalações e ambas produzem modelos explicáveis. As principais diferenças estão no escopo, em quem faz o trabalho e na origem dos dados adicionais.</p>""",
+        them=dict(what="Plataforma corporativa para construir, operar e governar agentes de IA e modelos preditivos em vários setores.",
+                  agents="Agent Workforce Platform e um construtor de agentes para criar os seus; AutoML e um ambiente de IA generativa.",
+                  prep="O Feature Discovery une e agrega seus próprios datasets relacionados para criar variáveis.",
+                  automl="AutoML maduro com rankings de modelos, restrições monotônicas em alguns modelos e muitas famílias de algoritmos.",
+                  enrich="Não encontramos enriquecimento nativo com dados de terceiros; você traz os seus dados.",
+                  explain="Prediction Explanations (SHAP, XEMP) e modelos de documentação de conformidade voltados ao SR 11-7, exportáveis para .docx.",
+                  decide="Implantação, monitoramento e governança de modelos e agentes.",
+                  deploy="SaaS multi-tenant ou single-tenant, VPC autogerenciada ou on-premise, inclusive sem conexão à internet.",
+                  start="Teste gratuito de 30 dias; preços não publicados.",
+                  fit="Grandes empresas com equipes de ciência de dados que querem uma só plataforma para muitos projetos de IA e agentes."),
+        choose_them=["Você precisa de uma única plataforma corporativa para muitos tipos de IA, incluindo construir e governar seus próprios agentes.",
+                     "Você tem uma equipe de ciência de dados experiente e pipelines de dados existentes, e quer testar sozinho por 30 dias.",
+                     "Você precisa de implantação SaaS, em VPC ou sem conexão de um grande fornecedor, para muitas unidades de negócio."],
+    ),
 ),
 dict(
-    file="thorcast-vs-h2o.html", name="H2O.ai", url="https://h2o.ai/",
-    title="Thorcast.AI vs H2O.ai Driverless AI compared (2026)",
-    h1="Thorcast.AI vs H2O.ai",
-    desc="An honest comparison of Thorcast.AI and H2O.ai Driverless AI: AI agents, AutoML, built-in data enrichment, explainability, deployment and when to choose each.",
-    intro="""<p><strong>H2O.ai</strong> offers H2O AI Cloud, Driverless AI for AutoML and the open-source H2O-3 library, and positions itself as a sovereign AI platform you can run anywhere, from the cloud to fully air-gapped. <strong>Thorcast.AI</strong> is a predictive analytics platform for banks, insurers, telcos and retailers, where two AI agents take a model from raw data to a business decision, with alternative data built in.</p>
+    base="thorcast-vs-h2o", name="H2O.ai", url="https://h2o.ai/",
+    tm=dict(en="H2O.ai and Driverless AI are trademarks of their owner.", es="H2O.ai y Driverless AI son marcas registradas de su titular.", pt="H2O.ai e Driverless AI são marcas registradas do seu titular."),
+    sources=[("https://h2o.ai/platform/ai-cloud/", "H2O AI Cloud"),
+             ("https://h2o.ai/solutions/use-case/credit-risk-scoring/", "credit risk scoring"),
+             ("https://github.com/h2oai/h2o-3", "H2O-3 on GitHub"),
+             ("https://aws.amazon.com/marketplace/pp/prodview-bx2r2kp7qw6m4", "Driverless AI on AWS Marketplace")],
+    rows=["what", "agents", "prep", "automl", "enrich", "explain", "decide", "deploy", "start", "fit"],
+    en=dict(
+        title="Thorcast.AI vs H2O.ai Driverless AI compared (2026)", h1="Thorcast.AI vs H2O.ai",
+        desc="An honest comparison of Thorcast.AI and H2O.ai Driverless AI: AI agents, AutoML, built-in data enrichment, explainability, deployment and when to choose each.",
+        intro="""<p><strong>H2O.ai</strong> offers H2O AI Cloud, Driverless AI for AutoML and the open-source H2O-3 library, and positions itself as a sovereign AI platform you can run anywhere, from the cloud to fully air-gapped. <strong>Thorcast.AI</strong> is a predictive analytics platform for banks, insurers, telcos and retailers, where AI agents take a model from raw data to a business decision, with alternative data built in.</p>
 <p>Both are strong on automated modeling and explainability. They differ in who drives the work, in data enrichment, and in how much of the path to a business decision is covered.</p>""",
-    rows=[
-        ("What it is", "Predictive analytics platform with AI agents for credit, fraud, churn, cross-sell, pricing and geo use cases.", "AI platform (H2O AI Cloud) with Driverless AI for AutoML, generative AI tooling and open-source H2O-3."),
-        ("AI agents", T_AGENTS, "H2O AI Super Agent and an Agents Builder (including Deep Research and Data Science agents)."),
-        ("Data preparation", T_PREP, "Automatic feature engineering inside Driverless AI; data preparation otherwise done by your team."),
-        ("AutoML", T_AUTOML, "Driverless AI AutoML with automatic feature engineering; open-source H2O AutoML in H2O-3."),
-        ("Built-in third-party data", T_ENRICH, "No native third-party data found; its credit page asks you to bring your own bureau and alternative data."),
-        ("Explainability & documentation", T_EXPLAIN, "Reason codes on every prediction (Shapley, K-LIME), AutoDoc for model risk review and disparate impact analysis."),
-        ("From score to decision", T_DECIDE, "Model deployment and monitoring within H2O AI Cloud."),
-        ("Deployment", T_DEPLOY, "Managed cloud, hybrid (your cloud, on-premise or air-gapped) and a government cloud."),
-        ("Getting started", T_START, "H2O-3 is free and open source; enterprise platform by demo; pricing not published."),
-        ("Best fit", T_FIT, "Data science teams that want a powerful AutoML engine and open-source options, often with sovereign or air-gapped requirements."),
-    ],
-    choose="""<h2>When to choose H2O.ai</h2>
-<ul><li>Your data scientists want open-source building blocks (H2O-3) or a high-performance AutoML engine they drive themselves.</li>
-<li>You need sovereign or fully air-gapped AI across many use cases, including generative AI.</li>
-<li>You already have your bureau and alternative data integrated.</li></ul>
-<h2>When to choose Thorcast.AI</h2>
-<ul><li>You want agents to do the data preparation and modeling, with your team approving each plan instead of building pipelines.</li>
-<li>You want alternative data from an address, email or phone included, without a separate data project.</li>
-<li>You want the model to end in a decision: cutoffs with economic impact, Champion–Challenger and monitoring, in one place.</li></ul>""",
-    sources="Sources (H2O.ai, checked November 2026): " + " · ".join([
-        A("https://h2o.ai/platform/ai-cloud/", "H2O AI Cloud"),
-        A("https://h2o.ai/solutions/use-case/credit-risk-scoring/", "credit risk scoring"),
-        A("https://github.com/h2oai/h2o-3", "H2O-3 on GitHub"),
-        A("https://aws.amazon.com/marketplace/pp/prodview-bx2r2kp7qw6m4", "Driverless AI on AWS Marketplace")]) +
-        ". Vendor capabilities change; check their site for the latest. H2O.ai and Driverless AI are trademarks of their owner.",
+        them=dict(what="AI platform (H2O AI Cloud) with Driverless AI for AutoML, generative AI tooling and open-source H2O-3.",
+                  agents="H2O AI Super Agent and an Agents Builder (including Deep Research and Data Science agents).",
+                  prep="Automatic feature engineering inside Driverless AI; data preparation otherwise done by your team.",
+                  automl="Driverless AI AutoML with automatic feature engineering; open-source H2O AutoML in H2O-3.",
+                  enrich="No native third-party data found; its credit page asks you to bring your own bureau and alternative data.",
+                  explain="Reason codes on every prediction (Shapley, K-LIME), AutoDoc for model risk review and disparate impact analysis.",
+                  decide="Model deployment and monitoring within H2O AI Cloud.",
+                  deploy="Managed cloud, hybrid (your cloud, on-premise or air-gapped) and a government cloud.",
+                  start="H2O-3 is free and open source; enterprise platform by demo; pricing not published.",
+                  fit="Data science teams that want a powerful AutoML engine and open-source options, often with sovereign or air-gapped requirements."),
+        choose_them=["Your data scientists want open-source building blocks (H2O-3) or a high-performance AutoML engine they drive themselves.",
+                     "You need sovereign or fully air-gapped AI across many use cases, including generative AI.",
+                     "You already have your bureau and alternative data integrated."],
+    ),
+    es=dict(
+        title="Thorcast.AI vs H2O.ai Driverless AI: comparativa (2026)", h1="Thorcast.AI vs H2O.ai",
+        desc="Una comparativa honesta entre Thorcast.AI y H2O.ai Driverless AI: agentes de IA, AutoML, enriquecimiento de datos, explicabilidad, despliegue y cuándo elegir cada uno.",
+        intro="""<p><strong>H2O.ai</strong> ofrece H2O AI Cloud, Driverless AI para AutoML y la librería de código abierto H2O-3, y se presenta como una plataforma de IA soberana que puede correr en cualquier lugar, desde la nube hasta entornos totalmente aislados. <strong>Thorcast.AI</strong> es una plataforma de analítica predictiva para bancos, aseguradoras, telcos y retail, donde agentes de IA llevan un modelo desde los datos crudos hasta una decisión de negocio, con datos alternativos incluidos.</p>
+<p>Ambas son fuertes en modelamiento automatizado y explicabilidad. Se diferencian en quién conduce el trabajo, en el enriquecimiento de datos y en cuánto del camino hasta la decisión de negocio cubren.</p>""",
+        them=dict(what="Plataforma de IA (H2O AI Cloud) con Driverless AI para AutoML, herramientas de IA generativa y H2O-3 de código abierto.",
+                  agents="H2O AI Super Agent y un Agents Builder (con agentes de Deep Research y de Data Science).",
+                  prep="Ingeniería de variables automática dentro de Driverless AI; el resto de la preparación de datos la hace tu equipo.",
+                  automl="AutoML de Driverless AI con ingeniería de variables automática; H2O AutoML de código abierto en H2O-3.",
+                  enrich="No encontramos datos de terceros nativos; su página de crédito pide aportar tus propios datos de buró y alternativos.",
+                  explain="Códigos de razón en cada predicción (Shapley, K-LIME), AutoDoc para revisión de riesgo de modelo y análisis de impacto dispar.",
+                  decide="Despliegue y monitoreo de modelos dentro de H2O AI Cloud.",
+                  deploy="Nube gestionada, híbrido (tu nube, on-premise o aislado) y una nube para gobierno.",
+                  start="H2O-3 es gratuito y de código abierto; la plataforma empresarial, con demo; precios no publicados.",
+                  fit="Equipos de data science que quieren un motor de AutoML potente y opciones de código abierto, a menudo con requisitos de soberanía o aislamiento."),
+        choose_them=["Tus data scientists quieren piezas de código abierto (H2O-3) o un motor de AutoML de alto rendimiento que manejan ellos mismos.",
+                     "Necesitas IA soberana o totalmente aislada para muchos casos de uso, incluida la IA generativa.",
+                     "Ya tienes integrados tus datos de buró y alternativos."],
+    ),
+    pt=dict(
+        title="Thorcast.AI vs H2O.ai Driverless AI: comparação (2026)", h1="Thorcast.AI vs H2O.ai",
+        desc="Uma comparação honesta entre Thorcast.AI e H2O.ai Driverless AI: agentes de IA, AutoML, enriquecimento de dados, explicabilidade, implantação e quando escolher cada um.",
+        intro="""<p><strong>H2O.ai</strong> oferece o H2O AI Cloud, o Driverless AI para AutoML e a biblioteca de código aberto H2O-3, e se posiciona como uma plataforma de IA soberana que roda em qualquer lugar, da nuvem a ambientes totalmente isolados. <strong>Thorcast.AI</strong> é uma plataforma de análise preditiva para bancos, seguradoras, telcos e varejo, onde agentes de IA levam um modelo dos dados brutos até uma decisão de negócio, com dados alternativos incluídos.</p>
+<p>Ambas são fortes em modelagem automatizada e explicabilidade. Diferem em quem conduz o trabalho, no enriquecimento de dados e em quanto do caminho até a decisão de negócio cobrem.</p>""",
+        them=dict(what="Plataforma de IA (H2O AI Cloud) com Driverless AI para AutoML, ferramentas de IA generativa e H2O-3 de código aberto.",
+                  agents="H2O AI Super Agent e um Agents Builder (com agentes de Deep Research e de Data Science).",
+                  prep="Engenharia de variáveis automática dentro do Driverless AI; o restante da preparação de dados fica com a sua equipe.",
+                  automl="AutoML do Driverless AI com engenharia de variáveis automática; H2O AutoML de código aberto no H2O-3.",
+                  enrich="Não encontramos dados de terceiros nativos; a página de crédito pede que você traga seus dados de bureau e alternativos.",
+                  explain="Códigos de razão em cada previsão (Shapley, K-LIME), AutoDoc para revisão de risco de modelo e análise de impacto desigual.",
+                  decide="Implantação e monitoramento de modelos dentro do H2O AI Cloud.",
+                  deploy="Nuvem gerenciada, híbrido (sua nuvem, on-premise ou isolado) e uma nuvem para governo.",
+                  start="O H2O-3 é gratuito e de código aberto; a plataforma corporativa, por demo; preços não publicados.",
+                  fit="Equipes de ciência de dados que querem um motor de AutoML potente e opções de código aberto, muitas vezes com requisitos de soberania ou isolamento."),
+        choose_them=["Seus cientistas de dados querem blocos de código aberto (H2O-3) ou um motor de AutoML de alto desempenho que eles mesmos conduzem.",
+                     "Você precisa de IA soberana ou totalmente isolada para muitos casos de uso, incluindo IA generativa.",
+                     "Você já tem integrados seus dados de bureau e alternativos."],
+    ),
 ),
 dict(
-    file="thorcast-vs-sas.html", name="SAS Viya", url="https://www.sas.com/en_us/software/viya.html",
-    title="Thorcast.AI vs SAS Viya and SAS Risk Modeling (2026)",
-    h1="Thorcast.AI vs SAS Viya",
-    desc="An honest comparison of Thorcast.AI and SAS Viya / SAS Risk Modeling for credit risk and predictive models: agents, data, explainability, deployment and when to choose each.",
-    intro="""<p><strong>SAS Viya</strong> is a unified data and AI platform, and <strong>SAS Risk Modeling</strong> (formerly SAS Credit Scoring) is its governed environment to develop, validate, deploy and monitor credit risk models. It is a long-standing standard in banking. <strong>Thorcast.AI</strong> is a predictive analytics platform where two AI agents take a model from raw data to a business decision, with alternative data built in.</p>
+    base="thorcast-vs-sas", name="SAS Viya", url="https://www.sas.com/en_us/software/viya.html",
+    tm=dict(en="SAS and Viya are trademarks of SAS Institute Inc.", es="SAS y Viya son marcas registradas de SAS Institute Inc.", pt="SAS e Viya são marcas registradas da SAS Institute Inc."),
+    sources=[("https://www.sas.com/en_us/software/viya.html", "SAS Viya"),
+             ("https://www.sas.com/en_ca/software/risk-modeling.html", "SAS Risk Modeling"),
+             ("https://www.sas.com/en_us/software/viya/try-or-buy.html", "try or buy"),
+             ("https://www.sas.com/en_ca/software/model-studio/features-list.html", "Model Studio"),
+             ("https://www.sas.com/en_gb/news/press-releases/2026/april/innovate-viya-ai-assistants-agentic.html", "Viya AI assistants (2026)")],
+    rows=["what", "agents", "prep", "automl", "credit", "enrich", "explain", "deploy", "start", "fit"],
+    en=dict(
+        title="Thorcast.AI vs SAS Viya and SAS Risk Modeling (2026)", h1="Thorcast.AI vs SAS Viya",
+        desc="An honest comparison of Thorcast.AI and SAS Viya / SAS Risk Modeling for credit risk and predictive models: agents, data, explainability, deployment and when to choose each.",
+        intro="""<p><strong>SAS Viya</strong> is a unified data and AI platform, and <strong>SAS Risk Modeling</strong> (formerly SAS Credit Scoring) is its governed environment to develop, validate, deploy and monitor credit risk models. It is a long-standing standard in banking. <strong>Thorcast.AI</strong> is a predictive analytics platform where AI agents take a model from raw data to a business decision, with alternative data built in.</p>
 <p>SAS offers a full traditional credit-scorecard toolkit; Thorcast focuses on getting a production-grade model and a decision quickly, with less specialist effort.</p>""",
-    rows=[
-        ("What it is", "Predictive analytics platform with AI agents for credit, fraud, churn, cross-sell, pricing and geo use cases.", "Unified data and AI platform; Risk Modeling for credit risk model development and governance."),
-        ("AI agents", T_AGENTS, "SAS Viya Copilot and other assistants, an agentic AI accelerator, and AI agents in SAS Intelligent Decisioning."),
-        ("Data preparation", T_PREP, "Full data management and programming environment (SAS, Python, R) for your team."),
-        ("AutoML", T_AUTOML, "Model Studio with automated pipeline generation and autotuning."),
-        ("Credit-scorecard tooling", "Credit risk models with Gini, KS and ROC, cutoffs with economic impact, and Champion–Challenger.", "Interactive grouping, weight of evidence, monotonicity and stability checks, reject inference and automated documentation."),
-        ("Built-in third-party data", T_ENRICH, "No native third-party data enrichment found on the Viya page; you bring your own data."),
-        ("Explainability & documentation", T_EXPLAIN, "PD, ICE, LIME and Shapley explanations; central model repository with version control."),
-        ("Deployment", T_DEPLOY, "Cloud, hybrid or on-premise; SAS Managed Cloud Services; dark-site (air-gapped) installs."),
-        ("Getting started", T_START, "14-day free trial; pricing not published (several tiers, pay-as-you-go option)."),
-        ("Best fit", T_FIT, "Banks with established SAS teams and processes that want maximum control over traditional scorecards."),
-    ],
-    choose="""<h2>When to choose SAS</h2>
-<ul><li>Your risk team already works in SAS and your model governance is built around it.</li>
-<li>You need the full traditional scorecard toolkit: interactive grouping, WoE, reject inference and the documentation your validators expect from SAS.</li>
-<li>You want one vendor for data management, analytics and decisioning across the bank.</li></ul>
-<h2>When to choose Thorcast.AI</h2>
-<ul><li>You want a production-grade model in minutes instead of months, with agents doing the data preparation and modeling.</li>
-<li>Your team is small, or you want to cover more use cases (fraud, churn, cross-sell, pricing) with the same people.</li>
-<li>You want alternative data from an address, email or phone included, and the model to end in a decision with economic impact.</li></ul>""",
-    sources="Sources (SAS, checked November 2026): " + " · ".join([
-        A("https://www.sas.com/en_us/software/viya.html", "SAS Viya"),
-        A("https://www.sas.com/en_ca/software/risk-modeling.html", "SAS Risk Modeling"),
-        A("https://www.sas.com/en_us/software/viya/try-or-buy.html", "try or buy"),
-        A("https://www.sas.com/en_ca/software/model-studio/features-list.html", "Model Studio"),
-        A("https://www.sas.com/en_gb/news/press-releases/2026/april/innovate-viya-ai-assistants-agentic.html", "Viya AI assistants (2026)")]) +
-        ". Vendor capabilities change; check their site for the latest. SAS and Viya are trademarks of SAS Institute Inc.",
+        them=dict(what="Unified data and AI platform; Risk Modeling for credit risk model development and governance.",
+                  agents="SAS Viya Copilot and other assistants, an agentic AI accelerator, and AI agents in SAS Intelligent Decisioning.",
+                  prep="Full data management and programming environment (SAS, Python, R) for your team.",
+                  automl="Model Studio with automated pipeline generation and autotuning.",
+                  credit="Interactive grouping, weight of evidence, monotonicity and stability checks, reject inference and automated documentation.",
+                  enrich="No native third-party data enrichment found on the Viya page; you bring your own data.",
+                  explain="PD, ICE, LIME and Shapley explanations; central model repository with version control.",
+                  deploy="Cloud, hybrid or on-premise; SAS Managed Cloud Services; dark-site (air-gapped) installs.",
+                  start="14-day free trial; pricing not published (several tiers, pay-as-you-go option).",
+                  fit="Banks with established SAS teams and processes that want maximum control over traditional scorecards."),
+        choose_them=["Your risk team already works in SAS and your model governance is built around it.",
+                     "You need the full traditional scorecard toolkit: interactive grouping, WoE, reject inference and the documentation your validators expect from SAS.",
+                     "You want one vendor for data management, analytics and decisioning across the bank."],
+    ),
+    es=dict(
+        title="Thorcast.AI vs SAS Viya y SAS Risk Modeling (2026)", h1="Thorcast.AI vs SAS Viya",
+        desc="Una comparativa honesta entre Thorcast.AI y SAS Viya / SAS Risk Modeling para riesgo de crédito y modelos predictivos: agentes, datos, explicabilidad, despliegue y cuándo elegir cada uno.",
+        intro="""<p><strong>SAS Viya</strong> es una plataforma unificada de datos e IA, y <strong>SAS Risk Modeling</strong> (antes SAS Credit Scoring) es su entorno gobernado para desarrollar, validar, desplegar y monitorear modelos de riesgo de crédito. Es un estándar histórico en la banca. <strong>Thorcast.AI</strong> es una plataforma de analítica predictiva donde agentes de IA llevan un modelo desde los datos crudos hasta una decisión de negocio, con datos alternativos incluidos.</p>
+<p>SAS ofrece un set completo de herramientas tradicionales de scorecard; Thorcast se enfoca en llegar rápido a un modelo de nivel productivo y a una decisión, con menos esfuerzo especializado.</p>""",
+        them=dict(what="Plataforma unificada de datos e IA; Risk Modeling para desarrollar y gobernar modelos de riesgo de crédito.",
+                  agents="SAS Viya Copilot y otros asistentes, un acelerador de IA agéntica y agentes de IA en SAS Intelligent Decisioning.",
+                  prep="Entorno completo de gestión de datos y programación (SAS, Python, R) para tu equipo.",
+                  automl="Model Studio con generación automática de pipelines y autoajuste.",
+                  credit="Agrupación interactiva, weight of evidence, chequeos de monotonía y estabilidad, inferencia de rechazados y documentación automática.",
+                  enrich="No encontramos enriquecimiento nativo con datos de terceros en la página de Viya; tú aportas tus datos.",
+                  explain="Explicaciones PD, ICE, LIME y Shapley; repositorio central de modelos con control de versiones.",
+                  deploy="Nube, híbrido u on-premise; SAS Managed Cloud Services; instalaciones aisladas (dark site).",
+                  start="Prueba gratuita de 14 días; precios no publicados (varios niveles y opción de pago por uso).",
+                  fit="Bancos con equipos y procesos SAS consolidados que quieren el máximo control sobre los scorecards tradicionales."),
+        choose_them=["Tu equipo de riesgo ya trabaja en SAS y tu gobierno de modelos está construido en torno a él.",
+                     "Necesitas el set completo de herramientas tradicionales de scorecard: agrupación interactiva, WoE, inferencia de rechazados y la documentación que tus validadores esperan de SAS.",
+                     "Quieres un solo proveedor para gestión de datos, analítica y decisiones en todo el banco."],
+    ),
+    pt=dict(
+        title="Thorcast.AI vs SAS Viya e SAS Risk Modeling (2026)", h1="Thorcast.AI vs SAS Viya",
+        desc="Uma comparação honesta entre Thorcast.AI e SAS Viya / SAS Risk Modeling para risco de crédito e modelos preditivos: agentes, dados, explicabilidade, implantação e quando escolher cada um.",
+        intro="""<p><strong>SAS Viya</strong> é uma plataforma unificada de dados e IA, e o <strong>SAS Risk Modeling</strong> (antes SAS Credit Scoring) é o seu ambiente governado para desenvolver, validar, implantar e monitorar modelos de risco de crédito. É um padrão histórico no setor bancário. <strong>Thorcast.AI</strong> é uma plataforma de análise preditiva onde agentes de IA levam um modelo dos dados brutos até uma decisão de negócio, com dados alternativos incluídos.</p>
+<p>O SAS oferece um conjunto completo de ferramentas tradicionais de scorecard; a Thorcast foca em chegar rápido a um modelo de nível produtivo e a uma decisão, com menos esforço especializado.</p>""",
+        them=dict(what="Plataforma unificada de dados e IA; Risk Modeling para desenvolver e governar modelos de risco de crédito.",
+                  agents="SAS Viya Copilot e outros assistentes, um acelerador de IA agêntica e agentes de IA no SAS Intelligent Decisioning.",
+                  prep="Ambiente completo de gestão de dados e programação (SAS, Python, R) para a sua equipe.",
+                  automl="Model Studio com geração automática de pipelines e autoajuste.",
+                  credit="Agrupamento interativo, weight of evidence, verificações de monotonicidade e estabilidade, inferência de rejeitados e documentação automática.",
+                  enrich="Não encontramos enriquecimento nativo com dados de terceiros na página do Viya; você traz os seus dados.",
+                  explain="Explicações PD, ICE, LIME e Shapley; repositório central de modelos com controle de versões.",
+                  deploy="Nuvem, híbrido ou on-premise; SAS Managed Cloud Services; instalações isoladas (dark site).",
+                  start="Teste gratuito de 14 dias; preços não publicados (vários níveis e opção de pagamento por uso).",
+                  fit="Bancos com equipes e processos SAS consolidados que querem o máximo controle sobre scorecards tradicionais."),
+        choose_them=["Sua equipe de risco já trabalha em SAS e a governança de modelos foi construída em torno dele.",
+                     "Você precisa do conjunto completo de ferramentas tradicionais de scorecard: agrupamento interativo, WoE, inferência de rejeitados e a documentação que seus validadores esperam do SAS.",
+                     "Você quer um só fornecedor para gestão de dados, analytics e decisões em todo o banco."],
+    ),
 ),
 ]
