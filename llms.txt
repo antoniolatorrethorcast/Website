@@ -1,10 +1,10 @@
 # Thorcast.AI
 
-> AI predictive analytics for banks, insurers, telcos and retailers in Latin America: credit scoring, churn, fraud and geo intelligence models built on enriched data, in minutes rather than months.
+> AI predictive analytics for banks, insurers, telcos and retailers worldwide: credit scoring, churn, fraud and geo intelligence models built on enriched data, in minutes rather than months.
 
-Thorcast.AI is a platform where AI agents take a predictive model from raw data to production: NORA prepares and joins the data, MJÖ builds and compares models autonomously, and the platform handles data enrichment, Champion–Challenger comparison, batch scoring, monitoring and recalibration. Models are explainable and documented for audit.
+Thorcast.AI is a platform where AI agents take a predictive model from raw data to production: NORA prepares and joins the data, MJÖ builds and compares models autonomously, and the platform handles data enrichment, Champion–Challenger comparison, batch scoring, monitoring and recalibration. Models are explainable and documented for audit. Thorcast.AI serves organizations in any region: the Americas, Europe, Africa and Asia.
 
-## Solutions (Spanish)
+## Solutions (pages in Spanish)
 
 - [Scoring crediticio con IA](https://thorcast.ai/scoring-crediticio-ia.html): credit scoring models with AI and alternative data for origination, collections and cutoff decisions.
 - [Modelo de churn y fuga de clientes](https://thorcast.ai/modelo-churn-fuga-clientes.html): customer churn prediction for banking, insurance and telco.
