@@ -98,7 +98,11 @@ for lang, fname, items, title, desc, h1, tag, crumb, other in [
         lead, tail = (a[:m.start()], a[m.end():]) if m else (a, "")
         return (f'<div class="faq-item" id="gini-uplift"><h2>{html.escape(q)}</h2><p>{html.escape(lead)}</p>'
                 f'{item[2]}<p class="src">{html.escape(tail.strip())}</p></div>')
-    body = "".join(faq_item(it) for it in items)
+    hub = {"en": ("Recommended topics", [("who-is-it-for.html", "Who Thorcast.AI is for: by industry, team and region"), ("thorcast-vs-datarobot.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas.html", "Thorcast.AI vs SAS Viya"), ("tutorials.html", "Video tutorials")]),
+           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")])}[lang]
+    body = (f'<div class="article-footer-cta" style="margin:0 0 32px;font-style:normal"><strong>{hub[0]}</strong><ul style="margin:10px 0 0;padding-left:20px">'
+            + "".join(f'<li style="margin:6px 0"><a href="{h}" style="color:var(--accent-blue);font-weight:700">{html.escape(t)}</a></li>' for h, t in hub[1]) + "</ul></div>")
+    body += "".join(faq_item(it) for it in items)
     other_f = "preguntas-frecuentes.html" if lang == "en" else "faq.html"
     comps = "".join(f'<li><a href="{cfile(c["base"], lang)}">{html.escape(c[lang]["h1"])}</a></li>' for c in COMPARE)
     body += (f'<h2>{"Compare Thorcast" if lang == "en" else "Compara Thorcast"}</h2><ul>{comps}</ul>'
