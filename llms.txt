@@ -13,7 +13,7 @@ Thorcast.AI is a platform where AI agents take a predictive model from raw data 
 
 ## Product
 
-- [Home](https://thorcast.ai/): overview, use cases by industry (banking, life and health insurance, general insurance, insurance brokers, telco).
+- [Home](https://thorcast.ai/): overview, use cases by industry (banking, life and health insurance, general insurance, insurance brokers, telco). Also in [Spanish](https://thorcast.ai/es.html) and [Portuguese](https://thorcast.ai/pt.html).
 - [Tutorials](https://thorcast.ai/tutorials.html): video tutorials covering data preparation, enrichment, modeling, comparison, deployment and monitoring.
 - [Our story](https://thorcast.ai/about.html): why Thorcast.AI was founded.
 

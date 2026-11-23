@@ -2742,6 +2742,11 @@ section[id] { scroll-margin-top: 64px; }
 @media (max-width: 700px) { .ag-node .ag-soon { display: block; margin: 4px auto 0; font-size: 8px; padding: 1px 5px; } }
 
 </style>
+<link rel="alternate" hreflang="en" href="https://thorcast.ai/about.html"/>
+<link rel="alternate" hreflang="es" href="https://thorcast.ai/about-es.html"/>
+<link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/about-pt.html"/>
+<link rel="alternate" hreflang="x-default" href="https://thorcast.ai/about.html"/>
+<script>/* i18n-redirect */(function(){try{var l=localStorage.getItem('thorcast-lang'),m={"es": "about-es.html", "pt": "about-pt.html"};if(m[l])location.replace(m[l]+location.hash);}catch(e){}})();</script>
 </head>
 <body>
 <!-- ============================================================
@@ -3147,7 +3152,7 @@ function getStoredThorcastLang() {
 function storeThorcastLang(lang) {
   try { localStorage.setItem('thorcast-lang', lang); } catch (error) {}
 }
-let thorcastCurrentLang = getStoredThorcastLang() || 'en';
+let thorcastCurrentLang = 'en';
 if (!['en', 'es', 'pt'].includes(thorcastCurrentLang)) thorcastCurrentLang = 'en';
 
 
@@ -3890,5 +3895,6 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
   video.addEventListener('webkitendfullscreen', closePlayer);
 })();
 </script>
+<script>/* i18n-nav */(function(){var m={"en": "about.html", "es": "about-es.html", "pt": "about-pt.html"};document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(e){var u=m[b.dataset.lang];if(!u||b.dataset.lang==="en")return;e.stopImmediatePropagation();try{localStorage.setItem('thorcast-lang',b.dataset.lang);}catch(x){}location.href=u+location.hash;},true);});})();</script>
 </body>
 </html>
