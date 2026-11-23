@@ -1,0 +1,37 @@
+# Thorcast.AI
+
+> AI predictive analytics for banks, insurers, telcos and retailers in Latin America: credit scoring, churn, fraud and geo intelligence models built on enriched data, in minutes rather than months.
+
+Thorcast.AI is a platform where AI agents take a predictive model from raw data to production: NORA prepares and joins the data, MJÖ builds and compares models autonomously, and the platform handles data enrichment, Champion–Challenger comparison, batch scoring, monitoring and recalibration. Models are explainable and documented for audit.
+
+## Solutions (Spanish)
+
+- [Scoring crediticio con IA](https://thorcast.ai/scoring-crediticio-ia.html): credit scoring models with AI and alternative data for origination, collections and cutoff decisions.
+- [Modelo de churn y fuga de clientes](https://thorcast.ai/modelo-churn-fuga-clientes.html): customer churn prediction for banking, insurance and telco.
+- [Detección de fraude con machine learning](https://thorcast.ai/deteccion-fraude-machine-learning.html): fraud detection for credit applications, account takeover and insurance claims.
+- [Inteligencia geográfica](https://thorcast.ai/inteligencia-geografica.html): block-level area profiles, points of interest and travel-time zones for expansion, geomarketing and territorial risk.
+
+## Product
+
+- [Home](https://thorcast.ai/): overview, use cases by industry (banking, life and health insurance, general insurance, insurance brokers, telco).
+- [Tutorials](https://thorcast.ai/tutorials.html): video tutorials covering data preparation, enrichment, modeling, comparison, deployment and monitoring.
+- [Our story](https://thorcast.ai/about.html): why Thorcast.AI was founded.
+
+## Articles
+
+- [Reject inference in credit scoring](https://thorcast.ai/blog-12.html): methods (parcelling, fuzzy augmentation) and pitfalls. [Spanish version](https://thorcast.ai/blog-12-es.html).
+- [Credit scoring in Latin America: why imported models fail](https://thorcast.ai/blog-02.html)
+- [Scorecard cutoff: how to set the approval threshold](https://thorcast.ai/blog-03.html)
+- [AutoML for credit scoring: why parallel modeling wins](https://thorcast.ai/blog-05.html)
+- [Alternative data for credit scoring in Latin America](https://thorcast.ai/blog-06.html)
+- [Explainable AI for credit scoring: what regulators ask](https://thorcast.ai/blog-07.html)
+- [Regulatory compliance as a competitive moat](https://thorcast.ai/blog-04.html)
+- [The data science talent gap in emerging markets](https://thorcast.ai/blog-01.html)
+- [NO MORE: the losses we accept as normal](https://thorcast.ai/blog-11.html) (Spanish)
+
+## Optional
+
+- [La IA no hace magia](https://thorcast.ai/blog-08.html) (Spanish)
+- [Beyond the AI Hype — research paper](https://thorcast.ai/blog-09.html)
+- [Claudeforce: the signal that reinforces my thesis](https://thorcast.ai/blog-10-en.html)
+- [YouTube channel](https://www.youtube.com/@thorcastai): use-case videos by industry.
