@@ -202,4 +202,25 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/thorcast-vs-sas-pt.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/thorcast-vs-sas.html"/>
   </url>
+  <url>
+    <loc>https://thorcast.ai/who-is-it-for.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/who-is-it-for.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/para-quien-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/para-quem-e.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/who-is-it-for.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/para-quien-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/who-is-it-for.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/para-quien-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/para-quem-e.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/who-is-it-for.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/para-quem-e.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/who-is-it-for.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/para-quien-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/para-quem-e.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/who-is-it-for.html"/>
+  </url>
 </urlset>

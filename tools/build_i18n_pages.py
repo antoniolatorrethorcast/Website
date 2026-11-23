@@ -108,6 +108,7 @@ def rewrite_links(s, lang):
         s = re.sub(r'href="%s\.html(#[^"]*)?"' % p, lambda m, p=p: f'href="{out_name(p, lang)}{m.group(1) or ""}"', s)
     # comparison pages exist in every language
     s = re.sub(r'href="(thorcast-vs-[a-z0-9]+)\.html"', lambda m: f'href="{m.group(1)}-{lang}.html"', s)
+    s = s.replace('href="who-is-it-for.html"', 'href="%s"' % {"es": "para-quien-es.html", "pt": "para-quem-e.html"}[lang])
     if lang == "es":  # the FAQ has a Spanish version
         s = re.sub(r'href="faq\.html(#[^"]*)?"', lambda m: f'href="preguntas-frecuentes.html{m.group(1) or ""}"', s)
     # blog cards: the JS swaps href to data-blog-<lang>; do it statically
