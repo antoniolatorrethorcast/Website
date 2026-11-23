@@ -106,6 +106,8 @@ def translate_tag(tag, d):
 def rewrite_links(s, lang):
     for p in PAGES:
         s = re.sub(r'href="%s\.html(#[^"]*)?"' % p, lambda m, p=p: f'href="{out_name(p, lang)}{m.group(1) or ""}"', s)
+    if lang == "es":  # the FAQ has a Spanish version
+        s = re.sub(r'href="faq\.html(#[^"]*)?"', lambda m: f'href="preguntas-frecuentes.html{m.group(1) or ""}"', s)
     # blog cards: the JS swaps href to data-blog-<lang>; do it statically
     def blog(m):
         tag = m.group(0)

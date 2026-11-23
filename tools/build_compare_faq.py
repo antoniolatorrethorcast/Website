@@ -14,7 +14,7 @@ EXTRA_CSS = ('<style>.cmp-table{width:100%;border-collapse:collapse;margin:8px 0
              '.cmp-table th{color:var(--text-white);background:var(--bg-card);font-weight:700}'
              '.cmp-table td:first-child{color:var(--text-white);font-weight:600;width:24%}'
              '.cmp-wrap{overflow-x:auto}'
-             '.faq-item{border-top:1px solid var(--border-dark);padding:22px 0}'
+             '.faq-item{border-top:1px solid var(--border-dark);padding:22px 0;scroll-margin-top:90px}'
              '.faq-item h2{font-size:19px;margin:0 0 10px}'
              '.article-body .faq-item p{margin:0}'
              '.src{font-size:12px!important;color:var(--text-gray)!important}</style>')
@@ -51,6 +51,7 @@ def page(fname, lang, title, desc, tag, h1, meta, body, cta_html, ld_main, crumb
     if alternates:
         head_add += "".join(f'\n<link rel="alternate" hreflang="{h}" href="{BASE + f}"/>' for h, f in alternates)
     s = s.replace("</head>", head_add + "\n</head>", 1)
+    s = s.replace("</body>", "<script>window.addEventListener('load',function(){var h=location.hash,e=h&&document.getElementById(h.slice(1));if(e)setTimeout(function(){e.scrollIntoView({behavior:'auto'});},150);});</script>\n</body>", 1)
     back = "← Back to home" if lang == "en" else "← Volver al inicio"
     home = "index.html" if lang == "en" else "es.html"
     s = one(r'<a class="article-back" href="[^"]*">[^<]*</a>', f'<a class="article-back" href="{home}">{back}</a>', s)
@@ -84,13 +85,22 @@ for lang, fname, items, title, desc, h1, tag, crumb, other in [
     ("es", "preguntas-frecuentes.html", FAQ_ES, "Preguntas frecuentes sobre Thorcast.AI — Thorcast.AI",
      "Respuestas sobre Thorcast.AI: qué es, para quién es, qué modelos construye, dónde corre, enriquecimiento de datos, explicabilidad, integraciones y cómo probarlo.",
      "Preguntas frecuentes", "PREGUNTAS FRECUENTES", "Preguntas frecuentes", "FAQ in English")]:
-    body = "".join(f'<div class="faq-item"><h2>{html.escape(q)}</h2><p>{html.escape(a)}</p></div>' for q, a in items)
+    def faq_item(item):
+        q, a = item[0], item[1]
+        if len(item) == 2:
+            return f'<div class="faq-item"><h2>{html.escape(q)}</h2><p>{html.escape(a)}</p></div>'
+        # long answer with a table: show the text without the inline country list, then the table
+        m = re.search(r" (Median Gini uplift by country|Alza mediana de Gini por país)[^.]*\. [^.]*\.", a)
+        lead, tail = (a[:m.start()], a[m.end():]) if m else (a, "")
+        return (f'<div class="faq-item" id="gini-uplift"><h2>{html.escape(q)}</h2><p>{html.escape(lead)}</p>'
+                f'{item[2]}<p class="src">{html.escape(tail.strip())}</p></div>')
+    body = "".join(faq_item(it) for it in items)
     other_f = "preguntas-frecuentes.html" if lang == "en" else "faq.html"
     comps = "".join(f'<li><a href="{c["file"]}">{html.escape(c["h1"])}</a></li>' for c in COMPARE)
     body += (f'<h2>{"Compare Thorcast" if lang == "en" else "Compara Thorcast (en inglés)"}</h2><ul>{comps}</ul>'
              f'<p><a href="{other_f}">{other} →</a></p>')
     ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in items], "publisher": ORG}
+        {"@type": "Question", "name": it[0], "acceptedAnswer": {"@type": "Answer", "text": it[1]}} for it in items], "publisher": ORG}
     page(fname, lang, title, desc, tag, h1, "Thorcast.AI", body, cta(lang), ld, crumb,
          alternates=[("en", "faq.html"), ("es", "preguntas-frecuentes.html"), ("x-default", "faq.html")])
 

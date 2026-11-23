@@ -4,7 +4,7 @@ Competitor claims = vendor pages verified 2026-11-23 (links in each page's sourc
 T_AGENTS = "Two built-in agents: <strong>NORA</strong> prepares data from plain-language instructions and <strong>MJÖ</strong> builds, compares and explains models. Every plan waits for your approval."
 T_PREP = "NORA merges, cleans and engineers your tables; every step is checked by a deterministic validation engine. You get a versioned dataset, reproducible Python and a reusable Playbook."
 T_AUTOML = "MJÖ plans the preprocessing, recommends variables, trains and compares several algorithms and presents the champion with Gini, KS and ROC."
-T_ENRICH = "Built in: the Data Enrichment Network adds 3,000+ data points (261 model-ready signals) from an address, email or phone. Coverage depends on the country."
+T_ENRICH = "Built in: the Data Enrichment Network adds 3,000+ data points (261 model-ready signals) from an address, email or phone. Across 68 models in 12 countries it raised Gini by a median of 35% (<a href=\"faq.html#gini-uplift\">results by country</a>). Coverage depends on the country."
 T_EXPLAIN = "Plain-language explanation from MJÖ and an audit-ready technical report. AI plans, validated code executes: same input, same result."
 T_DECIDE = "Decision layers show approval, risk and economic impact for every cutoff; Champion–Challenger and batch scoring included."
 T_DEPLOY = "Thorcast Cloud, on your premises, or in the app. Data preparation, training and scoring can run on your infrastructure."
