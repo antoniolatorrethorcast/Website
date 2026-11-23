@@ -2,12 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://thorcast.ai/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/pt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/"/>
   </url>
   <url>
     <loc>https://thorcast.ai/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/about-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/about-pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/about.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/about-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/about-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/about-pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/about.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/about-pt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/about-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/about-pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/about.html"/>
   </url>
   <url>
     <loc>https://thorcast.ai/tutorials.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/tutorials.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/tutorials-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/tutorials-pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/tutorials.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/tutorials-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/tutorials.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/tutorials-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/tutorials-pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/tutorials.html"/>
+  </url>
+  <url>
+    <loc>https://thorcast.ai/tutorials-pt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thorcast.ai/tutorials.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thorcast.ai/tutorials-es.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/tutorials-pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thorcast.ai/tutorials.html"/>
   </url>
   <url>
     <loc>https://thorcast.ai/blog-01.html</loc>
