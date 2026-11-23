@@ -42,3 +42,4 @@ Thorcast.AI is a platform where AI agents take a predictive model from raw data 
 - [Beyond the AI Hype — research paper](https://thorcast.ai/blog-09.html)
 - [Claudeforce: the signal that reinforces my thesis](https://thorcast.ai/blog-10-en.html)
 - [YouTube channel](https://www.youtube.com/@thorcastai): use-case videos by industry.
+- [LinkedIn](https://www.linkedin.com/company/thorcast-ai/): company page.
