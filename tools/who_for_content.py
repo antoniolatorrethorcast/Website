@@ -95,7 +95,7 @@ WHO = {
         ("TI e segurança", "Nuvem, on-premise ou no app: a preparação de dados, o treinamento e o scoring podem rodar na sua própria infraestrutura, e os dados sensíveis ficam com você."),
     ],
     region_h="Por região",
-    region='<p>A Thorcast trabalha com os seus próprios dados em qualquer região: as Américas, Europa, África e Ásia. A cobertura do enriquecimento de dados depende do país; foi testada em 68 modelos de 12 países (<a href="faq.html#gini-uplift">resultados por país, em inglês</a>).</p>',
+    region='<p>A Thorcast trabalha com os seus próprios dados em qualquer região: as Américas, Europa, África e Ásia. A cobertura do enriquecimento de dados depende do país; foi testada em 68 modelos de 12 países (<a href="perguntas-frequentes.html#gini-uplift">resultados por país</a>).</p>',
     notfit_h="Quando a Thorcast não é a melhor opção",
     notfit=[
         "Você precisa de dashboards e relatórios mais do que de previsões: uma ferramenta de BI é mais adequada.",
@@ -103,6 +103,6 @@ WHO = {
         "Você quer uma plataforma geral para construir seus próprios agentes de IA ou aplicações com LLM: veja plataformas de agentes. Os agentes da Thorcast são especializados em preparação de dados, modelagem e decisões.",
     ],
     more_h="Saiba mais",
-    more=[("faq.html", "FAQ (em inglês)"), ("thorcast-vs-datarobot-pt.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-pt.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-pt.html", "Thorcast.AI vs SAS Viya"), ("tutorials-pt.html", "Tutoriais")],
+    more=[("perguntas-frequentes.html", "Perguntas frequentes"), ("thorcast-vs-datarobot-pt.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-pt.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-pt.html", "Thorcast.AI vs SAS Viya"), ("tutorials-pt.html", "Tutoriais")],
 ),
 }

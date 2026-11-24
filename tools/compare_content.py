@@ -5,7 +5,7 @@ Competitor claims = vendor pages verified 2026-11-23 (links in each page's sourc
 
 A = lambda url, txt: f'<a href="{url}" target="_blank" rel="noopener noreferrer">{txt}</a>'
 LANGS = ["en", "es", "pt"]
-FAQ = {"en": "faq.html", "es": "preguntas-frecuentes.html", "pt": "faq.html"}
+FAQ = {"en": "faq.html", "es": "preguntas-frecuentes.html", "pt": "perguntas-frequentes.html"}
 
 
 def fname(base, lang):
@@ -22,7 +22,7 @@ UI = {
                tm=". Las capacidades de cada proveedor cambian; revisa su sitio para la versión más reciente. {tm}", tag="COMPARATIVA",
                meta="Thorcast.AI · Actualizado en noviembre de 2026", locale="es_LA"),
     "pt": dict(glance="Visão geral", when_them="Quando escolher {n}", when_us="Quando escolher a Thorcast.AI",
-               more="Mais comparações", faq="FAQ (em inglês)", src="Fontes ({n}, verificadas em novembro de 2026): ",
+               more="Mais comparações", faq="Perguntas frequentes", src="Fontes ({n}, verificadas em novembro de 2026): ",
                tm=". As capacidades de cada fornecedor mudam; consulte o site dele para a versão mais recente. {tm}", tag="COMPARAÇÃO",
                meta="Thorcast.AI · Atualizado em novembro de 2026", locale="pt_BR"),
 }
