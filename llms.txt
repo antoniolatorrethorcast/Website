@@ -48,3 +48,4 @@ Thorcast.AI is a platform where AI agents take a predictive model from raw data 
 - [LinkedIn](https://www.linkedin.com/company/thorcast-ai/): company page.
 - [Crunchbase](https://www.crunchbase.com/organization/thorcast-ai): company profile.
 - [G2](https://www.g2.com/products/thorcast-ai/reviews): product profile and user reviews.
+- [Wikidata](https://www.wikidata.org/wiki/Q142273087): structured company record (Q142273087).
