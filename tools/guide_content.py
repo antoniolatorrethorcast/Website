@@ -160,3 +160,6 @@ MORE = [
     ("para-quien-es.html", "Para quién es Thorcast.AI"),
     ("tutorials-es.html", "Tutoriales en video"),
 ]
+
+LABELS = ("Ventaja:", "Límite:", "Conviene si", ("Criterio", "Qué preguntar", "Señal de alerta"))
+ABOUT = "Software de scoring crediticio"

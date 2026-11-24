@@ -126,3 +126,5 @@ MORE = [
     ("para-quien-es.html", "Para quién es Thorcast.AI"),
     ("tutorials-es.html", "Tutoriales en video"),
 ]
+
+ABOUT = "Predicción de fuga de clientes (churn)"
