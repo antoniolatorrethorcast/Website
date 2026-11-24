@@ -10,7 +10,7 @@ DESC = ("Guía práctica para elegir software de scoring crediticio: los cinco t
         "cómo hacer una prueba de concepto justa y las señales de alerta.")
 H1 = "Cómo elegir software de scoring crediticio: guía práctica 2026"
 TAG = "GUÍA"
-META = "Thorcast.AI · Actualizada el 24 de noviembre de 2026 · 9 min de lectura"
+META = "Thorcast.AI · Actualizada el 24 de noviembre de 2026 · 10 min de lectura"
 CRUMB = "Cómo elegir software de scoring crediticio"
 
 INTRO = (
@@ -96,6 +96,26 @@ POC = [
     "<strong>Pide los entregables.</strong> El reporte técnico, el código o plan reproducible y cómo se desplegaría. Si no pasa la validación interna, el mejor Gini no sirve.",
 ]
 
+DEC_H = "Del score a la decisión: capas de decisión"
+DEC = (
+    "<p>Un score, por bueno que sea, no decide nada por sí solo. La pregunta del negocio es otra: a quién apruebo, "
+    "cuánta mora acepto y cuánto gano o pierdo con esa política. Pídele a cada proveedor que te muestre ese puente "
+    "entre la estadística y la decisión, con tus números, y no solo un Gini.</p>"
+    "<p>En Thorcast ese puente son las <strong>capas de decisión</strong>: toman la estadística predictiva que produce "
+    "la plataforma y la convierten en decisiones de negocio concretas, con su impacto económico calculado. Hay dos formas de usarlas:</p>"
+    "<ul>"
+    "<li><strong>Thorcast Decision Layers.</strong> Capas preconfiguradas en la app para las decisiones más comunes, "
+    "como el punto de corte de originación. Ingresas la economía de tu política (por ejemplo, lo que ganas con un crédito "
+    "que se paga y lo que pierdes con uno que cae en mora) y ves aprobación, riesgo y utilidad para cada punto de corte, lado a lado.</li>"
+    "<li><strong>Customized Decision Layers.</strong> Cuando tu decisión no calza con una capa estándar (un cupo fijo de "
+    "contactos, reglas distintas por segmento o costos propios de tu operación), le describes la regla a MJÖ en lenguaje "
+    "natural y el agente construye una capa a tu medida. Tú la revisas y la apruebas antes de usarla.</li>"
+    "</ul>"
+    "<p>El resultado queda en el idioma del negocio: cuántas solicitudes apruebas, cuánta mora esperas y cuánta utilidad "
+    "genera cada alternativa. Así la decisión no depende de interpretar métricas estadísticas, y quien decide puede "
+    "comparar escenarios y elegir por sí mismo.</p>"
+)
+
 FLAGS_H = "Señales de alerta"
 FLAGS = [
     "Un Gini muy por encima de lo habitual en tu cartera: más a menudo es una fuga de información que un modelo extraordinario.",
@@ -122,6 +142,8 @@ FAQ = [
      "Depende de lo que te exija la validación. Los modelos de machine learning suelen discriminar mejor; un scorecard es más fácil de explicar variable por variable. Lo práctico es probar ambos con tus datos y elegir con el desempeño fuera de muestra y los requisitos de explicabilidad sobre la mesa."),
     ("¿Cuánto mejoran los datos alternativos un modelo de crédito?",
      "Depende del país, del segmento y de los datos que ya tengas. En la experiencia del equipo fundador de Thorcast, en 68 modelos de 12 países, sumar datos alternativos subió el Gini en una mediana de 35 %. La única forma de saberlo para tu cartera es medirlo en una prueba de concepto."),
+    ("¿Qué es una capa de decisión?",
+     "Es la parte que convierte el score de un modelo en una decisión de negocio con impacto económico: para cada punto de corte muestra cuántas solicitudes se aprueban, cuánta mora se espera y cuánta utilidad deja. En Thorcast puedes usar capas preconfiguradas (Thorcast Decision Layers) o pedirle a MJÖ una capa a la medida de tu negocio (Customized Decision Layers)."),
     ("¿Cuánto toma una prueba de concepto?",
      "Con herramientas tradicionales suele ser un proyecto de semanas. Con Thorcast, una prueba de concepto con tu propia muestra toma alrededor de una hora: se enriquece la muestra, se entrena un modelo desafiante y se compara con tu score actual."),
 ]

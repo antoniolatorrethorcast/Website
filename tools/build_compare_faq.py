@@ -160,6 +160,7 @@ for name, what, pro, con, when in G.TYPES:
 _rows = "".join(f"<tr><td>{_e(c)}</td><td>{_e(q)}</td><td>{_e(f)}</td></tr>" for c, q, f in G.CRIT)
 _g.append(f'<h2>{G.CRIT_H}</h2><div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Criterio</th><th>Qué preguntar</th><th>Señal de alerta</th></tr></thead><tbody>{_rows}</tbody></table></div>')
 _g.append(f"<h2>{G.POC_H}</h2><ol>" + "".join(f"<li>{x}</li>" for x in G.POC) + "</ol>")
+_g.append(f"<h2>{G.DEC_H}</h2>{G.DEC}")
 _g.append(f"<h2>{G.FLAGS_H}</h2><ul>" + "".join(f"<li>{_e(x)}</li>" for x in G.FLAGS) + "</ul>")
 _g.append(f"<h2>{G.FIT_H}</h2>{G.FIT_P}<ul>" + "".join(f"<li>{x}</li>" for x in WHY['es'] + [ENRICH_WHY['es']]) + "</ul>"
           + G.NOT_FIT_P + "<ul>" + "".join(f"<li>{_e(x)}</li>" for x in G.NOT_FIT) + "</ul>")
