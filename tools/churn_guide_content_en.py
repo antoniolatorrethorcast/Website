@@ -122,6 +122,7 @@ FAQ = [
 
 MORE_H = "Keep reading"
 MORE = [
+    ("customer-churn-prediction-model.html", "Customer churn model with AI (with videos by industry)"),
     ("how-to-choose-credit-scoring-software.html", "How to choose credit scoring software: a practical guide"),
     ("faq.html#gini-uplift", "Alternative data results by country"),
     ("who-is-it-for.html", "Who Thorcast.AI is for"),

@@ -152,6 +152,7 @@ FAQ = [
 
 MORE_H = "Keep reading"
 MORE = [
+    ("ai-credit-scoring.html", "AI credit scoring model with alternative data"),
     ("faq.html#gini-uplift", "Alternative data results by country"),
     ("blog-12.html", "Reject inference in credit scoring"),
     ("thorcast-vs-datarobot.html", "Thorcast.AI vs DataRobot"),

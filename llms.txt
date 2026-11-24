@@ -4,12 +4,12 @@
 
 Thorcast.AI is a platform where AI agents take a predictive model from raw data to production: NORA prepares and joins the data, MJÖ builds and compares models autonomously, and the platform handles data enrichment, Champion–Challenger comparison, batch scoring, monitoring and recalibration. Models are explainable and documented for audit. Thorcast.AI serves organizations in any region: the Americas, Europe, Africa and Asia.
 
-## Solutions (pages in Spanish)
+## Solutions
 
-- [Scoring crediticio con IA](https://thorcast.ai/scoring-crediticio-ia.html): credit scoring models with AI and alternative data for origination, collections and cutoff decisions.
-- [Modelo de churn y fuga de clientes](https://thorcast.ai/modelo-churn-fuga-clientes.html): customer churn prediction for banking, insurance and telco.
-- [Detección de fraude con machine learning](https://thorcast.ai/deteccion-fraude-machine-learning.html): fraud detection for credit applications, account takeover and insurance claims.
-- [Inteligencia geográfica](https://thorcast.ai/inteligencia-geografica.html): block-level area profiles, points of interest and travel-time zones for expansion, geomarketing and territorial risk.
+- [AI credit scoring](https://thorcast.ai/ai-credit-scoring.html): credit scoring models with AI and alternative data for origination, collections, payment agreements and cutoff decisions. Also in [Spanish](https://thorcast.ai/scoring-crediticio-ia.html) and [Portuguese](https://thorcast.ai/credit-scoring-com-ia.html).
+- [Customer churn model](https://thorcast.ai/customer-churn-prediction-model.html): churn prediction for banking, telco, life insurance and general insurance, measured against a fixed contact capacity. Also in [Spanish](https://thorcast.ai/modelo-churn-fuga-clientes.html) and [Portuguese](https://thorcast.ai/modelo-de-churn-clientes.html).
+- [Fraud detection with machine learning](https://thorcast.ai/fraud-detection-machine-learning.html): application fraud, account takeover, health claims fraud and improper motor claim payments. Also in [Spanish](https://thorcast.ai/deteccion-fraude-machine-learning.html) and [Portuguese](https://thorcast.ai/deteccao-de-fraude-machine-learning.html).
+- [Geographic intelligence](https://thorcast.ai/geographic-intelligence.html): block-level area profiles, points of interest and travel-time zones for geomarketing, expansion, networks and territorial risk. Also in [Spanish](https://thorcast.ai/inteligencia-geografica.html) and [Portuguese](https://thorcast.ai/inteligencia-geografica-com-ia.html).
 
 ## Guides
 
