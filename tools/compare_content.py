@@ -85,7 +85,7 @@ T = {
         agents="Agentes integrados: <strong>NORA</strong> prepara os dados a partir de instruções em linguagem natural e <strong>MJÖ</strong> constrói, compara e explica os modelos; TERRA, para inteligência geográfica, chega em breve. Cada plano espera a sua aprovação.",
         prep="A NORA une, limpa e transforma suas tabelas; cada etapa passa por um motor de validação determinístico. Você recebe um dataset versionado, código Python reprodutível e um Playbook reutilizável.",
         automl="O MJÖ planeja o pré-processamento, recomenda variáveis, treina e compara vários algoritmos e apresenta o campeão com Gini, KS e ROC.",
-        enrich='Incluído: a Data Enrichment Network adiciona mais de 3.000 data points (261 sinais prontos para o modelo) a partir de um endereço, e-mail ou telefone. Em 68 modelos de 12 países, elevou o Gini em uma mediana de 35% (<a href="faq.html#gini-uplift">resultados por país, em inglês</a>). A cobertura depende do país.',
+        enrich='Incluído: a Data Enrichment Network adiciona mais de 3.000 data points (261 sinais prontos para o modelo) a partir de um endereço, e-mail ou telefone. Em 68 modelos de 12 países, elevou o Gini em uma mediana de 35% (<a href="perguntas-frequentes.html#gini-uplift">resultados por país</a>). A cobertura depende do país.',
         explain="Explicação em linguagem clara do MJÖ e relatório técnico pronto para auditoria. A IA planeja e o código validado executa: mesma entrada, mesmo resultado.",
         decide="As camadas de decisão mostram aprovação, risco e impacto econômico em cada ponto de corte, pré-configuradas ou adaptadas pelos agentes; inclui Campeão–Desafiante e scoring em lote.",
         deploy="Thorcast Cloud, nas suas instalações ou no app. A preparação de dados, o treinamento e o scoring podem rodar na sua infraestrutura.",
@@ -310,3 +310,9 @@ dict(
     ),
 ),
 ]
+
+# Added 2026-11-24 (tools/compare_content_more.py)
+from compare_content_more import MORE_COMPARE
+for _c in MORE_COMPARE:
+    _c["date"] = "2026-11-24"
+COMPARE += MORE_COMPARE
