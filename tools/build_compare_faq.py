@@ -2,7 +2,7 @@
 Edit the text in tools/faq_content.py and tools/compare_content.py. Product claims must already be published on thorcast.ai."""
 import html, json, re, sys
 sys.path.insert(0, __import__('os').path.dirname(__file__))
-from faq_content import FAQ_EN, FAQ_ES
+from faq_content import FAQ_EN, FAQ_ES, FAQ_PT
 from compare_content import COMPARE, LANGS, UI, WHY, ENRICH_WHY, T, LABELS, FAQ, fname as cfile
 
 BASE = "https://thorcast.ai/"
@@ -89,29 +89,35 @@ for lang, fname, items, title, desc, h1, tag, crumb, other in [
      "Frequently asked questions", "FAQ", "FAQ", "Preguntas frecuentes en español"),
     ("es", "preguntas-frecuentes.html", FAQ_ES, "Preguntas frecuentes sobre Thorcast.AI — Thorcast.AI",
      "Respuestas sobre Thorcast.AI: qué es, para quién es, qué modelos construye, dónde corre, enriquecimiento de datos, explicabilidad, integraciones y cómo probarlo.",
-     "Preguntas frecuentes", "PREGUNTAS FRECUENTES", "Preguntas frecuentes", "FAQ in English")]:
+     "Preguntas frecuentes", "PREGUNTAS FRECUENTES", "Preguntas frecuentes", "FAQ in English"),
+    ("pt", "perguntas-frequentes.html", FAQ_PT, "Perguntas frequentes sobre a Thorcast.AI — Thorcast.AI",
+     "Respostas sobre a Thorcast.AI: o que é, para quem é, que modelos constrói, onde roda, enriquecimento de dados, explicabilidade, integrações e como testar.",
+     "Perguntas frequentes", "PERGUNTAS FREQUENTES", "Perguntas frequentes", "")]:
     def faq_item(item):
         q, a = item[0], item[1]
         if len(item) == 2:
             return f'<div class="faq-item"><h2>{html.escape(q)}</h2><p>{html.escape(a)}</p></div>'
         # long answer with a table: show the text without the inline country list, then the table
-        m = re.search(r" (Median Gini uplift by country|Alza mediana de Gini por país)[^.]*\. [^.]*\.", a)
+        m = re.search(r" (Median Gini uplift by country|Alza mediana de Gini por país|Aumento mediano do Gini por país)[^.]*\. [^.]*\.", a)
         lead, tail = (a[:m.start()], a[m.end():]) if m else (a, "")
         return (f'<div class="faq-item" id="gini-uplift"><h2>{html.escape(q)}</h2><p>{html.escape(lead)}</p>'
                 f'{item[2]}<p class="src">{html.escape(tail.strip())}</p></div>')
     hub = {"en": ("Recommended topics", [("who-is-it-for.html", "Who Thorcast.AI is for: by industry, team and region"), ("how-to-choose-credit-scoring-software.html", "How to choose credit scoring software: a practical guide"), ("how-to-predict-customer-churn-banking-insurance-telco.html", "How to predict customer churn in banking, insurance and telco"), ("thorcast-vs-datarobot.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas.html", "Thorcast.AI vs SAS Viya"), ("tutorials.html", "Video tutorials")]),
-           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("como-elegir-software-scoring-crediticio.html", "Cómo elegir software de scoring crediticio: guía práctica"), ("como-predecir-churn-banca-seguros-telco.html", "Cómo predecir la fuga de clientes en banca, seguros y telco"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")])}[lang]
+           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("como-elegir-software-scoring-crediticio.html", "Cómo elegir software de scoring crediticio: guía práctica"), ("como-predecir-churn-banca-seguros-telco.html", "Cómo predecir la fuga de clientes en banca, seguros y telco"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")]),
+           "pt": ("Temas recomendados", [("para-quem-e.html", "Para quem é a Thorcast.AI: por setor, equipe e região"), ("como-escolher-software-de-credit-scoring.html", "Como escolher software de credit scoring: guia prático"), ("como-prever-churn-bancos-seguros-telecom.html", "Como prever o churn de clientes em bancos, seguros e telecom"), ("credit-scoring-com-ia.html", "Credit scoring com IA"), ("thorcast-vs-datarobot-pt.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-pt.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-pt.html", "Thorcast.AI vs SAS Viya"), ("tutorials-pt.html", "Tutoriais em vídeo")])}[lang]
     body = (f'<div class="article-footer-cta" style="margin:0 0 32px;font-style:normal"><strong>{hub[0]}</strong><ul style="margin:10px 0 0;padding-left:20px">'
             + "".join(f'<li style="margin:6px 0"><a href="{h}" style="color:var(--accent-blue);font-weight:700">{html.escape(t)}</a></li>' for h, t in hub[1]) + "</ul></div>")
     body += "".join(faq_item(it) for it in items)
-    other_f = "preguntas-frecuentes.html" if lang == "en" else "faq.html"
+    others = {"en": [("preguntas-frecuentes.html", "Preguntas frecuentes en español"), ("perguntas-frequentes.html", "Perguntas frequentes em português")],
+              "es": [("faq.html", "FAQ in English"), ("perguntas-frequentes.html", "Perguntas frequentes em português")],
+              "pt": [("faq.html", "FAQ in English"), ("preguntas-frecuentes.html", "Preguntas frecuentes en español")]}[lang]
     comps = "".join(f'<li><a href="{cfile(c["base"], lang)}">{html.escape(c[lang]["h1"])}</a></li>' for c in COMPARE)
-    body += (f'<h2>{"Compare Thorcast" if lang == "en" else "Compara Thorcast"}</h2><ul>{comps}</ul>'
-             f'<p><a href="{other_f}">{other} →</a></p>')
-    ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
+    body += (f'<h2>{ {"en": "Compare Thorcast", "es": "Compara Thorcast", "pt": "Compare a Thorcast"}[lang] }</h2><ul>{comps}</ul>'
+             + "".join(f'<p><a href="{h}">{t} →</a></p>' for h, t in others))
+    ld = {"@type": "FAQPage", "inLanguage": "pt-BR" if lang == "pt" else lang, "mainEntity": [
         {"@type": "Question", "name": it[0], "acceptedAnswer": {"@type": "Answer", "text": it[1]}} for it in items], "publisher": ORG}
     page(fname, lang, title, desc, tag, h1, "Thorcast.AI", body, cta(lang), ld, crumb,
-         alternates=[("en", "faq.html"), ("es", "preguntas-frecuentes.html"), ("x-default", "faq.html")])
+         alternates=[("en", "faq.html"), ("es", "preguntas-frecuentes.html"), ("pt-BR", "perguntas-frequentes.html"), ("x-default", "faq.html")])
 
 # ---------- comparisons (EN / ES / PT)
 for c in COMPARE:

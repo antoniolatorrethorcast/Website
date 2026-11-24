@@ -22,7 +22,7 @@ Thorcast.AI is a platform where AI agents take a predictive model from raw data 
 - [Tutorials](https://thorcast.ai/tutorials.html): video tutorials covering data preparation, enrichment, modeling, comparison, deployment and monitoring.
 - [Our story](https://thorcast.ai/about.html): why Thorcast.AI was founded.
 - [Who it's for](https://thorcast.ai/who-is-it-for.html): by industry, team size and region, and when Thorcast is not the best fit. Also in [Spanish](https://thorcast.ai/para-quien-es.html) and [Portuguese](https://thorcast.ai/para-quem-e.html).
-- [FAQ](https://thorcast.ai/faq.html): what Thorcast.AI is, who it is for, where it runs, data enrichment, explainability, integrations, how to try it. [Spanish](https://thorcast.ai/preguntas-frecuentes.html).
+- [FAQ](https://thorcast.ai/faq.html): what Thorcast.AI is, who it is for, where it runs, data enrichment, explainability, integrations, how to try it. [Spanish](https://thorcast.ai/preguntas-frecuentes.html), [Portuguese](https://thorcast.ai/perguntas-frequentes.html).
 
 ## Comparisons
 
