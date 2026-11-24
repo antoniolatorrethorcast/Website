@@ -99,7 +99,7 @@ for lang, fname, items, title, desc, h1, tag, crumb, other in [
         return (f'<div class="faq-item" id="gini-uplift"><h2>{html.escape(q)}</h2><p>{html.escape(lead)}</p>'
                 f'{item[2]}<p class="src">{html.escape(tail.strip())}</p></div>')
     hub = {"en": ("Recommended topics", [("who-is-it-for.html", "Who Thorcast.AI is for: by industry, team and region"), ("thorcast-vs-datarobot.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas.html", "Thorcast.AI vs SAS Viya"), ("tutorials.html", "Video tutorials")]),
-           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")])}[lang]
+           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("como-elegir-software-scoring-crediticio.html", "Cómo elegir software de scoring crediticio: guía práctica"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")])}[lang]
     body = (f'<div class="article-footer-cta" style="margin:0 0 32px;font-style:normal"><strong>{hub[0]}</strong><ul style="margin:10px 0 0;padding-left:20px">'
             + "".join(f'<li style="margin:6px 0"><a href="{h}" style="color:var(--accent-blue);font-weight:700">{html.escape(t)}</a></li>' for h, t in hub[1]) + "</ul></div>")
     body += "".join(faq_item(it) for it in items)
@@ -148,3 +148,24 @@ for lang, W in WHO.items():
           "publisher": ORG, "about": {"@type": "SoftwareApplication", "name": "Thorcast.AI", "applicationCategory": "BusinessApplication", "url": BASE},
           "audience": [{"@type": "BusinessAudience", "name": n} for n, _ in W["industries"]]}
     page(f, lang, W["title"], W["desc"], W["tag"], W["h1"], W["meta"], "\n".join(parts), cta(lang), ld, W["crumb"], alternates=_alts)
+
+# ---------- Guía: cómo elegir software de scoring crediticio (ES)
+import guide_content as G
+_e = html.escape
+_g = [G.INTRO, f"<h2>{G.BEFORE_H}</h2><ul>" + "".join(f"<li><strong>{_e(n)}.</strong> {_e(t)}</li>" for n, t in G.BEFORE) + "</ul>",
+      f"<h2>{G.TYPES_H}</h2>", G.TYPES_P]
+for name, what, pro, con, when in G.TYPES:
+    _g.append(f'<div class="faq-item"><h2>{_e(name)}</h2><p>{what}</p><ul><li><strong>Ventaja:</strong> {_e(pro)}</li>'
+              f'<li><strong>Límite:</strong> {_e(con)}</li><li><strong>Conviene si</strong> {when}</li></ul></div>')
+_rows = "".join(f"<tr><td>{_e(c)}</td><td>{_e(q)}</td><td>{_e(f)}</td></tr>" for c, q, f in G.CRIT)
+_g.append(f'<h2>{G.CRIT_H}</h2><div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Criterio</th><th>Qué preguntar</th><th>Señal de alerta</th></tr></thead><tbody>{_rows}</tbody></table></div>')
+_g.append(f"<h2>{G.POC_H}</h2><ol>" + "".join(f"<li>{x}</li>" for x in G.POC) + "</ol>")
+_g.append(f"<h2>{G.FLAGS_H}</h2><ul>" + "".join(f"<li>{_e(x)}</li>" for x in G.FLAGS) + "</ul>")
+_g.append(f"<h2>{G.FIT_H}</h2>{G.FIT_P}<ul>" + "".join(f"<li>{x}</li>" for x in WHY['es'] + [ENRICH_WHY['es']]) + "</ul>"
+          + G.NOT_FIT_P + "<ul>" + "".join(f"<li>{_e(x)}</li>" for x in G.NOT_FIT) + "</ul>")
+_g.append(f"<h2>{G.FAQ_H}</h2>" + "".join(f'<div class="faq-item"><h2>{_e(q)}</h2><p>{_e(a)}</p></div>' for q, a in G.FAQ))
+_g.append(f"<h2>{G.MORE_H}</h2><ul>" + "".join(f'<li><a href="{f}">{_e(t)}</a></li>' for f, t in G.MORE) + "</ul>")
+_ld = {"@type": "Article", "headline": G.H1, "description": G.DESC, "url": BASE + G.FILE, "inLanguage": "es",
+       "datePublished": G.DATE, "dateModified": G.DATE, "author": ORG, "publisher": ORG, "image": OG,
+       "about": {"@type": "Thing", "name": "Software de scoring crediticio"}}
+page(G.FILE, "es", G.TITLE, G.DESC, G.TAG, G.H1, G.META, "\n".join(_g), cta("es"), _ld, G.CRUMB)
