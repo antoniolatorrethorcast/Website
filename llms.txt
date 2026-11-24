@@ -9,6 +9,7 @@ Thorcast.AI is a platform where AI agents take a predictive model from raw data 
 - [Scoring crediticio con IA](https://thorcast.ai/scoring-crediticio-ia.html): credit scoring models with AI and alternative data for origination, collections and cutoff decisions.
 - [Cómo elegir software de scoring crediticio](https://thorcast.ai/como-elegir-software-scoring-crediticio.html): Spanish buyer's guide: five types of credit scoring tools, ten evaluation criteria, how to run a fair proof of concept, red flags, and where Thorcast fits and does not.
 - [Modelo de churn y fuga de clientes](https://thorcast.ai/modelo-churn-fuga-clientes.html): customer churn prediction for banking, insurance and telco.
+- [Cómo predecir la fuga de clientes en banca, seguros y telco](https://thorcast.ai/como-predecir-churn-banca-seguros-telco.html): Spanish practical guide: defining churn per industry, predictive data, measuring a model against a fixed contact quota, value-based retention and decision layers.
 - [Detección de fraude con machine learning](https://thorcast.ai/deteccion-fraude-machine-learning.html): fraud detection for credit applications, account takeover and insurance claims.
 - [Inteligencia geográfica](https://thorcast.ai/inteligencia-geografica.html): block-level area profiles, points of interest and travel-time zones for expansion, geomarketing and territorial risk.
 

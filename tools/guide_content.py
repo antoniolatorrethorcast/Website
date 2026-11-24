@@ -156,6 +156,7 @@ MORE = [
     ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"),
     ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"),
     ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"),
+    ("como-predecir-churn-banca-seguros-telco.html", "Cómo predecir la fuga de clientes en banca, seguros y telco"),
     ("para-quien-es.html", "Para quién es Thorcast.AI"),
     ("tutorials-es.html", "Tutoriales en video"),
 ]
