@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thorcast.AI vs Dataiku: comparação para modelos preditivos (2026)</title>
+<meta name="description" content="Uma comparação honesta entre Thorcast.AI e Dataiku: agentes de IA, preparação de dados, AutoML, credit scoring, dados incluídos, camadas de decisão, implantação e quando escolher cada um."/>
+<link rel="canonical" href="https://thorcast.ai/thorcast-vs-dataiku-pt.html"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48.png"/>
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Thorcast.AI"/>
+<meta property="og:title" content="Thorcast.AI vs Dataiku: comparação para modelos preditivos (2026)"/>
+<meta property="og:description" content="Uma comparação honesta entre Thorcast.AI e Dataiku: agentes de IA, preparação de dados, AutoML, credit scoring, dados incluídos, camadas de decisão, implantação e quando escolher cada um."/>
+<meta property="og:url" content="https://thorcast.ai/thorcast-vs-dataiku-pt.html"/>
+<meta property="og:image" content="https://thorcast.ai/assets/images/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Thorcast.AI vs Dataiku: comparação para modelos preditivos (2026)"/>
+<meta name="twitter:description" content="Uma comparação honesta entre Thorcast.AI e Dataiku: agentes de IA, preparação de dados, AutoML, credit scoring, dados incluídos, camadas de decisão, implantação e quando escolher cada um."/>
+<meta name="twitter:image" content="https://thorcast.ai/assets/images/og-image.png"/>
+<style>@media (max-width: 768px){.footer-top{flex-wrap:wrap}.ft-links{flex-wrap:wrap;gap:10px 18px}}</style>
+<style>.article-body ul{margin:0 0 24px;padding-left:22px}.article-body li{font-size:16px;color:#b0b8c8;line-height:1.8;margin:0 0 10px}.article-body a{color:var(--accent-blue)}.uc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:8px 0 40px}.uc-card{background:var(--bg-card);border:1px solid var(--border-dark);padding:0 0 16px}.uc-card video{width:100%;display:block;aspect-ratio:16/9;background:#000}.uc-card h3{font-size:16px;font-weight:800;color:var(--text-white);margin:14px 16px 6px;line-height:1.3}.article-body .uc-card p{font-size:14px;margin:0 16px;line-height:1.6}.sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:8px 0 40px}.sig{background:var(--bg-card);border:1px solid var(--border-dark);padding:18px}.sig b{display:block;color:var(--text-white);font-size:15px;margin-bottom:6px}.article-body .sig p{font-size:14px;margin:0;line-height:1.6}</style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --accent-blue:      #3ab0f0;
+  --accent-yellow:    #f5a623;
+  --bg-dark:          #0d0f14;
+  --bg-card:          #1e2129;
+  --bg-card-alt:      #1c2030;
+  --bg-card-metric:   #1e2230;
+  --bg-impact:        #1a2035;
+  --nav-bg:           #0a0c10;
+  --ticker-bg:        #111318;
+  --text-white:       #ffffff;
+  --text-light-gray:  #b0b8c4;
+  --text-gray:        #8b9098;
+  --text-body:        #8090a0;
+  --border-dark:      #2a2f3a;
+  --footer-bottom:    #040508;
+  --font:             'Nunito', 'Avenir Next', 'Avenir', sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg-dark);
+  color: var(--text-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  width: 100%;
+  height: 60px;
+  background: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(42,47,58,0.5);
+}
+.nav-logo {
+  width: 264px;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light-gray);
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-white); }
+.nav-cta {
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: #2da0e0; transform: translateY(-1px); }
+
+/* ============================================================
+   SECTION 01 – HERO
+   ============================================================ */
+#hero {
+  background: var(--bg-dark);
+  width: 100%;
+}
+.hero-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 80px 80px 0 80px;
+  min-height: 760px;
+}
+.hero-left {
+  width: 580px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.mjo-sphere-hero {
+  position: absolute;
+  top: 208px;
+  left: 50px;
+  width: 112px;
+  height: 112px;
+  border-radius: 56px;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+.mjo-sphere-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 580px;
+  align-items: center;
+  text-align: center;
+}
+.hero-badge {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--accent-yellow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.headline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 0.92;
+  margin-bottom: 4px;
+  align-items: center;
+  text-align: center;
+  margin-left: 22px;
+}
+.h1b-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  line-height: 0.92;
+}
+.mjo-inline {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  background: #000;
+  margin-right: -8px;
+  margin-left: -32px;
+  flex-shrink: 0;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.headline-wrap .h1a {
+  font-size: 59px;
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+.headline-wrap .h1b {
+  font-size: 59px;
+  font-weight: 900;
+  color: var(--accent-blue);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+.headline-wrap .h1c {
+  font-size: 59px;
+  font-weight: 900;
+  background: linear-gradient(180deg, #4a4f5c 0%, #8a8f9c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+.hero-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 12px 0 8px;
+  text-align: left;
+}
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 4px;
+}
+.demo-btn {
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 14px 28px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.15s;
+}
+.demo-btn:hover { background: #2da0e0; transform: translateY(-1px); }
+.see-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.see-link:hover { opacity: 0.8; }
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 464px;
+  padding-top: 32px;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-num {
+  font-size: 29px;
+  font-weight: 800;
+  color: var(--text-white);
+}
+.stat-num.yellow { color: var(--accent-yellow); }
+.stat-lbl {
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  max-width: 120px;
+}
+.hero-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-bottom: 0;
+  align-self: stretch;
+  padding-top: 0;
+}
+.saas-screenshot {
+  width: 660px;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+
+/* ============================================================
+   TICKER
+   ============================================================ */
+.ticker {
+  width: 100%;
+  height: 40px;
+  background: var(--ticker-bg);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 40px;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+.ticker-track {
+  display: flex;
+  gap: 32px;
+  white-space: nowrap;
+  animation: ticker-scroll 30s linear infinite;
+  padding-left: 40px;
+}
+.ticker-track span {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   SECTION BADGE (shared)
+   ============================================================ */
+.section-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.badge-line {
+  width: 28px;
+  height: 2px;
+  background: var(--text-gray);
+  flex-shrink: 0;
+}
+.badge-txt {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   SECTION 02 – STORY
+   ============================================================ */
+#story {
+  background: var(--bg-dark);
+  overflow: visible;
+}
+.story-section {
+  padding: 120px 80px;
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+.story-left-anchor {
+  width: 420px;
+  flex-shrink: 0;
+}
+.story-left {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: flex-start;
+}
+.story-h1a {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.0;
+  margin-top: 8px;
+}
+.story-h1b {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1.0;
+}
+.story-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 796px;
+}
+.story-right p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.7;
+}
+.impact-box {
+  padding: 16px 20px;
+  background: var(--bg-impact);
+  border-left: 2px solid var(--accent-yellow);
+}
+.impact-box p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 03 – SOLUTIONS
+   ============================================================ */
+#solutions {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+}
+.solutions-hero {
+  padding: 60px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  justify-content: center;
+}
+.sec02-h1a {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.05;
+}
+.sec02-h1b {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1.05;
+}
+.sec02-sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.6;
+  max-width: 420px;
+  margin-top: 4px;
+}
+.solutions-grid {
+  padding: 0 0 60px;
+}
+.grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.solution-card {
+  background: var(--bg-card-alt);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  border: 1px solid var(--border-dark);
+  transition: border-color 0.2s;
+}
+.solution-card:hover { border-color: rgba(58,176,240,0.3); }
+.card-tag {
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.card-tag.yellow { color: var(--accent-yellow); }
+.card-title-row {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.card-title-white {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+.card-title-blue {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+.card-title-yellow {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-yellow);
+}
+.card-body {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+.card-stats {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.card-stat-num {
+  font-size: 29px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-white);
+}
+.card-stat-num.yellow { color: var(--accent-yellow); }
+.card-stat-label {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-body);
+  max-width: 120px;
+}
+.card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.pill {
+  padding: 5px 12px;
+  font-size: 9px;
+  font-weight: 400;
+  border-radius: 0;
+}
+.pill-blue {
+  color: var(--accent-blue);
+  border: 1px solid rgba(58,176,240,0.3);
+}
+.pill-yellow {
+  color: var(--accent-yellow);
+  border: 1px solid rgba(245,166,35,0.3);
+}
+
+/* ============================================================
+   SECTION 04 – USE CASES
+   ============================================================ */
+#use-cases {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+}
+.uc-hero {
+  padding: 60px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+.uc-h1a {
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.0;
+}
+.uc-h1b {
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1.0;
+}
+.uc-h1c {
+  font-size: 60px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #4a4f5c 0%, #8a8f9c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.0;
+}
+.uc-sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-top: 8px;
+}
+.tabs-row {
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border-bottom: 1px solid var(--border-dark);
+  gap: 0;
+}
+.tab-btn {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light-gray);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+  letter-spacing: 0.01em;
+  transition: all 0.2s;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.tab-btn.active {
+  background: var(--accent-blue);
+  color: var(--text-white);
+}
+.tab-btn:not(.active):hover { color: var(--text-white); }
+.uc-content {
+  padding: 40px 80px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+.uc-left {
+  width: 700px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+.uc-industry {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-gray);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.uc-title {
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.15;
+  white-space: pre-line;
+}
+.uc-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.65;
+}
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.bullet-item {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-white);
+  line-height: 1.5;
+}
+.impact-box-yellow {
+  padding: 16px 20px;
+  background: var(--bg-impact);
+  border-left: 2px solid var(--accent-yellow);
+}
+.impact-box-yellow p {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--accent-yellow);
+  line-height: 1.6;
+}
+.metrics-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.metric-card {
+  background: var(--bg-card-metric);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.metric-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.metric-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+.metric-value.large { font-size: 35px; }
+.metric-value.medium { font-size: 20px; }
+.metric-bar {
+  width: 100%;
+  height: 3px;
+  margin-top: 2px;
+}
+.metric-bar.blue { background: var(--accent-blue); }
+.metric-bar.yellow { background: var(--accent-yellow); }
+
+/* ============================================================
+   SECTION 05 – HOW IT WORKS
+   ============================================================ */
+#how-it-works {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+  min-height: 800px;
+}
+.hiw-section {
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.hiw-badge {
+  padding-top: 0;
+}
+.hiw-title {
+  text-align: center;
+  width: 900px;
+  margin-top: 8px;
+}
+.hiw-h1 {
+  font-size: 65px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.05;
+}
+.hiw-blue {
+  font-size: 65px;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1.05;
+}
+.hiw-h2 {
+  font-size: 65px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #4a4f5c 0%, #8a8f9c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.05;
+}
+.steps-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 20px;
+}
+.step-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+}
+.step-icon-frame {
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  overflow: hidden;
+  border: 2px solid var(--accent-blue);
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(58,176,240,0.3);
+}
+.step-icon-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.step-icon-mjo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent-yellow);
+  flex-shrink: 0;
+  box-shadow: 0 0 24px rgba(245,166,35,0.4);
+  background: #000;
+}
+.step-icon-mjo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+.conn-line {
+  flex: 1;
+  height: 2px;
+  background: var(--accent-blue);
+  margin: 0 4px;
+}
+.step-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 19px;
+  width: 100%;
+}
+.step-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.step-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-gray);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.step-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.35;
+  white-space: pre-line;
+}
+.step-desc {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 06 – MJO
+   ============================================================ */
+#mjo-section {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+  min-height: 876px;
+}
+.mjo-inner {
+  padding: 60px 80px;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+.mjo-left {
+  width: 560px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  justify-content: center;
+}
+.mjo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mjo-img-frame {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+}
+.mjo-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+.mjo-name {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-top: 8px;
+}
+.mjo-sub-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mjo-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.7;
+}
+.mjo-feats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.feat-row {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+.feat-icon {
+  color: var(--accent-blue);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.feat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.feat-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+.feat-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.55;
+  max-width: 400px;
+}
+
+/* CHAT UI */
+.chat-ui {
+  width: 672px;
+  height: 736px;
+  background: #1a1d2e;
+  border-radius: 16px;
+  border: 1px solid #2a3040;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.chat-header {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  width: 632px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+.chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+.chat-info {
+  display: flex;
+  flex-direction: column;
+}
+.chat-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+.chat-status {
+  font-size: 10px;
+  font-weight: 400;
+  color: #22c55e;
+}
+.chat-divider {
+  position: absolute;
+  top: 62px;
+  left: 20px;
+  width: 632px;
+  height: 1px;
+  background: #2a3040;
+}
+.chat-body {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 20px;
+  overflow: hidden;
+}
+/* user bubble */
+.jp-bubble {
+  background: #3ab0f0;
+  border-radius: 16px 16px 4px 16px;
+  padding: 10px 14px;
+  margin-left: auto;
+  width: fit-content;
+  max-width: 340px;
+  font-size: 11px;
+  color: #fff;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.jp-bubble.first { background: #5bc0f5; }
+.msg-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.msg-row.user {
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.jp-av {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2980d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.mjo-av {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+.mjo-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+.mjo-bubble {
+  background: #232840;
+  border-radius: 16px 16px 16px 4px;
+  border: 1px solid #2e344a;
+  padding: 12px 14px;
+  max-width: 600px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.mjo-bubble .main-txt { color: #d0d8e8; margin-bottom: 6px; }
+.mjo-bubble .detail-txt { color: #a0b0c8; line-height: 1.4; }
+.mjo-bubble .conf-txt { color: #7888a0; margin-top: 6px; }
+
+/* ============================================================
+   SECTION 02 – STORY (already defined above)
+   ============================================================ */
+
+/* ============================================================
+   SECTION 07 – BLOG
+   ============================================================ */
+#blog {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+}
+.blog-header {
+  padding: 120px 80px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.blog-title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.blog-h1a {
+  font-size: 65px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.0;
+}
+.blog-h1b {
+  font-size: 65px;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1.0;
+}
+.view-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light-gray);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding-bottom: 6px;
+}
+.view-all:hover { color: var(--text-white); }
+.blog-cards {
+  padding: 20px 80px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+.blog-card {
+  background: var(--bg-card-alt);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border-dark);
+  transition: border-color 0.2s;
+  height: 256px;
+}
+.blog-card:hover { border-color: rgba(58,176,240,0.3); }
+.bc-tag {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--text-gray);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.bc-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.35;
+}
+.bc-desc {
+  font-size: 10px;
+  font-weight: 400;
+  color: #b0b8c8;
+  line-height: 1.65;
+  flex: 1;
+}
+.bc-meta {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--accent-yellow);
+}
+
+/* ============================================================
+   SECTION 08 – CTA + FOOTER
+   ============================================================ */
+#cta-footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+}
+.cta-section {
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+}
+.cta-watermark {
+  font-size: 96px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, #1e2530 0%, #3a404e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0.35;
+  user-select: none;
+  margin-top: 24px;
+}
+.cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.cta-badge {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cta-h1 {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.05;
+  max-width: 700px;
+}
+.cta-h2 {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1.05;
+  max-width: 700px;
+}
+.cta-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  line-height: 1.65;
+  max-width: 600px;
+  margin-top: 4px;
+}
+.cta-btns {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 8px;
+}
+.cta-btn-primary {
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 14px 28px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  font-family: var(--font);
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+}
+.cta-btn-primary:hover { background: #2da0e0; transform: translateY(-1px); }
+.cta-btn-outline {
+  background: transparent;
+  color: var(--accent-blue);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 14px 28px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  font-family: var(--font);
+  border: 1px solid var(--accent-blue);
+  transition: background 0.2s, color 0.2s;
+}
+.cta-btn-outline:hover { background: rgba(58,176,240,0.1); }
+
+/* FOOTER */
+.footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+  height: 160px;
+}
+.footer-top {
+  height: 120px;
+  padding: 32px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ft-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.ft-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+  transition: color 0.2s;
+}
+.ft-links a:hover { color: var(--text-white); }
+.ft-contact {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+}
+.footer-bottom {
+  height: 40px;
+  background: var(--footer-bottom);
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer-bottom span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light-gray);
+}
+
+/* ============================================================
+   TAB PANEL VISIBILITY
+   ============================================================ */
+.tab-panel { display: none; }
+.tab-panel.active { display: flex; }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.nav-links a[href$="#tutorials"] { text-transform: uppercase; }
+</style>
+<style>
+#article-hero { background: var(--bg-dark); padding: 80px 80px 60px; border-bottom: 1px solid var(--border-dark); }
+.article-back { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-light-gray); letter-spacing: 0.05em; margin-bottom: 40px; transition: color 0.2s; text-decoration: none; }
+.article-back:hover { color: var(--text-white); }
+.article-tag { font-size: 9px; font-weight: 700; color: var(--text-gray); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
+.article-title { font-size: 52px; font-weight: 800; color: var(--text-white); line-height: 1.1; max-width: 860px; margin-bottom: 24px; }
+.article-meta { font-size: 11px; color: var(--accent-yellow); font-weight: 400; }
+#article-body { max-width: 820px; margin: 0 auto; padding: 80px 80px 120px; }
+.article-body h2 { font-size: 26px; font-weight: 800; color: var(--text-white); line-height: 1.2; margin: 56px 0 20px; }
+.article-body p { font-size: 16px; color: #b0b8c8; line-height: 1.8; margin-bottom: 24px; }
+.article-body strong { color: var(--text-white); font-weight: 700; }
+.article-footer-cta { background: var(--bg-card); border: 1px solid var(--border-dark); padding: 40px; margin-top: 80px; font-size: 14px; color: var(--text-light-gray); line-height: 1.7; font-style: italic; }
+.article-footer-cta strong { color: var(--accent-blue); font-style: normal; font-weight: 700; }
+.paper-downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 34px 0 48px; }
+.paper-download { display: flex; flex-direction: column; gap: 10px; padding: 26px; background: var(--bg-card); border: 1px solid var(--border-dark); transition: border-color 0.2s, transform 0.2s; }
+.paper-download:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+.paper-download-lang { color: var(--accent-yellow); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; }
+.paper-download-title { color: var(--text-white); font-size: 18px; font-weight: 800; line-height: 1.3; }
+.paper-download-meta { color: var(--text-gray); font-size: 12px; }
+.paper-download-link { color: var(--accent-blue); font-size: 13px; font-weight: 800; margin-top: 8px; }
+@media (max-width: 700px) { .paper-downloads { grid-template-columns: 1fr; } .nav { padding: 0 20px; } .nav-logo { width: 140px; } .nav-links { gap: 0; } .nav-links a { display: none; } .nav-cta { padding: 9px 12px; font-size: 10px; } }
+@media (max-width: 900px) { #article-hero { padding: 60px 32px 40px; } .article-title { font-size: 36px; } #article-body { padding: 60px 32px 80px; } }
+</style>
+<style>.cmp-table{width:100%;border-collapse:collapse;margin:8px 0 40px;font-size:14px}.cmp-table th,.cmp-table td{border:1px solid var(--border-dark);padding:12px 14px;text-align:left;vertical-align:top;color:#b0b8c8;line-height:1.6}.cmp-table th{color:var(--text-white);background:var(--bg-card);font-weight:700}.cmp-table td:first-child{color:var(--text-white);font-weight:600;width:24%}.cmp-wrap{overflow-x:auto}.faq-item{border-top:1px solid var(--border-dark);padding:22px 0;scroll-margin-top:90px}.faq-item h2{font-size:19px;margin:0 0 10px}.article-body .faq-item p{margin:0}.src{font-size:12px!important;color:var(--text-gray)!important}</style><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Thorcast.AI vs Dataiku", "description": "Uma comparação honesta entre Thorcast.AI e Dataiku: agentes de IA, preparação de dados, AutoML, credit scoring, dados incluídos, camadas de decisão, implantação e quando escolher cada um.", "url": "https://thorcast.ai/thorcast-vs-dataiku-pt.html", "inLanguage": "pt-BR", "dateModified": "2026-11-24", "publisher": {"@type": "Organization", "@id": "https://thorcast.ai/#organization", "name": "Thorcast.AI", "url": "https://thorcast.ai/", "logo": "https://thorcast.ai/assets/images/thorcast-logo.webp", "email": "info@thorcast.ai"}, "about": [{"@type": "SoftwareApplication", "name": "Thorcast.AI", "applicationCategory": "BusinessApplication", "url": "https://thorcast.ai/"}, {"@type": "SoftwareApplication", "name": "Dataiku", "applicationCategory": "BusinessApplication", "url": "https://www.dataiku.com/"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Thorcast.AI", "item": "https://thorcast.ai/"}, {"@type": "ListItem", "position": 2, "name": "Thorcast.AI vs Dataiku", "item": "https://thorcast.ai/thorcast-vs-dataiku-pt.html"}]}]}</script>
+<link rel="alternate" hreflang="en" href="https://thorcast.ai/thorcast-vs-dataiku.html"/>
+<link rel="alternate" hreflang="es" href="https://thorcast.ai/thorcast-vs-dataiku-es.html"/>
+<link rel="alternate" hreflang="pt-BR" href="https://thorcast.ai/thorcast-vs-dataiku-pt.html"/>
+<link rel="alternate" hreflang="x-default" href="https://thorcast.ai/thorcast-vs-dataiku.html"/>
+</head>
+<body>
+<nav class="nav">
+<img alt="Thorcast.AI" class="nav-logo" src="assets/images/thorcast-logo.webp"/>
+<div class="nav-links">
+<a href="index.html#in-action">IN ACTION</a>
+<a href="index.html#solutions">SOLUTIONS</a>
+<a href="index.html#tutorials">HOW IT WORKS</a>
+<a href="index.html#agents">AGENTS</a>
+<a href="index.html#blog">BLOG</a>
+<button class="nav-cta" onclick="document.getElementById('cta-footer').scrollIntoView({behavior:'smooth'})">CONTACT US</button>
+</div>
+</nav>
+<section id="article-hero">
+<a class="article-back" href="pt.html">← Voltar ao início</a>
+<div class="article-tag">COMPARAÇÃO</div>
+<h1 class="article-title">Thorcast.AI vs Dataiku</h1>
+<div class="article-meta">Thorcast.AI · Atualizado em novembro de 2026</div>
+</section>
+<section id="article-body">
+<div class="article-body">
+<p><strong>Dataiku</strong> é uma plataforma corporativa ampla para dados, machine learning, IA generativa e agentes, pensada para a colaboração e a governança entre muitas equipes e casos de uso. <strong>Thorcast.AI</strong> é mais específica: uma plataforma de análise preditiva para bancos, seguradoras, telcos e varejo, onde agentes de IA levam um modelo dos dados brutos até uma decisão de negócio, com dados alternativos incluídos.</p>
+<p>Ambas cobrem preparação de dados, AutoML e explicabilidade. As principais diferenças estão em amplitude versus foco, em quem faz o trabalho, na origem dos dados adicionais e em quanto a plataforma avança do score até a decisão.</p>
+<h2>Visão geral</h2>
+<div class="cmp-wrap"><table class="cmp-table"><thead><tr><th></th><th>Thorcast.AI</th><th>Dataiku</th></tr></thead><tbody><tr><td>O que é</td><td>Plataforma de análise preditiva com agentes de IA para crédito, fraude, churn, venda cruzada, pricing e casos geográficos.</td><td>Plataforma corporativa para dados, machine learning, IA generativa e agentes, com orquestração e governança entre equipes.</td></tr><tr><td>Agentes de IA</td><td>Agentes integrados: <strong>NORA</strong> prepara os dados a partir de instruções em linguagem natural e <strong>MJÖ</strong> constrói, compara e explica os modelos; TERRA, para inteligência geográfica, chega em breve. Cada plano espera a sua aprovação.</td><td>Agentes visuais e de código, um Agent Hub, gestão de agentes, a interface em linguagem natural Cobuild e um LLM Mesh entre provedores de modelos.</td></tr><tr><td>Preparação de dados</td><td>A NORA une, limpa e transforma suas tabelas; cada etapa passa por um motor de validação determinístico. Você recebe um dataset versionado, código Python reprodutível e um Playbook reutilizável.</td><td>Receitas visuais (mais de 100 transformadores) ou Python, R e SQL, com assistentes de IA generativa que transformam pedidos em etapas de preparação.</td></tr><tr><td>AutoML</td><td>O MJÖ planeja o pré-processamento, recomenda variáveis, treina e compara vários algoritmos e apresenta o campeão com Gini, KS e ROC.</td><td>AutoML e ML visual para previsão, clustering, séries temporais, ML causal e visão computacional, com comparação de modelos.</td></tr><tr><td>Ferramentas de scorecard</td><td>Modelos de risco de crédito com Gini, KS e ROC, pontos de corte com impacto econômico e Campeão–Desafiante.</td><td>Uma Credit Scoring Solution empacotada (binning WoE, filtro por IV, scorecard logístico, verificações de equidade) que exige um plugin; não encontramos inferência de rejeitados nem estratégia de ponto de corte.</td></tr><tr><td>Dados de terceiros incluídos</td><td>Incluído: a Data Enrichment Network adiciona mais de 3.000 data points (261 sinais prontos para o modelo) a partir de um endereço, e-mail ou telefone. Em 68 modelos de 12 países, elevou o Gini em uma mediana de 35% (<a href="perguntas-frequentes.html#gini-uplift">resultados por país</a>). A cobertura depende do país.</td><td>Não encontramos dados de terceiros ou alternativos incluídos; os dados vêm das suas fontes por meio de dezenas de conectores, além de geocodificação.</td></tr><tr><td>Explicabilidade e documentação</td><td>Explicação em linguagem clara do MJÖ e relatório técnico pronto para auditoria. A IA planeja e o código validado executa: mesma entrada, mesmo resultado.</td><td>Explicações Shapley e ICE, análise what-if, relatórios de equidade, um gerador de documentação de modelos e fluxos de governança.</td></tr><tr><td>Do score à decisão</td><td>As camadas de decisão mostram aprovação, risco e impacto econômico em cada ponto de corte, pré-configuradas ou adaptadas pelos agentes; inclui Campeão–Desafiante e scoring em lote.</td><td>Otimização genérica do limiar de classificação e análise what-if; não encontramos ferramentas de política de crédito nem de impacto econômico.</td></tr><tr><td>Implantação</td><td>Thorcast Cloud, nas suas instalações ou no app. A preparação de dados, o treinamento e o scoring podem rodar na sua infraestrutura.</td><td>Dataiku Cloud (SaaS), o seu próprio tenant de AWS, Azure ou GCP, ou uma instalação Linux nas suas instalações, inclusive sem conexão à internet.</td></tr><tr><td>Como começar</td><td>Prova de conceito de uma hora com a sua própria amostra. Preços não publicados; escreva para info@thorcast.ai.</td><td>Teste na nuvem de 14 dias e uma edição gratuita instalável; preços não publicados.</td></tr><tr><td>Para quem é</td><td>Bancos, seguradoras, corretoras, telcos e varejo que querem modelos de nível produtivo sem uma grande equipe de ciência de dados, ou que sua equipe cubra mais casos de uso.</td><td>Grandes empresas com especialistas de negócio, equipes de dados e TI trabalhando em muitos casos de IA em vários setores.</td></tr></tbody></table></div>
+<h2>Quando escolher Dataiku</h2><ul><li>Você quer uma só plataforma governada para dados, machine learning, IA generativa e agentes, para muitas equipes e casos de uso.</li><li>Você precisa de governança corporativa em escala: inventário de IA, aprovações, linhagem e monitoramento, com um LLM Mesh entre provedores.</li><li>Você quer começar com uma edição gratuita ou um teste de 14 dias e se conectar a muitas plataformas de dados existentes.</li></ul><h2>Quando escolher a Thorcast.AI</h2><ul><li><strong>Simples por design.</strong> Pensada tanto para analistas de negócio quanto para cientistas de dados, a Thorcast torna fácil o que é difícil na modelagem preditiva: você trabalha em linguagem natural, os agentes cuidam da parte técnica e você mantém o controle de cada decisão.</li><li><strong>Estatística que vira decisão de negócio.</strong> As camadas de decisão conectam a estatística de cada modelo à economia da sua política: aprovação, risco e lucro em cada ponto de corte. Comece com camadas pré-configuradas no app ou peça aos agentes que as adaptem ao seu negócio, para que cada modelo saia com a decisão que mais gera valor.</li><li><strong>De ponta a ponta, em horas.</strong> Limpar e unir dados, enriquecê-los, pré-processá-los, criar variáveis, modelar, decidir, gerar relatórios e implantar, tudo em um só lugar, em horas e não em meses, com agentes de IA que apoiam cada etapa: NORA para os dados, MJÖ para os modelos e as decisões e, em breve, TERRA para a inteligência geográfica.</li><li><strong>Os dados que faltam ao seu modelo.</strong> Dados alternativos a partir de um endereço, e-mail ou telefone já vêm incluídos, sem comprar nem integrar um novo fornecedor.</li></ul>
+<p class="src">Fontes (Dataiku, verificadas em novembro de 2026): <a href="https://www.dataiku.com/product/" target="_blank" rel="noopener noreferrer">product</a> · <a href="https://www.dataiku.com/product/data-preparation/" target="_blank" rel="noopener noreferrer">data preparation</a> · <a href="https://www.dataiku.com/product/machine-learning/" target="_blank" rel="noopener noreferrer">machine learning</a> · <a href="https://knowledge.dataiku.com/latest/solutions/financial-services/solution-credit-scoring.html" target="_blank" rel="noopener noreferrer">credit scoring solution</a> · <a href="https://doc.dataiku.com/dss/latest/machine-learning/supervised/explanations.html" target="_blank" rel="noopener noreferrer">explanations</a> · <a href="https://doc.dataiku.com/dss/latest/installation/index.html" target="_blank" rel="noopener noreferrer">installation</a> · <a href="https://www.dataiku.com/product/get-started/" target="_blank" rel="noopener noreferrer">get started</a>. As capacidades de cada fornecedor mudam; consulte o site dele para a versão mais recente. Dataiku é uma marca registrada do seu titular.</p>
+<h2>Mais comparações</h2><ul><li><a href="thorcast-vs-datarobot-pt.html">Thorcast.AI vs DataRobot</a></li><li><a href="thorcast-vs-h2o-pt.html">Thorcast.AI vs H2O.ai</a></li><li><a href="thorcast-vs-sas-pt.html">Thorcast.AI vs SAS Viya</a></li><li><a href="thorcast-vs-fico-pt.html">Thorcast.AI vs FICO Platform</a></li><li><a href="thorcast-vs-provenir-pt.html">Thorcast.AI vs Provenir</a></li><li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li></ul>
+</div>
+<div class="article-footer-cta"><strong>Teste com os seus dados</strong> — uma prova de conceito leva cerca de uma hora: enriquecemos uma amostra, treinamos um modelo desafiante e o comparamos com o seu score atual. <a href="tutorials-pt.html" style="color: var(--accent-blue); font-style: normal; font-weight: 700;">Ver os tutoriais →</a> · <a href="mailto:info@thorcast.ai" style="color: var(--accent-blue); font-style: normal; font-weight: 700;">info@thorcast.ai</a></div>
+</section>
+<section id="cta-footer">
+<div class="cta-section">
+<div class="cta-content reveal">
+<span class="cta-badge">GET STARTED</span>
+<p class="cta-h1">Ready to predict</p>
+<p class="cta-h2">with confidence?</p>
+<p class="cta-sub">See how Thorcast.AI performs on your data. No migration, no risk – just better predictions from day one.</p>
+<div class="cta-btns">
+<button class="cta-btn-primary">Request a Demo</button>
+<button class="cta-btn-outline">Talk to Sales</button>
+</div>
+</div>
+<span class="cta-watermark">THORCAST.AI</span>
+</div>
+<footer class="footer">
+<div class="footer-top">
+<div class="ft-links">
+<a href="index.html#in-action">In Action</a>
+<a href="index.html#solutions">Solutions</a>
+<a href="index.html#tutorials">How it Works</a>
+<a href="index.html#agents">Agents</a>
+<a href="index.html#blog">Blog</a>
+<a href="tutorials.html">Tutorials</a>
+<a href="about.html">Our Story</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Accessibility</a>
+<a href="#">Terms</a>
+</div>
+<span class="ft-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61080f070e2115090e13020012154f0008">[email&#160;protected]</a></span>
+</div>
+<div class="footer-bottom">
+<span>© 2025 THORCAST.AI – All rights reserved.</span>
+</div>
+</footer>
+</section>
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>window.addEventListener('load',function(){var h=location.hash,e=h&&document.getElementById(h.slice(1));if(e)setTimeout(function(){e.scrollIntoView({behavior:'auto'});},150);});</script>
+</body>
+</html>

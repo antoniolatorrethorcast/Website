@@ -135,7 +135,7 @@ for c in COMPARE:
                           f'<h2>{ui["more"]}</h2><ul>{others}<li><a href="{FAQ[lang]}">{ui["faq"]}</a></li></ul>'])
         f = cfile(c["base"], lang)
         ld = {"@type": "WebPage", "name": L["h1"], "description": L["desc"], "url": BASE + f, "inLanguage": "pt-BR" if lang == "pt" else lang,
-              "dateModified": "2026-11-23", "publisher": ORG,
+              "dateModified": c.get("date", "2026-11-23"), "publisher": ORG,
               "about": [{"@type": "SoftwareApplication", "name": "Thorcast.AI", "applicationCategory": "BusinessApplication", "url": BASE},
                         {"@type": "SoftwareApplication", "name": c["name"], "applicationCategory": "BusinessApplication", "url": c["url"]}]}
         page(f, lang, L["title"], L["desc"], ui["tag"], L["h1"], ui["meta"], body, cta(lang), ld, L["h1"], alternates=alts)
