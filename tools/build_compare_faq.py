@@ -99,7 +99,7 @@ for lang, fname, items, title, desc, h1, tag, crumb, other in [
         return (f'<div class="faq-item" id="gini-uplift"><h2>{html.escape(q)}</h2><p>{html.escape(lead)}</p>'
                 f'{item[2]}<p class="src">{html.escape(tail.strip())}</p></div>')
     hub = {"en": ("Recommended topics", [("who-is-it-for.html", "Who Thorcast.AI is for: by industry, team and region"), ("thorcast-vs-datarobot.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas.html", "Thorcast.AI vs SAS Viya"), ("tutorials.html", "Video tutorials")]),
-           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("como-elegir-software-scoring-crediticio.html", "Cómo elegir software de scoring crediticio: guía práctica"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")])}[lang]
+           "es": ("Temas recomendados", [("para-quien-es.html", "Para quién es Thorcast.AI: por industria, equipo y región"), ("como-elegir-software-scoring-crediticio.html", "Cómo elegir software de scoring crediticio: guía práctica"), ("como-predecir-churn-banca-seguros-telco.html", "Cómo predecir la fuga de clientes en banca, seguros y telco"), ("thorcast-vs-datarobot-es.html", "Thorcast.AI vs DataRobot"), ("thorcast-vs-h2o-es.html", "Thorcast.AI vs H2O.ai"), ("thorcast-vs-sas-es.html", "Thorcast.AI vs SAS Viya"), ("tutorials-es.html", "Tutoriales en video")])}[lang]
     body = (f'<div class="article-footer-cta" style="margin:0 0 32px;font-style:normal"><strong>{hub[0]}</strong><ul style="margin:10px 0 0;padding-left:20px">'
             + "".join(f'<li style="margin:6px 0"><a href="{h}" style="color:var(--accent-blue);font-weight:700">{html.escape(t)}</a></li>' for h, t in hub[1]) + "</ul></div>")
     body += "".join(faq_item(it) for it in items)
@@ -170,3 +170,20 @@ _ld = {"@type": "Article", "headline": G.H1, "description": G.DESC, "url": BASE 
        "datePublished": G.DATE, "dateModified": G.DATE, "author": ORG, "publisher": ORG, "image": OG,
        "about": {"@type": "Thing", "name": "Software de scoring crediticio"}}
 page(G.FILE, "es", G.TITLE, G.DESC, G.TAG, G.H1, G.META, "\n".join(_g), cta("es"), _ld, G.CRUMB)
+
+# ---------- Guía: cómo predecir la fuga de clientes en banca, seguros y telco (ES)
+import churn_guide_content as C
+_c = [C.INTRO, f"<h2>{C.DEF_H}</h2>{C.DEF_P}"]
+_c += [f'<div class="faq-item"><h2>{_e(n)}</h2><p>{_e(t)}</p></div>' for n, t in C.DEFS]
+_c.append(f"<h2>{C.DATA_H}</h2><ul>" + "".join(f"<li>{x}</li>" for x in C.DATA) + "</ul>")
+_c.append(f"<h2>{C.MEASURE_H}</h2>{C.MEASURE}<ul>" + "".join(f"<li><strong>{_e(n)}.</strong> {_e(t)}</li>" for n, t in C.CASES) + "</ul>")
+_c.append(f"<h2>{C.VALUE_H}</h2><ul>" + "".join(f"<li>{x}</li>" for x in C.VALUE) + "</ul>")
+_c.append(f"<h2>{C.DEC_H}</h2>{C.DEC}")
+_c.append(f"<h2>{C.MISTAKES_H}</h2><ul>" + "".join(f"<li>{_e(x)}</li>" for x in C.MISTAKES) + "</ul>")
+_c.append(f"<h2>{C.FIT_H}</h2><ul>" + "".join(f"<li>{x}</li>" for x in C.FIT) + "</ul>")
+_c.append(f"<h2>{C.FAQ_H}</h2>" + "".join(f'<div class="faq-item"><h2>{_e(q)}</h2><p>{_e(a)}</p></div>' for q, a in C.FAQ))
+_c.append(f"<h2>{C.MORE_H}</h2><ul>" + "".join(f'<li><a href="{f}">{_e(t)}</a></li>' for f, t in C.MORE) + "</ul>")
+_ld = {"@type": "Article", "headline": C.H1, "description": C.DESC, "url": BASE + C.FILE, "inLanguage": "es",
+       "datePublished": C.DATE, "dateModified": C.DATE, "author": ORG, "publisher": ORG, "image": OG,
+       "about": {"@type": "Thing", "name": "Predicción de fuga de clientes (churn)"}}
+page(C.FILE, "es", C.TITLE, C.DESC, C.TAG, C.H1, C.META, "\n".join(_c), cta("es"), _ld, C.CRUMB)
