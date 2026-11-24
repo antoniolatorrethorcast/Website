@@ -20,6 +20,7 @@ EXTRA_CSS = ('<style>.cmp-table{width:100%;border-collapse:collapse;margin:8px 0
              '.src{font-size:12px!important;color:var(--text-gray)!important}</style>')
 
 tpl = open("scoring-crediticio-ia.html", encoding="utf-8").read()
+tpl = re.sub(r'<link rel="alternate" hreflang="[^"]*" href="[^"]*"/>\n', "", tpl)  # the template's own language links
 
 
 def one(pattern, repl, s):
