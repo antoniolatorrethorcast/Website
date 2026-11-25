@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "items": [
+    { "id": "1-espacio-de-datos-nora", "title": "NORA AI: your data preparation agent", "duration_seconds": 198, "language": "es", "thumbnail_url": "1-espacio-de-datos-nora-cover.jpg", "video_url": "1-espacio-de-datos-nora.mp4" },
+    { "id": "video6-mjo-autonomo", "title": "MJÖ AI Agent: your most efficient team member", "duration_seconds": 219, "language": "es", "thumbnail_url": "video6-mjo-autonomo-cover.jpg", "video_url": "video6-mjo-autonomo.mp4" },
+    { "id": "2-modelamiento", "title": "Training a model with enriched data", "duration_seconds": 219, "language": "es", "thumbnail_url": "2-modelamiento-cover.jpg", "video_url": "2-modelamiento.mp4" },
+    { "id": "video7-enriquecimiento", "title": "Data enrichment", "duration_seconds": 153, "language": "es", "thumbnail_url": "video7-enriquecimiento-cover.jpg", "video_url": "video7-enriquecimiento.mp4" },
+    { "id": "3-comparacion-despliegue-scoring", "title": "Model comparison and batch scoring", "duration_seconds": 95, "language": "es", "thumbnail_url": "3-comparacion-despliegue-scoring-cover.jpg", "video_url": "3-comparacion-despliegue-scoring.mp4" },
+    { "id": "4-monitoreo-recalibracion", "title": "Model monitoring", "duration_seconds": 81, "language": "es", "thumbnail_url": "4-monitoreo-recalibracion-cover.jpg", "video_url": "4-monitoreo-recalibracion.mp4" },
+    { "id": "5-campeon-desafiante", "title": "Champion–Challenger", "duration_seconds": 101, "language": "es", "thumbnail_url": "5-campeon-desafiante-cover.jpg", "video_url": "5-campeon-desafiante.mp4" }
+  ]
+}
