@@ -152,6 +152,8 @@ FAQ = [
 
 MORE_H = "Continue lendo"
 MORE = [
+    ("otimizacao-ponto-de-corte-credito.html", "Otimização do ponto de corte no crédito"),
+    ("analise-inferencia-de-rejeitados.html", "Análise de inferência de rejeitados: guia passo a passo"),
     ("credit-scoring-com-ia.html", "Modelo de credit scoring com IA e dados alternativos"),
     ("perguntas-frequentes.html#gini-uplift", "Resultados dos dados alternativos por país"),
     ("thorcast-vs-datarobot-pt.html", "Thorcast.AI vs DataRobot"),

@@ -150,6 +150,8 @@ FAQ = [
 
 MORE_H = "Sigue leyendo"
 MORE = [
+    ("optimizacion-punto-de-corte-credito.html", "Optimización del punto de corte en crédito"),
+    ("analisis-inferencia-de-rechazados.html", "Análisis de inferencia de rechazados: guía paso a paso"),
     ("scoring-crediticio-ia.html", "Modelo de scoring crediticio con IA y datos alternativos"),
     ("preguntas-frecuentes.html#gini-uplift", "Resultados de los datos alternativos por país"),
     ("blog-12-es.html", "Inferencia de rechazados en credit scoring"),

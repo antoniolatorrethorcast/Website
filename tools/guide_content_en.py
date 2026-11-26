@@ -152,6 +152,8 @@ FAQ = [
 
 MORE_H = "Keep reading"
 MORE = [
+    ("credit-cutoff-optimization.html", "Credit cutoff optimization: how to set the score cutoff"),
+    ("reject-inference-analysis.html", "Reject inference analysis: a step-by-step guide"),
     ("ai-credit-scoring.html", "AI credit scoring model with alternative data"),
     ("faq.html#gini-uplift", "Alternative data results by country"),
     ("blog-12.html", "Reject inference in credit scoring"),
