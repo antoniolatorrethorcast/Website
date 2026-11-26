@@ -3130,6 +3130,13 @@ section[id] { scroll-margin-top: 64px; }
 #hero .hx-title span { display: block; } #hero .hx-title .hx-y { color: var(--accent-yellow); }
 #hero .hx-sub { max-width: 680px; margin: 0 auto 26px; color: var(--text-light-gray); font-size: 18px; line-height: 1.55; } #hero .hx-sub b { color: #fff; font-weight: 800; }
 #hero .hx-ctas { display: flex; justify-content: center; gap: 12px; }
+/* Video intro «¿Qué es Thorcast?» (por ahora solo en español; ver script hero-intro) */
+#hero .intro-btn { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.55); font-size: 12px; font-weight: 700; padding: 13px 22px; cursor: pointer; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, transform 0.15s; }
+#hero .intro-btn:hover { border-color: #fff; transform: translateY(-1px); }
+#hero .intro-btn .intro-play { display: inline-block; width: 0; height: 0; border-left: 9px solid #FFC800; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+#hero .intro-btn[hidden] { display: none; }
+#hero .intro-btn { white-space: nowrap; justify-content: center; }
+@media (max-width: 600px) { #hero .hx-ctas { flex-direction: column; align-items: stretch; max-width: 340px; margin-left: auto; margin-right: auto; } }
 #hero .hx-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 52px; text-align: left; }
 #hero .hx-card { border: 1px solid var(--border-dark); background: rgba(20,24,33,.85); backdrop-filter: blur(4px); border-radius: 14px; padding: 18px 16px 20px; }
 #hero .hx-n { margin: 0; font-size: 26px; font-weight: 900; line-height: 1.1; color: var(--accent-blue); }
@@ -3188,7 +3195,7 @@ html[lang^="en"] .tut-dur i[data-l="en"], html[lang^="es"] .tut-dur i[data-l="es
 <p class="hx-kick">A PLATAFORMA DE IA QUE TODA EQUIPE DE DATA SCIENCE GOSTARIA DE TER</p>
 <h1 class="hx-title"><span>Analytics mais inteligente.</span> <span class="hx-y">O EBITDA vem junto.</span></h1>
 <p class="hx-sub"><b>Dados melhores + IA:</b> <span>modelos melhores, menor time to market e maior produtividade que libera sua equipe para uma análise mais ampla. Sem gasto adicional.</span></p>
-<div class="hx-ctas"><button class="demo-btn" id="hero-see-action-btn">Veja em ação!</button></div>
+<div class="hx-ctas"><button class="demo-btn" id="hero-see-action-btn">Veja em ação!</button><button class="intro-btn" id="hero-intro-btn" type="button" data-intro-langs="es" data-intro-video="assets/videos/que-es-thorcast.es.mp4" aria-label="Ver el video: ¿Qué es Thorcast? (1:24)" hidden><span class="intro-play" aria-hidden="true"></span>¿Qué es Thorcast? · 1:24</button></div>
 <div class="hx-flow" aria-label="Benefícios da Thorcast">
 <div class="hx-card"><p class="hx-n">+45%</p><h3>Modelos mais preditivos</h3><p>Ganho de Gini com mais de 3.000 data points do Data Enrichment Network.</p></div>
 <div class="hx-card"><p class="hx-n">Múltiplos</p><h3>Agentes de IA na sua equipe</h3><p>NORA, MJÖ, TERRA… preparam dados e constroem modelos em linguagem natural.</p></div>
@@ -4711,6 +4718,29 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
     apply(current());
   }).catch(() => {});
   document.querySelectorAll('.lang-btn').forEach((b) => b.addEventListener('click', () => apply(b.dataset.lang)));
+})();
+</script>
+<script id="hero-intro">
+// Botón del hero con el video intro «¿Qué es Thorcast?». Solo se muestra en los idiomas que ya tienen versión
+// (data-intro-langs); al sumar EN/PT, agregar el idioma aquí y su archivo assets/videos/que-es-thorcast.<lang>.mp4.
+(() => {
+  const btn = document.getElementById('hero-intro-btn');
+  if (!btn) return;
+  const langs = (btn.dataset.introLangs || '').split(',');
+  const current = () => (typeof thorcastCurrentLang !== 'undefined' ? thorcastCurrentLang : 'en');
+  const apply = (lang) => { btn.hidden = !langs.includes(lang); };
+  apply(current());
+  document.querySelectorAll('.lang-btn').forEach((b) => b.addEventListener('click', () => apply(b.dataset.lang)));
+  btn.addEventListener('click', () => {
+    const player = document.getElementById('tutorial-player'), video = document.getElementById('tutorial-player-video');
+    if (!player || !video) return;
+    video.src = btn.dataset.introVideo.replace('.es.', '.' + current() + '.');
+    video.setAttribute('aria-label', '¿Qué es Thorcast?');
+    player.showModal();
+    if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
+    video.play().catch(() => {});
+    if (typeof gtag === 'function') gtag('event', 'intro_video_play', { lang: current() });
+  });
 })();
 </script>
 <script id="hero-hand-marks">
