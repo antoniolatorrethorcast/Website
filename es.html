@@ -3130,7 +3130,7 @@ section[id] { scroll-margin-top: 64px; }
 #hero .hx-title span { display: block; } #hero .hx-title .hx-y { color: var(--accent-yellow); }
 #hero .hx-sub { max-width: 680px; margin: 0 auto 26px; color: var(--text-light-gray); font-size: 18px; line-height: 1.55; } #hero .hx-sub b { color: #fff; font-weight: 800; }
 #hero .hx-ctas { display: flex; justify-content: center; gap: 12px; }
-/* Video intro «¿Qué es Thorcast?» (por ahora solo en español; ver script hero-intro) */
+/* Video intro «¿Qué es Thorcast?» (ES y EN; ver script hero-intro) */
 #hero .intro-btn { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.55); font-size: 12px; font-weight: 700; padding: 13px 22px; cursor: pointer; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, transform 0.15s; }
 #hero .intro-btn:hover { border-color: #fff; transform: translateY(-1px); }
 #hero .intro-btn .intro-play { display: inline-block; width: 0; height: 0; border-left: 9px solid #FFC800; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
@@ -3195,7 +3195,7 @@ html[lang^="en"] .tut-dur i[data-l="en"], html[lang^="es"] .tut-dur i[data-l="es
 <p class="hx-kick">LA PLATAFORMA DE IA QUE TODO EQUIPO DE DATA SCIENCE QUISIERA TENER</p>
 <h1 class="hx-title"><span>Analítica más inteligente.</span> <span class="hx-y">El EBITDA viene solo.</span></h1>
 <p class="hx-sub"><b>Mejores datos + IA:</b> <span>mejores modelos, menor time to market y mayor productividad que libera a tu equipo para una analítica más amplia. Sin gasto adicional.</span></p>
-<div class="hx-ctas"><button class="demo-btn" id="hero-see-action-btn">¡Míralo en acción!</button><button class="intro-btn" id="hero-intro-btn" type="button" data-intro-langs="es" data-intro-video="assets/videos/que-es-thorcast.es.mp4" aria-label="Ver el video: ¿Qué es Thorcast? (1:24)" hidden><span class="intro-play" aria-hidden="true"></span>¿Qué es Thorcast? · 1:24</button></div>
+<div class="hx-ctas"><button class="demo-btn" id="hero-see-action-btn">¡Míralo en acción!</button><button class="intro-btn" id="hero-intro-btn" type="button" data-intro-langs="es,en" data-intro-video="assets/videos/que-es-thorcast.es.mp4" aria-label="Watch: What is Thorcast? (1:22)" hidden><span class="intro-play" aria-hidden="true"></span><span class="intro-label">What is Thorcast? · 1:22</span></button></div>
 <div class="hx-flow" aria-label="Beneficios de Thorcast">
 <div class="hx-card"><p class="hx-n">+45%</p><h3>Modelos más predictivos</h3><p>Mejora de Gini con más de 3.000 data points del Data Enrichment Network.</p></div>
 <div class="hx-card"><p class="hx-n">Múltiples</p><h3>Agentes de IA en tu equipo</h3><p>NORA, MJÖ, TERRA… preparan datos y construyen modelos en lenguaje natural.</p></div>
@@ -4722,20 +4722,24 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
 </script>
 <script id="hero-intro">
 // Botón del hero con el video intro «¿Qué es Thorcast?». Solo se muestra en los idiomas que ya tienen versión
-// (data-intro-langs); al sumar EN/PT, agregar el idioma aquí y su archivo assets/videos/que-es-thorcast.<lang>.mp4.
+// (data-intro-langs: es, en); para PT, agregar 'pt' aquí, su archivo assets/videos/que-es-thorcast.pt.mp4 y su texto en LABELS.
 (() => {
   const btn = document.getElementById('hero-intro-btn');
   if (!btn) return;
   const langs = (btn.dataset.introLangs || '').split(',');
   const current = () => (typeof thorcastCurrentLang !== 'undefined' ? thorcastCurrentLang : 'en');
-  const apply = (lang) => { btn.hidden = !langs.includes(lang); };
+  const LABELS = { es: ['¿Qué es Thorcast? · 1:24', 'Ver el video: ¿Qué es Thorcast? (1:24)'], en: ['What is Thorcast? · 1:22', 'Watch: What is Thorcast? (1:22)'] };
+  const apply = (lang) => {
+    btn.hidden = !langs.includes(lang);
+    const l = LABELS[lang]; if (l) { btn.querySelector('.intro-label').textContent = l[0]; btn.setAttribute('aria-label', l[1]); }
+  };
   apply(current());
   document.querySelectorAll('.lang-btn').forEach((b) => b.addEventListener('click', () => apply(b.dataset.lang)));
   btn.addEventListener('click', () => {
     const player = document.getElementById('tutorial-player'), video = document.getElementById('tutorial-player-video');
     if (!player || !video) return;
     video.src = btn.dataset.introVideo.replace('.es.', '.' + current() + '.');
-    video.setAttribute('aria-label', '¿Qué es Thorcast?');
+    video.setAttribute('aria-label', current() === 'en' ? 'What is Thorcast?' : '¿Qué es Thorcast?');
     player.showModal();
     if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
     video.play().catch(() => {});
