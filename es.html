@@ -3195,7 +3195,7 @@ html[lang^="en"] .tut-dur i[data-l="en"], html[lang^="es"] .tut-dur i[data-l="es
 <p class="hx-kick">LA PLATAFORMA DE IA QUE TODO EQUIPO DE DATA SCIENCE QUISIERA TENER</p>
 <h1 class="hx-title"><span>Analítica más inteligente.</span> <span class="hx-y">El EBITDA viene solo.</span></h1>
 <p class="hx-sub"><b>Mejores datos + IA:</b> <span>mejores modelos, menor time to market y mayor productividad que libera a tu equipo para una analítica más amplia. Sin gasto adicional.</span></p>
-<div class="hx-ctas"><button class="demo-btn" id="hero-see-action-btn">¡Míralo en acción!</button><button class="intro-btn" id="hero-intro-btn" type="button" data-intro-langs="es,en" data-intro-video="assets/videos/que-es-thorcast.es.mp4" aria-label="Watch: What is Thorcast? (1:22)" hidden><span class="intro-play" aria-hidden="true"></span><span class="intro-label">What is Thorcast? · 1:22</span></button></div>
+<div class="hx-ctas"><button class="demo-btn" id="hero-see-action-btn">¡Míralo en acción!</button><button class="intro-btn" id="hero-intro-btn" type="button" data-intro-langs="es,en,pt" data-intro-video="assets/videos/que-es-thorcast.es.mp4" aria-label="Watch: What is Thorcast? (1:22)" hidden><span class="intro-play" aria-hidden="true"></span><span class="intro-label">What is Thorcast? · 1:22</span></button></div>
 <div class="hx-flow" aria-label="Beneficios de Thorcast">
 <div class="hx-card"><p class="hx-n">+45%</p><h3>Modelos más predictivos</h3><p>Mejora de Gini con más de 3.000 data points del Data Enrichment Network.</p></div>
 <div class="hx-card"><p class="hx-n">Múltiples</p><h3>Agentes de IA en tu equipo</h3><p>NORA, MJÖ, TERRA… preparan datos y construyen modelos en lenguaje natural.</p></div>
@@ -4722,13 +4722,13 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
 </script>
 <script id="hero-intro">
 // Botón del hero con el video intro «¿Qué es Thorcast?». Solo se muestra en los idiomas que ya tienen versión
-// (data-intro-langs: es, en); para PT, agregar 'pt' aquí, su archivo assets/videos/que-es-thorcast.pt.mp4 y su texto en LABELS.
+// (data-intro-langs: es, en, pt); cada idioma usa assets/videos/que-es-thorcast.<idioma>.mp4 y su texto en LABELS.
 (() => {
   const btn = document.getElementById('hero-intro-btn');
   if (!btn) return;
   const langs = (btn.dataset.introLangs || '').split(',');
   const current = () => (typeof thorcastCurrentLang !== 'undefined' ? thorcastCurrentLang : 'en');
-  const LABELS = { es: ['¿Qué es Thorcast? · 1:24', 'Ver el video: ¿Qué es Thorcast? (1:24)'], en: ['What is Thorcast? · 1:22', 'Watch: What is Thorcast? (1:22)'] };
+  const LABELS = { es: ['¿Qué es Thorcast? · 1:24', 'Ver el video: ¿Qué es Thorcast? (1:24)'], en: ['What is Thorcast? · 1:22', 'Watch: What is Thorcast? (1:22)'], pt: ['O que é a Thorcast? · 1:27', 'Assistir: O que é a Thorcast? (1:27)'] };
   const apply = (lang) => {
     btn.hidden = !langs.includes(lang);
     const l = LABELS[lang]; if (l) { btn.querySelector('.intro-label').textContent = l[0]; btn.setAttribute('aria-label', l[1]); }
@@ -4739,7 +4739,7 @@ document.querySelectorAll('.ins-seg').forEach((button) => {
     const player = document.getElementById('tutorial-player'), video = document.getElementById('tutorial-player-video');
     if (!player || !video) return;
     video.src = btn.dataset.introVideo.replace('.es.', '.' + current() + '.');
-    video.setAttribute('aria-label', current() === 'en' ? 'What is Thorcast?' : '¿Qué es Thorcast?');
+    video.setAttribute('aria-label', { en: 'What is Thorcast?', pt: 'O que é a Thorcast?' }[current()] || '¿Qué es Thorcast?');
     player.showModal();
     if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
     video.play().catch(() => {});
