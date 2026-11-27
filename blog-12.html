@@ -1382,7 +1382,7 @@ a { text-decoration: none; color: inherit; }
 
 <h2>Why ignoring the rejects is risky</h2>
 <p>Rejections are not random. Applicants were turned down for reasons that the old policy believed were related to risk: thin bureau files, high debt ratios, short employment, certain channels. If those reasons were partly right, the accepted-only sample under-represents the riskiest part of the applicant population, and a model trained on it tends to be too optimistic precisely in the region where approvals would expand.</p>
-<p>The problem is easy to miss because it does not show up in validation. If the test set is also made of approved applicants, the model is graded on the same filtered population it learned from. Gini and KS can look excellent while the model has never seen the people it will be asked to approve next. This is one more reason why <a href="blog-03.html">choosing the cutoff</a> deserves as much care as building the score.</p>
+<p>The problem is easy to miss because it does not show up in validation. If the test set is also made of approved applicants, the model is graded on the same filtered population it learned from. Gini and KS can look excellent while the model has never seen the people it will be asked to approve next. This is one more reason why <a href="credit-cutoff-optimization.html">credit cutoff optimization</a> deserves as much care as building the score.</p>
 
 <h2>The main reject inference methods</h2>
 <p><strong>Ignore the rejects.</strong> Train on accepted applicants only. It is simple and transparent, and when the old policy was close to random in the region you care about, it can be good enough. Its weakness is the bias described above.</p>

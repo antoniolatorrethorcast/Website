@@ -5,12 +5,17 @@ DATE = "2026-11-26"
 
 CUTOFF = dict(
     FILE="optimizacion-punto-de-corte-credito.html",
-    TITLE="Punto de corte en scoring de crédito: cómo optimizarlo — Thorcast.AI",
-    DESC=("Cómo fijar el punto de corte de un score de crédito que maximiza la utilidad: PD de equilibrio, ejemplo con "
-          "números, tasa de aprobación vs tasa de malos, análisis de swap set, cortes por segmento y cada cuánto revisarlos."),
+    TITLE="Optimización del punto de corte en crédito: guía y calculadora",
+    DESC=("Cómo optimizar el punto de corte de un score de crédito paso a paso: fórmula de la PD de equilibrio, ejemplo con "
+          "números, calculadora gratuita, tasa de aprobación vs tasa de malos y cortes por segmento."),
     H1="Optimización del punto de corte en crédito: cómo fijar el corte que maximiza la utilidad",
     TAG="GUÍA",
-    META="Thorcast.AI · Actualizado el 26 de noviembre de 2026 · 9 min de lectura",
+    META="Thorcast.AI · Actualizado el 27 de noviembre de 2026 · 10 min de lectura",
+    MODIFIED="2026-11-27",
+    DEF=("<strong>Optimizar el punto de corte</strong> es elegir el umbral de score que separa a los solicitantes aprobados de "
+         "los rechazados para que la utilidad esperada sea la mayor posible dentro del apetito de riesgo de la entidad. La regla "
+         "central: aprobar cuando la probabilidad de incumplimiento calibrada está bajo la <strong>PD de equilibrio = margen ÷ "
+         "(margen + pérdida)</strong>. <a href=\"#calculator\">Prueba la calculadora</a>."),
     CRUMB="Optimización del punto de corte",
     ABOUT="Optimización del punto de corte de un score de crédito",
     SECTIONS=[
@@ -103,6 +108,10 @@ CUTOFF = dict(
          "quedan documentados para el comité de riesgo y el validador.</p>"),
     ],
     FAQ=[
+        ("¿Qué es la optimización del punto de corte?",
+         "Es el proceso de elegir el umbral de score de crédito que maximiza la utilidad esperada dentro del apetito de riesgo, "
+         "el capital y las restricciones regulatorias de la entidad. Parte de la probabilidad de incumplimiento de equilibrio, "
+         "margen ÷ (margen + pérdida), y se comprueba con una tabla de utilidad por tramo de score."),
         ("¿Qué es el punto de corte de un score de crédito?",
          "Es el umbral de score que separa a los solicitantes que se aprueban de los que se rechazan. Quienes quedan sobre el "
          "corte se aprueban, o pasan a la siguiente etapa del proceso; el resto se rechaza."),

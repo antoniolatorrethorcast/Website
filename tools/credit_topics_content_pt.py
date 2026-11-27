@@ -5,12 +5,17 @@ DATE = "2026-11-26"
 
 CUTOFF = dict(
     FILE="otimizacao-ponto-de-corte-credito.html",
-    TITLE="Ponto de corte no credit scoring: como otimizar — Thorcast.AI",
-    DESC=("Como definir o ponto de corte de um score de crédito que maximiza o lucro: PD de equilíbrio, exemplo numérico, "
-          "taxa de aprovação vs taxa de maus, análise de swap set, cortes por segmento e frequência de revisão."),
+    TITLE="Otimização do ponto de corte no crédito: guia e calculadora",
+    DESC=("Como otimizar o ponto de corte de um score de crédito passo a passo: fórmula da PD de equilíbrio, exemplo "
+          "numérico, calculadora gratuita, taxa de aprovação vs taxa de maus e cortes por segmento."),
     H1="Otimização do ponto de corte no crédito: como definir o corte que maximiza o lucro",
     TAG="GUIA",
-    META="Thorcast.AI · Atualizado em 26 de novembro de 2026 · 9 min de leitura",
+    META="Thorcast.AI · Atualizado em 27 de novembro de 2026 · 10 min de leitura",
+    MODIFIED="2026-11-27",
+    DEF=("<strong>Otimizar o ponto de corte</strong> é escolher o limite de score que separa os proponentes aprovados dos "
+         "recusados para que o lucro esperado seja o maior possível dentro do apetite de risco da instituição. A regra central: "
+         "aprovar quando a probabilidade de inadimplência calibrada está abaixo da <strong>PD de equilíbrio = margem ÷ "
+         "(margem + perda)</strong>. <a href=\"#calculator\">Teste a calculadora</a>."),
     CRUMB="Otimização do ponto de corte",
     ABOUT="Otimização do ponto de corte de um score de crédito",
     SECTIONS=[
@@ -102,6 +107,10 @@ CUTOFF = dict(
          "documentados para o comitê de risco e o validador.</p>"),
     ],
     FAQ=[
+        ("O que é a otimização do ponto de corte?",
+         "É o processo de escolher o limite de score de crédito que maximiza o lucro esperado dentro do apetite de risco, do "
+         "capital e das restrições regulatórias da instituição. Parte da probabilidade de inadimplência de equilíbrio, "
+         "margem ÷ (margem + perda), e é conferido com uma tabela de lucro por faixa de score."),
         ("O que é o ponto de corte de um score de crédito?",
          "É o limite de score que separa os proponentes aprovados dos recusados. Quem fica acima do corte é aprovado, ou segue "
          "para a próxima etapa do processo; o resto é recusado."),

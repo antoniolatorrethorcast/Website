@@ -45,7 +45,7 @@ def page(fname, lang, title, desc, tag, h1, meta, body, cta_html, ld_main, crumb
         s = one(pat, val, s)
     # replace all JSON-LD with ours
     s = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", s, flags=re.S)
-    ld = {"@context": "https://schema.org", "@graph": [ld_main, {"@type": "BreadcrumbList", "itemListElement": [
+    ld = {"@context": "https://schema.org", "@graph": (ld_main if isinstance(ld_main, list) else [ld_main]) + [{"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Thorcast.AI", "item": BASE},
         {"@type": "ListItem", "position": 2, "name": crumb, "item": url}]}]}
     head_add = EXTRA_CSS + '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>"
@@ -169,7 +169,7 @@ def _alts(mods):
 
 def _article_ld(M, lang):
     return {"@type": "Article", "headline": M.H1, "description": M.DESC, "url": BASE + M.FILE, "inLanguage": _LANG_ATTR[lang],
-            "datePublished": M.DATE, "dateModified": M.DATE, "author": ORG, "publisher": ORG, "image": OG,
+            "datePublished": M.DATE, "dateModified": getattr(M, "MODIFIED", M.DATE), "author": ORG, "publisher": ORG, "image": OG,
             "about": {"@type": "Thing", "name": M.ABOUT}}
 
 
@@ -211,12 +211,78 @@ for lang, C in _CHURN.items():
 import credit_topics_content_en, credit_topics_content_es, credit_topics_content_pt
 from types import SimpleNamespace as _NS
 _TOPICS = {"en": credit_topics_content_en, "es": credit_topics_content_es, "pt": credit_topics_content_pt}
+def _cutoff_calc(lang, C):
+    """Interactive break-even / cutoff calculator. Same five illustrative bands as the worked example; numbers update in the browser."""
+    loc = {"en": "en-US", "es": "es-CL", "pt": "pt-BR"}[lang]
+    rows = "".join(f'<tr><td>{_e(C["bands"][i])}</td><td data-c="{i}"></td><td data-b="{i}"></td><td data-p="{i}"></td></tr>' for i in range(5))
+    field = lambda k, v: (f'<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:#b0b8c8">{_e(C[k])}'
+                          f'<input type="number" min="0" step="any" value="{v}" data-in="{k}" style="background:var(--bg-card);color:var(--text-white);'
+                          f'border:1px solid var(--border-dark);border-radius:8px;padding:10px 12px;font-size:16px;width:100%"></label>')
+    return (f'<h2 id="calculator">{_e(C["h"])}</h2><p>{C["intro"]}</p>'
+            '<div id="cutoff-calc" style="border:1px solid var(--border-dark);border-radius:14px;padding:20px;margin:8px 0 40px;background:rgba(255,255,255,0.02)">'
+            '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:18px">'
+            + field("margin", 150) + field("loss", 650) + field("size", 2000) + '</div>'
+            f'<p style="margin:0 0 14px;font-size:17px"><strong>{_e(C["be"])}</strong> <span data-o="be" style="color:var(--accent-blue);font-weight:700"></span></p>'
+            f'<div class="cmp-wrap"><table class="cmp-table" style="margin-bottom:12px"><thead><tr><th>{_e(C["th"][0])}</th><th>{_e(C["th"][1])}</th>'
+            f'<th>{_e(C["th"][2])}</th><th>{_e(C["th"][3])}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+            f'<p style="margin:0" data-o="best"></p><p class="src" style="margin:10px 0 0">{_e(C["note"])}</p></div>'
+            "<script>(function(){var r=document.getElementById('cutoff-calc');if(!r)return;var PD=[0.02,0.05,0.10,0.18,0.32];"
+            f"var L='{loc}',P='{"%" if lang in ("en", "pt") else " %"}',T={json.dumps(C['best'], ensure_ascii=False)};"
+            "function v(k){var x=parseFloat(r.querySelector('[data-in='+k+']').value);return isFinite(x)&&x>=0?x:0}"
+            "function f(n,d){return n.toLocaleString(L,{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}"
+            "function run(){var m=v('margin'),l=v('loss'),s=v('size'),be=m+l>0?m/(m+l):0;"
+            "r.querySelector('[data-o=be]').textContent=f(be*100,2)+P;var cum=0,bad=0,n=0,best=-1,bp=-Infinity;"
+            "for(var i=0;i<5;i++){cum+=s*((1-PD[i])*m-PD[i]*l);bad+=s*PD[i];n+=s;"
+            "r.querySelector('[data-c=\"'+i+'\"]').textContent=f((i+1)*20)+P;"
+            "r.querySelector('[data-b=\"'+i+'\"]').textContent=f(n?bad/n*100:0,1)+P;"
+            "var p=r.querySelector('[data-p=\"'+i+'\"]');p.textContent=f(Math.round(cum));p.dataset.v=cum;"
+            "if(cum>bp){bp=cum;best=i}}"
+            "for(var j=0;j<5;j++){var c=r.querySelector('[data-p=\"'+j+'\"]');c.style.fontWeight=j===best?'800':'';c.style.color=j===best?'var(--text-white)':''}"
+            "r.querySelector('[data-o=best]').textContent=bp>0?T[0].replace('{b}',r.querySelectorAll('tbody tr')[best].cells[0].textContent).replace('{p}',f(Math.round(bp))):T[1]}"
+            "r.addEventListener('input',run);run()})();</script>")
+
+
+_CALC = {
+    "en": dict(h="Credit cutoff calculator",
+               intro="Enter the economics of your own product to see the break-even probability of default and how expected profit changes "
+                     "as you approve more risk bands. It uses the five illustrative bands of the example above; the numbers are computed in your browser.",
+               margin="Margin on a repaid loan", loss="Loss on a defaulted loan", size="Applicants per band",
+               be="Break-even PD:", th=["Approve bands", "Cut-off rate", "Bad rate of approved", "Expected profit"],
+               bands=["A only (PD 2%)", "A–B (PD up to 5%)", "A–C (PD up to 10%)", "A–D (PD up to 18%)", "All (PD up to 32%)"],
+               best=["Highest expected profit: approve {b}, for {p}.", "No band is profitable with these numbers: review price or losses before approving."],
+               note="Illustrative bands with fixed PDs. With your own data, use calibrated PDs by score band and check the constraints in step 3."),
+    "es": dict(h="Calculadora del punto de corte",
+               intro="Ingresa la economía de tu propio producto para ver la probabilidad de incumplimiento de equilibrio y cómo cambia la utilidad "
+                     "esperada al aprobar más tramos de riesgo. Usa los cinco tramos ilustrativos del ejemplo anterior; los números se calculan en tu navegador.",
+               margin="Margen de un crédito que se paga", loss="Pérdida de un crédito que cae en incumplimiento", size="Solicitantes por tramo",
+               be="PD de equilibrio:", th=["Tramos aprobados", "Tasa de aprobación", "Tasa de malos de los aprobados", "Utilidad esperada"],
+               bands=["Solo A (PD 2 %)", "A–B (PD hasta 5 %)", "A–C (PD hasta 10 %)", "A–D (PD hasta 18 %)", "Todos (PD hasta 32 %)"],
+               best=["Mayor utilidad esperada: aprobar {b}, con {p}.", "Ningún tramo es rentable con estos números: revisa precio o pérdidas antes de aprobar."],
+               note="Tramos ilustrativos con PD fijas. Con tus datos, usa PD calibradas por tramo de score y revisa las restricciones del paso 3."),
+    "pt": dict(h="Calculadora do ponto de corte",
+               intro="Informe a economia do seu próprio produto para ver a probabilidade de inadimplência de equilíbrio e como o lucro esperado muda "
+                     "ao aprovar mais faixas de risco. Usa as cinco faixas ilustrativas do exemplo acima; os números são calculados no seu navegador.",
+               margin="Margem de um empréstimo pago", loss="Perda de um empréstimo inadimplente", size="Proponentes por faixa",
+               be="PD de equilíbrio:", th=["Faixas aprovadas", "Taxa de aprovação", "Taxa de maus dos aprovados", "Lucro esperado"],
+               bands=["Só A (PD 2%)", "A–B (PD até 5%)", "A–C (PD até 10%)", "A–D (PD até 18%)", "Todas (PD até 32%)"],
+               best=["Maior lucro esperado: aprovar {b}, com {p}.", "Nenhuma faixa é lucrativa com estes números: revise preço ou perdas antes de aprovar."],
+               note="Faixas ilustrativas com PD fixas. Com os seus dados, use PD calibradas por faixa de score e confira as restrições do passo 3."),
+}
+_DEF_LABEL = {"en": "In short", "es": "En resumen", "pt": "Em resumo"}
+
 for _key in ("CUTOFF", "REJECT"):
     _mods = {l: _NS(**getattr(m, _key), DATE=m.DATE) for l, m in _TOPICS.items()}
     for lang, G in _mods.items():
         _b = [(f"<h2>{_e(h)}</h2>" if h else "") + x for h, x in G.SECTIONS]
+        if getattr(G, "DEF", None):
+            _b.insert(0, f'<div class="article-footer-cta" style="margin:0 0 28px;font-style:normal"><strong>{_DEF_LABEL[lang]}:</strong> {G.DEF}</div>')
+        if _key == "CUTOFF":
+            _i = next(i for i, x in enumerate(_b) if 'class="cmp-table"' in x)  # after the worked example
+            _b.insert(_i + 1, _cutoff_calc(lang, _CALC[lang]))
         _b.append(f"<h2>{ {'en': 'Frequently asked questions', 'es': 'Preguntas frecuentes', 'pt': 'Perguntas frequentes'}[lang] }</h2>"
                   + "".join(f'<div class="faq-item"><h2>{_e(q)}</h2><p>{_e(a)}</p></div>' for q, a in G.FAQ))
         _b.append(f"<h2>{ {'en': 'Keep reading', 'es': 'Sigue leyendo', 'pt': 'Continue lendo'}[lang] }</h2><ul>"
                   + "".join(f'<li><a href="{f}">{_e(t)}</a></li>' for f, t in G.MORE) + "</ul>")
-        page(G.FILE, lang, G.TITLE, G.DESC, G.TAG, G.H1, G.META, "\n".join(_b), cta(lang), _article_ld(G, lang), G.CRUMB, alternates=_alts(_mods))
+        _faq_ld = {"@type": "FAQPage", "inLanguage": _LANG_ATTR[lang], "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in G.FAQ]}
+        page(G.FILE, lang, G.TITLE, G.DESC, G.TAG, G.H1, G.META, "\n".join(_b), cta(lang), [_article_ld(G, lang), _faq_ld], G.CRUMB, alternates=_alts(_mods))
