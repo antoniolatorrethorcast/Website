@@ -6,12 +6,17 @@ DATE = "2026-11-26"
 
 CUTOFF = dict(
     FILE="credit-cutoff-optimization.html",
-    TITLE="Credit cutoff optimization: how to set the score cutoff — Thorcast.AI",
-    DESC=("How to set a credit score cutoff that maximizes profit: break-even probability of default, a worked example, "
-          "cut-off rate vs bad rate, swap-set analysis, segment cutoffs and how often to review them."),
+    TITLE="Credit Cutoff Optimization: Set the Optimal Score Cutoff (Calculator)",
+    DESC=("Credit cutoff optimization step by step: the break-even PD formula, a worked example, a free cutoff calculator, "
+          "cut-off rate vs bad rate, swap-set analysis and segment cutoffs."),
     H1="Credit cutoff optimization: how to set the score cutoff that maximizes profit",
     TAG="GUIDE",
-    META="Thorcast.AI · Updated November 26, 2026 · 9 min read",
+    META="Thorcast.AI · Updated November 27, 2026 · 10 min read",
+    MODIFIED="2026-11-27",
+    DEF=("<strong>Credit cutoff optimization</strong> is choosing the score threshold that separates approved from declined "
+         "applicants so that expected profit is as high as possible within the lender's risk appetite. The core rule: approve an "
+         "applicant when their calibrated probability of default is below the <strong>break-even PD = margin ÷ (margin + loss)</strong>. "
+         "<a href=\"#calculator\">Try the calculator</a>."),
     CRUMB="Credit cutoff optimization",
     ABOUT="Credit score cutoff optimization",
     SECTIONS=[
@@ -104,6 +109,10 @@ CUTOFF = dict(
          "stay documented for the risk committee and the validator.</p>"),
     ],
     FAQ=[
+        ("What is credit cutoff optimization?",
+         "It is the process of choosing the credit score threshold that maximizes expected profit within the lender's risk "
+         "appetite, capital and regulatory constraints. It starts from the break-even probability of default, margin ÷ "
+         "(margin + loss), and is checked with a profit table by score band."),
         ("What is a credit score cutoff?",
          "It is the score threshold that separates the applicants a lender approves from the ones it declines. Applicants "
          "scoring above the cutoff are approved, or sent to the next step of the process; the rest are declined."),
